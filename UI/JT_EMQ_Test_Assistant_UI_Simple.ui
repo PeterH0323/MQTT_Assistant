@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>JT_EMQ_Test_Assistant</class>
+ <widget class="QMainWindow" name="JT_EMQ_Test_Assistant">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1204</width>
+    <height>990</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="iconSize">
+   <size>
+    <width>20</width>
+    <height>30</height>
+   </size>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="Connect_EMQ_Button">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>90</y>
+      <width>201</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="statusTip">
+     <string>Connect to EMQ accroding to setting</string>
+    </property>
+    <property name="text">
+     <string>Connect to EMQ</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="Emq_connect_lable">
+    <property name="geometry">
+     <rect>
+      <x>950</x>
+      <y>150</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>EMQ Disconnect</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="EMQ_Setting_groupBox">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>30</y>
+      <width>791</width>
+      <height>171</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>EMQ Setting</string>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <widget class="QSplitter" name="splitter">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Host:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="Host_lineEdit">
+        <property name="text">
+         <string>139.159.163.25</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QSplitter" name="splitter_5">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>Username:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="Username_lineEdit">
+        <property name="text">
+         <string>eie-device</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QSplitter" name="splitter_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="handleWidth">
+        <number>6</number>
+       </property>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Port:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="Port_lineEdit">
+        <property name="text">
+         <string>8083</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QSplitter" name="splitter_6">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Password:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="Password_lineEdit">
+        <property name="text">
+         <string>Eie_28918499</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QSplitter" name="splitter_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="handleWidth">
+        <number>6</number>
+       </property>
+       <property name="childrenCollapsible">
+        <bool>false</bool>
+       </property>
+       <widget class="QLabel" name="label_4">
+        <property name="minimumSize">
+         <size>
+          <width>119</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Client ID:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ClientID_lineEdit">
+        <property name="text">
+         <string>mqtt_test_assistant</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QSplitter" name="splitter_7">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QLabel" name="label_9">
+        <property name="text">
+         <string>Publish Topic: </string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="PublishTopic_lineEdit">
+        <property name="text">
+         <string>EIE/out/00000000/00000001</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QSplitter" name="splitter_4">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="handleWidth">
+        <number>25</number>
+       </property>
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>Keep Alive:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="KeepAlive_lineEdit">
+        <property name="text">
+         <string>60</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QSplitter" name="splitter_8">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QLabel" name="label_10">
+        <property name="text">
+         <string>Subscribe Topic: </string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="SubTopic_lineEdit">
+        <property name="text">
+         <string>EIE/in/00000000/00000001</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="R_S_Data_groupBox">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>240</y>
+      <width>551</width>
+      <height>641</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Receive + Send Data </string>
+    </property>
+    <widget class="QTextEdit" name="EMQ_Data_textEdit">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>521</width>
+       <height>571</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="Save_Log_checkBox">
+     <property name="geometry">
+      <rect>
+       <x>340</x>
+       <y>600</y>
+       <width>91</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Save log</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Rec_Data_Clean_Button">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>600</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clean</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="Command_groupBox">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>240</y>
+      <width>541</width>
+      <height>641</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Command List</string>
+    </property>
+    <widget class="QTableWidget" name="tableWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>521</width>
+       <height>571</height>
+      </rect>
+     </property>
+     <row>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </row>
+     <row>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </row>
+     <column>
+      <property name="text">
+       <string>Command Name</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Data</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Time</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Activate</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QPushButton" name="Command_Add_Button">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>600</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Command_Del_Button">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>600</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Del</string>
+     </property>
+    </widget>
+    <zorder>tableWidget</zorder>
+    <zorder>tableWidget</zorder>
+    <zorder>Command_Add_Button</zorder>
+    <zorder>Command_Del_Button</zorder>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1204</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File(&amp;F)</string>
+    </property>
+    <addaction name="actionImport_configuration_file"/>
+   </widget>
+   <widget class="QMenu" name="menuSetting">
+    <property name="title">
+     <string>Setting(&amp;S)</string>
+    </property>
+    <addaction name="actionEMQ"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuSetting"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionImport_configuration_file">
+   <property name="text">
+    <string>Import Configuration file</string>
+   </property>
+   <property name="shortcut">
+    <string/>
+   </property>
+  </action>
+  <action name="actionEMQ">
+   <property name="text">
+    <string>EMQ</string>
+   </property>
+   <property name="statusTip">
+    <string>EMQ Setting</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionConnect_EMQ_Button">
+   <property name="text">
+    <string>actionConnect_EMQ_Button</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+ <slots>
+  <signal>chicked_connect_button(chicked)</signal>
+ </slots>
+</ui>
