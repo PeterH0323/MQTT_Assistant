@@ -14,13 +14,13 @@ import mqtt_Log
 
 # import JT_EMQ_Test_Assistant_Simple
 
-from JT_EMQ_Test_Assistant_Simple import MainWindow
+import JT_EMQ_Test_Assistant_Simple as mainWindow
 
 # EMQ配置
 HOST = '139.159.163.25'
 PORT = 8083
-client_id = 'mqttjs_0ae165f583'
-topic = 'EIE-AT/out/00000000/0000000A'
+client_id = 'mqtt_assistant_test_'
+topic = 'EIE/out/00000000/0000000C'
 username = 'eie-device'
 password = 'Eie_28918499'
 
@@ -28,48 +28,57 @@ infolog = mqtt_Log.Log("collect.log", level='info').logger
 errorlog = mqtt_Log.Log("error.log", level='error').logger
 
 
-def on_connect(client, userdata, flags, rc):
-    infolog.info("Connected with result code " + str(rc))
-
-    client.subscribe(topic)
-
-
-def on_message(client, userdata, msg):
-    # infolog.info('receive new message from ' + msg.topic + " + " + str(msg.payload))
-
-    test_assistant_main_window = MainWindow()
-    # test_assistant_main_window.EMQ_Data_textEdit.append('receive new message from ' + msg.topic + " + " + str(msg.payload))
-    test_assistant_main_window.Signal_OneParameter.connect(test_assistant_main_window.on_EMQ_Data_emit_slot)
-    # test_assistant_main_window.EMQ_Data_textEdit.append('receive new message')
-
-    # source_msg = json.loads(msg.payload.decode())
-    # print(target_msg)
-
-
-def client_loop():
+class MqttClient:
     client = mqtt.Client(client_id=client_id, transport='websockets')
-    client.username_pw_set(username=username,
-                           password=password)
-    client.on_connect = on_connect
-    client.on_message = on_message
-    client.connect(HOST, PORT, 60)
-    client.loop_forever()
 
+    def __init__(self):
+        self.thread = mainWindow.MqttRunThread()
+        main_window = mainWindow.MainWindow()
+        self.thread.messageTrigger.connect(main_window.add_messages)
+        # pass
 
-def start():
-    client_loop()
+    def on_connect(self, client, userdata, flags, rc):
+        infolog.info("Connected with result code " + str(rc))
 
+    def on_message(self, client, userdata, msg):
+        # infolog.info('receive new message from ' + msg.topic + " + " + str(msg.payload))
 
-def connect_mqtt(mqtt_client_id, mqtt_username, mqtt_password, mqtt_subscribe, mqtt_host, mqtt_port, mqtt_keepAlive):
-    client = mqtt.Client(client_id=mqtt_client_id, transport='websockets')
-    client.username_pw_set(username=mqtt_username,
-                           password=mqtt_password)
+        print('receive new message from ' + msg.topic + " + " + str(msg.payload))
 
-    client.on_connect = client.subscribe(mqtt_subscribe)
-    client.on_connect = on_connect
-    client.on_message = on_message
-    client.connect(mqtt_host, mqtt_port, mqtt_keepAlive)
+        # self.thread.messageTrigger.emit(str(msg.payload))
+
+        # main_window = MainWindow()
+        # # main_window.EMQ_Data_textEdit.append('receive new message from ' + msg.topic + " + " + str(msg.payload))
+        #
+        # main_window.Signal_OneParameter.connect(main_window.on_EMQ_Data_emit_slot)
+        # main_window.EMQ_Data_textEdit.append('receive new message')
+
+        # source_msg = json.loads(msg.payload.decode())
+        # print(target_msg)
+
+    def start(self):
+        # client = mqtt.Client(client_id=client_id, transport='websockets')
+        self.client.username_pw_set(username=username,
+                                    password=password)
+
+        self.client.on_connect = self.on_connect
+        self.client.on_message = self.on_message
+
+        self.client.connect(HOST, PORT, 60)
+        self.client.subscribe(topic)
+        self.client.loop_forever()
+
+    def connect_mqtt(self, mqtt_client_id, mqtt_username, mqtt_password, mqtt_subscribe, mqtt_host, mqtt_port,mqtt_keepalive):
+        self.client = mqtt.Client(client_id=mqtt_client_id, transport='websockets')
+        self.client.username_pw_set(username=mqtt_username, password=mqtt_password)
+        self.client.on_connect = self.on_connect
+        self.client.on_message = self.on_message
+        self.client.connect(mqtt_host, mqtt_port, mqtt_keepalive)
+        self.client.subscribe(mqtt_subscribe)
+        self.client.loop_forever()
+
 
 
 if __name__ == '__main__':
-    client_loop()
+    test = MqttClient()
+    test.start()
