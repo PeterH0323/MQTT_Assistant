@@ -16,13 +16,15 @@ from UI.JT_EMQ_Test_Assistant_UI_Simple import Ui_JT_EMQ_Test_Assistant
 
 import mqtt_connect
 
-# EMQ配置
-HOST = '139.159.163.25'
-PORT = 8083
-client_id = 'mqtt_assistant_test_'
-topic = 'EIE/out/00000000/0000000C'
-username = 'eie-device'
-password = 'Eie_28918499'
+mqtt_host = ''
+mqtt_port = 0
+mqtt_client_id = ''
+mqtt_username = ''
+mqtt_password = ''
+mqtt_keep_alive = ''
+mqtt_publish_topic = ''
+mqtt_sub_topic = ''
+
 
 
 class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
@@ -39,6 +41,15 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
     def on_Connect_EMQ_Button_released(self):
         self.Emq_connect_lable.setText("MQTT connect successful !! ")
         self.EMQ_Data_textEdit.append("Ready to receive data:")
+
+        global mqtt_host
+        global mqtt_port
+        global mqtt_client_id
+        global mqtt_username
+        global mqtt_password
+        global mqtt_keep_alive
+        global mqtt_publish_topic
+        global mqtt_sub_topic
 
         mqtt_host = self.Host_lineEdit.text()
         mqtt_port = self.Port_lineEdit.text()
@@ -86,18 +97,18 @@ class MqttRunThread(QThread):
         super(MqttRunThread, self).__init__()
 
     def run(self):
+        # pass
         mqtt_client = mqtt_connect.MqttClient()
-        mqtt_connect.MqttClient.start(mqtt_client)
+        # mqtt_connect.MqttClient.start(mqtt_client)
 
-        # mqtt_connect.MqttClient.connect_mqtt(mqtt_client,
-        #                                      mqtt_client_id=str(MainWindow.ClientID_lineEdit.text()),
-        #                                      mqtt_username=str(MainWindow.Username_lineEdit.text()),
-        #                                      mqtt_password=str(MainWindow.Password_lineEdit.text()),
-        #                                      mqtt_subscribe=str(MainWindow.SubTopic_lineEdit.text()),
-        #                                      mqtt_host=str(MainWindow.Host_lineEdit.text()),
-        #                                      mqtt_port=str(MainWindow.Port_lineEdit.text()),
-        #                                      mqtt_keepalive=str(MainWindow.KeepAlive_lineEdit.text())
-        #                                      )
+        mqtt_connect.MqttClient.connect_mqtt(mqtt_client,
+                                             # mqtt_username=mqtt_username,
+                                             # mqtt_password=mqtt_password,
+                                             mqtt_subscribe=mqtt_sub_topic,
+                                             mqtt_host=mqtt_host,
+                                             # mqtt_port=mqtt_port,
+                                             # mqtt_keep_alive=mqtt_keep_alive,
+                                             )
 
 
 if __name__ == '__main__':
