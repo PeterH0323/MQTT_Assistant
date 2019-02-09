@@ -1,7 +1,8 @@
 import paho.mqtt.client as mqtt
 
 import mqtt_Log
-from enum import Enum
+import string
+import random
 # import Interface.mqtt_Log as mqtt_Log
 
 # import os
@@ -23,7 +24,7 @@ errorlog = mqtt_Log.Log("error.log", level='error').logger
 class MqttSetting:
     host = '139.159.163.25'
     port = 8083
-    client_id = 'mqtt_assistant_test'
+    client_id = 'mqtt_assistant_'
     username = 'eie-device'
     password = 'Eie_28918499'
     keep_alive = 60
@@ -31,12 +32,22 @@ class MqttSetting:
     subscribe_topic = 'EIE/in/00000000/0000000C'
 
 
+def generate_client_id():
+
+    MqttSetting.client_id = 'mqtt_assistant_'
+
+    for i in range(0, 4):
+        MqttSetting.client_id += random.choice(string.digits + string.ascii_letters)
+
+    print("client_id = !", MqttSetting.client_id)
+
+
 class MqttClient:
 
     def __init__(self):
-        # self.thread = mainWindow.MqttRunThread()
-        # main_window = mainWindow.MainWindow()
-        # self.thread.messageTrigger.connect(main_window.add_messages)
+        # generate_client_id()
+        print("client_id = !!", MqttSetting.client_id)
+
         self.client = mqtt.Client(client_id=MqttSetting.client_id, transport='websockets')
 
         self.client.on_connect = self.on_connect
@@ -73,12 +84,19 @@ class MqttClient:
         # source_msg = json.loads(msg.payload.decode())
         # print(target_msg)
 
+    def mqtt_loop_start(self):
+        self.client.loop_start()
+
+    def mqtt_loop_stop(self, force=True):
+        self.client.loop_stop(force=force)
+
     def mqtt_connect(self):
         # client = mqtt.Client(client_id=client_id, transport='websockets')
         self.client.username_pw_set(username=MqttSetting.username, password=MqttSetting.password)
         self.client.connect(MqttSetting.host, MqttSetting.port, MqttSetting.keep_alive)
         self.client.subscribe(MqttSetting.subscribe_topic)
-        self.client.loop_forever()
+        # self.client.loop_forever()
+        self.mqtt_loop_start()
 
     def mqtt_disconnect(self):
         self.client.disconnect()
