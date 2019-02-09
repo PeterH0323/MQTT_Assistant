@@ -1,7 +1,7 @@
 import paho.mqtt.client as mqtt
 
 import mqtt_Log
-
+from enum import Enum
 # import Interface.mqtt_Log as mqtt_Log
 
 # import os
@@ -16,16 +16,19 @@ import mqtt_Log
 
 import JT_EMQ_Test_Assistant_Simple as mainWindow
 
-# EMQ配置
-HOST = '139.159.163.25'
-PORT = 8083
-client_id = 'mqtt_assistant_test_'
-topic = 'EIE/out/00000000/0000000C'
-username = 'eie-device'
-password = 'Eie_28918499'
-
 infolog = mqtt_Log.Log("collect.log", level='info').logger
 errorlog = mqtt_Log.Log("error.log", level='error').logger
+
+
+class MqttSetting:
+    host = '139.159.163.25'
+    port = 8083
+    client_id = 'mqtt_assistant_test'
+    username = 'eie-device'
+    password = 'Eie_28918499'
+    keep_alive = 60
+    publish_topic = 'EIE/out/00000000/0000000C'
+    subscribe_topic = 'EIE/in/00000000/0000000C'
 
 
 class MqttClient:
@@ -34,7 +37,7 @@ class MqttClient:
         # self.thread = mainWindow.MqttRunThread()
         # main_window = mainWindow.MainWindow()
         # self.thread.messageTrigger.connect(main_window.add_messages)
-        self.client = mqtt.Client(client_id=client_id, transport='websockets')
+        self.client = mqtt.Client(client_id=MqttSetting.client_id, transport='websockets')
 
         self.client.on_connect = self.on_connect
         self.client.on_message = self.on_message
@@ -58,32 +61,14 @@ class MqttClient:
         # source_msg = json.loads(msg.payload.decode())
         # print(target_msg)
 
+    def on_publish(self, pub_topic, data):
+        self.client.publish(pub_topic, data)
+
     def start(self):
         # client = mqtt.Client(client_id=client_id, transport='websockets')
-        self.client.username_pw_set(username=username, password=password)
-        self.client.connect(HOST, PORT, 60)
-        self.client.subscribe(topic)
-        self.client.loop_forever()
-
-    def connect_mqtt(self,
-                     # mqtt_client_id,
-                     # mqtt_username,
-                     # mqtt_password,
-                     mqtt_subscribe,
-                     mqtt_host,
-                     # mqtt_port,
-                     # mqtt_keep_alive
-                     ):
-        # self.client = mqtt.Client(client_id=mqtt_client_id, transport='websockets')
-        # self.client.username_pw_set(username=mqtt_username, password=mqtt_password)
-
-        # self.client.connect(mqtt_host, mqtt_port, 60)
-        # self.client.subscribe(mqtt_subscribe)
-        # self.client.loop_forever()
-
-        self.client.username_pw_set(username=username, password=password)
-        self.client.connect(mqtt_host, 8083, 60)
-        self.client.subscribe(mqtt_subscribe)
+        self.client.username_pw_set(username=MqttSetting.username, password=MqttSetting.password)
+        self.client.connect(MqttSetting.host, MqttSetting.port, MqttSetting.keep_alive)
+        self.client.subscribe(MqttSetting.subscribe_topic)
         self.client.loop_forever()
 
 

@@ -16,16 +16,6 @@ from UI.JT_EMQ_Test_Assistant_UI_Simple import Ui_JT_EMQ_Test_Assistant
 
 import mqtt_connect
 
-mqtt_host = ''
-mqtt_port = 0
-mqtt_client_id = ''
-mqtt_username = ''
-mqtt_password = ''
-mqtt_keep_alive = ''
-mqtt_publish_topic = ''
-mqtt_sub_topic = ''
-
-
 
 class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
@@ -42,26 +32,20 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.Emq_connect_lable.setText("MQTT connect successful !! ")
         self.EMQ_Data_textEdit.append("Ready to receive data:")
 
-        global mqtt_host
-        global mqtt_port
-        global mqtt_client_id
-        global mqtt_username
-        global mqtt_password
-        global mqtt_keep_alive
-        global mqtt_publish_topic
-        global mqtt_sub_topic
+        mqtt_connect.MqttSetting.client_id = self.ClientID_lineEdit.text()
+        mqtt_connect.MqttSetting.host = self.Host_lineEdit.text()
+        mqtt_connect.MqttSetting.port = int(self.Port_lineEdit.text())
+        mqtt_connect.MqttSetting.client_id = self.ClientID_lineEdit.text()
+        mqtt_connect.MqttSetting.username = self.Username_lineEdit.text()
+        mqtt_connect.MqttSetting.password = self.Password_lineEdit.text()
+        mqtt_connect.MqttSetting.keep_alive = int(self.KeepAlive_lineEdit.text())
+        mqtt_connect.MqttSetting.publish_topic = self.PublishTopic_lineEdit.text()
+        mqtt_connect.MqttSetting.subscribe_topic = self.SubTopic_lineEdit.text()
 
-        mqtt_host = self.Host_lineEdit.text()
-        mqtt_port = self.Port_lineEdit.text()
-        mqtt_client_id = self.ClientID_lineEdit.text()
-        mqtt_username = self.Username_lineEdit.text()
-        mqtt_password = self.Password_lineEdit.text()
-        mqtt_keep_alive = self.KeepAlive_lineEdit.text()
-        mqtt_publish_topic = self.PublishTopic_lineEdit.text()
-        mqtt_sub_topic = self.SubTopic_lineEdit.text()
-
-        print("result = ", mqtt_host, mqtt_port, mqtt_client_id, mqtt_username, mqtt_password, mqtt_keep_alive,
-              mqtt_publish_topic, mqtt_sub_topic)
+        print("result = ", mqtt_connect.MqttSetting.host, mqtt_connect.MqttSetting.port,
+              mqtt_connect.MqttSetting.client_id, mqtt_connect.MqttSetting.username, mqtt_connect.MqttSetting.password,
+              mqtt_connect.MqttSetting.keep_alive, mqtt_connect.MqttSetting.publish_topic,
+              mqtt_connect.MqttSetting.subscribe_topic)
 
         self.Connect_EMQ_Button.setEnabled(False)
         self.Host_lineEdit.setEnabled(False)
@@ -99,16 +83,10 @@ class MqttRunThread(QThread):
     def run(self):
         # pass
         mqtt_client = mqtt_connect.MqttClient()
-        # mqtt_connect.MqttClient.start(mqtt_client)
+        mqtt_connect.MqttClient.start(mqtt_client)
 
-        mqtt_connect.MqttClient.connect_mqtt(mqtt_client,
-                                             # mqtt_username=mqtt_username,
-                                             # mqtt_password=mqtt_password,
-                                             mqtt_subscribe=mqtt_sub_topic,
-                                             mqtt_host=mqtt_host,
-                                             # mqtt_port=mqtt_port,
-                                             # mqtt_keep_alive=mqtt_keep_alive,
-                                             )
+        # mqtt_connect.MqttClient.connect_mqtt(mqtt_client)
+        # mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, 'Test PUBLISH')
 
 
 if __name__ == '__main__':
