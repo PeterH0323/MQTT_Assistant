@@ -40,10 +40,16 @@ class MqttClient:
         self.client = mqtt.Client(client_id=MqttSetting.client_id, transport='websockets')
 
         self.client.on_connect = self.on_connect
-        self.client.on_message = self.on_message
+        # self.client.on_message = self.on_message
+
+        self.client.on_message = mainWindow.MainWindow().receive_messages
+        self.client.on_disconnect = self.on_disconnect
 
     def on_connect(self, client, userdata, flags, rc):
         infolog.info("Connected with result code " + str(rc))
+
+    def on_disconnect(self, client, userdata, rc):
+        infolog.info("Disconnected with result code " + str(rc))
 
     def on_publish(self, topic, payload):
         self.client.publish(topic, payload)
@@ -56,7 +62,6 @@ class MqttClient:
         # test_payload = 'Test PUBLISH'
         # self.on_publish(MqttSetting.publish_topic, 'Test PUBLISH')
 
-
         # self.thread.messageTrigger.emit(str(msg.payload))
 
         # main_window = MainWindow()
@@ -68,14 +73,17 @@ class MqttClient:
         # source_msg = json.loads(msg.payload.decode())
         # print(target_msg)
 
-    def start(self):
+    def mqtt_connect(self):
         # client = mqtt.Client(client_id=client_id, transport='websockets')
         self.client.username_pw_set(username=MqttSetting.username, password=MqttSetting.password)
         self.client.connect(MqttSetting.host, MqttSetting.port, MqttSetting.keep_alive)
         self.client.subscribe(MqttSetting.subscribe_topic)
         self.client.loop_forever()
 
+    def mqtt_disconnect(self):
+        self.client.disconnect()
+
 
 if __name__ == '__main__':
     test = MqttClient()
-    test.start()
+    test.mqtt_connect()

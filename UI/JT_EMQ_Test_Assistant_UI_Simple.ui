@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1204</width>
-    <height>990</height>
+    <height>1220</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -369,10 +369,16 @@
       <string>Del</string>
      </property>
     </widget>
-    <zorder>tableWidget</zorder>
-    <zorder>tableWidget</zorder>
-    <zorder>Command_Add_Button</zorder>
-    <zorder>Command_Del_Button</zorder>
+   </widget>
+   <widget class="QPlainTextEdit" name="EMQ_Data_plainTextEdit">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>890</y>
+      <width>331</width>
+      <height>221</height>
+     </rect>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -381,7 +387,7 @@
      <x>0</x>
      <y>0</y>
      <width>1204</width>
-     <height>26</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

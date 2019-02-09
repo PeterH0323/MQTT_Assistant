@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a2fb5859-0550-4b92-8fd9-4f5ed1c66d5c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JT_EMQ_Test_Assistant_Simple.py" beforeDir="false" afterPath="$PROJECT_DIR$/JT_EMQ_Test_Assistant_Simple.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/JT_EMQ_Test_Assistant_UI_Simple.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/JT_EMQ_Test_Assistant_UI_Simple.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/JT_EMQ_Test_Assistant_UI_Simple.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/JT_EMQ_Test_Assistant_UI_Simple.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mqtt_connect.py" beforeDir="false" afterPath="$PROJECT_DIR$/mqtt_connect.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -13,16 +16,16 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$qt05_thread03.coverage" NAME="qt05_thread03 Coverage Results" MODIFIED="1549543751562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="F:/Learning_Stuff/PyQt5-master/Chapter05" />
-    <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$mqtt_connect__1_.coverage" NAME="mqtt_connect (1) Coverage Results" MODIFIED="1549718648934" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$mqtt_connect__1_.coverage" NAME="mqtt_connect Coverage Results" MODIFIED="1549722914289" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$tool__1_.coverage" NAME="tool (1) Coverage Results" MODIFIED="1548923050312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/UI" />
     <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$test.coverage" NAME="test Coverage Results" MODIFIED="1549711571446" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../Python_PLC_Protocol/Python_PLC_Protocol" />
-    <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$JT_EMQ_Test_Assistant_Simple.coverage" NAME="JT_EMQ_Test_Assistant_Simple Coverage Results" MODIFIED="1549718704823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$JT_EMQ_Test_Assistant_Simple.coverage" NAME="JT_EMQ_Test_Assistant_Simple Coverage Results" MODIFIED="1549728385585" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$mqtt_connect.coverage" NAME="mqtt_connect Coverage Results" MODIFIED="1548923650234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Interface" />
     <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$qt05_thread02__1_.coverage" NAME="qt05_thread02 (1) Coverage Results" MODIFIED="1549542831815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="F:/Learning_Stuff/PyQt5-master/Chapter05" />
     <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$qt05_thread02.coverage" NAME="qt05_thread02 Coverage Results" MODIFIED="1548935349459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../PyQt5-master/Chapter05" />
     <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$JT_EMQ_Test_Assistant.coverage" NAME="JT_EMQ_Test_Assistant Coverage Results" MODIFIED="1548923341135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$CallDialogMainWin2.coverage" NAME="CallDialogMainWin2 Coverage Results" MODIFIED="1548933482098" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../PyQt5-master/Chapter07/transParam" />
-    <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$tool.coverage" NAME="tool Coverage Results" MODIFIED="1548728125339" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Ui" />
+    <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$tool.coverage" NAME="tool Coverage Results" MODIFIED="1549720762838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/UI" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-726955717">
@@ -73,25 +76,25 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="md" value="88" />
-          <entry key="py" value="1796" />
+          <entry key="py" value="2336" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="88" />
-          <entry key="Python" value="1796" />
+          <entry key="Python" value="2336" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="md" value="1" />
-          <entry key="py" value="14" />
+          <entry key="py" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Markdown" value="1" />
-          <entry key="Python" value="14" />
+          <entry key="Python" value="24" />
         </counts>
       </usages-collector>
     </session>
@@ -101,35 +104,41 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UI/tool.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="23" selection-start-column="23" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JT_EMQ_Test_Assistant_Simple.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="608">
-              <caret line="102" selection-start-line="102" selection-end-line="103" />
-              <folding>
-                <element signature="e#111#137#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="879">
+              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/JT_EMQ_Test_Assistant_Simple.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2816">
+              <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+              <folding>
+                <marker date="1549728355787" expanded="true" signature="3568:3573" ph="..." />
+                <marker date="1549728355787" expanded="true" signature="3998:4008" ph="..." />
+                <marker date="1549728355787" expanded="true" signature="4000:4004" ph="..." />
+                <marker date="1549728355787" expanded="true" signature="4538:4543" ph="..." />
+                <marker date="1549728355787" expanded="true" signature="4785:5160" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mqtt_connect.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="638">
-              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="58" />
+            <state relative-caret-position="500">
+              <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
-                <marker date="1549718568856" expanded="true" signature="592:852" ph="..." />
-                <marker date="1549718568856" expanded="true" signature="870:1256" ph="..." />
-                <marker date="1549718568856" expanded="true" signature="894:903" ph="..." />
-                <marker date="1549718568856" expanded="true" signature="2261:2265" ph="..." />
+                <marker date="1549724755136" expanded="true" signature="592:852" ph="..." />
+                <marker date="1549724755136" expanded="true" signature="870:1388" ph="..." />
+                <marker date="1549724755136" expanded="true" signature="894:903" ph="..." />
+                <marker date="1549724755136" expanded="true" signature="1556:1627" ph="..." />
+                <marker date="1549724755136" expanded="true" signature="1758:1767" ph="..." />
+                <marker date="1549724755136" expanded="true" signature="2510:2514" ph="..." />
               </folding>
             </state>
           </provider>
@@ -164,6 +173,11 @@
       <find>SubTopic_lineEdit</find>
       <find>Signal_OneParameter</find>
       <find>runn</find>
+      <find>on_d</find>
+      <find>disconnect</find>
+      <find>conn</find>
+      <find>mqtt_thread</find>
+      <find>on_EMQ_Data_emit_slot</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -180,8 +194,8 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/../Python_PLC_Protocol/Python_PLC_Protocol/test.py" />
         <option value="$PROJECT_DIR$/../Python_PLC_Protocol/Python_PLC_Protocol/GUI/control.py" />
-        <option value="$PROJECT_DIR$/JT_EMQ_Test_Assistant_Simple.py" />
         <option value="$PROJECT_DIR$/mqtt_connect.py" />
+        <option value="$PROJECT_DIR$/JT_EMQ_Test_Assistant_Simple.py" />
       </list>
     </option>
   </component>
@@ -261,7 +275,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="mqtt_connect (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="mqtt_connect" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="JT EMQ Test Assistant" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -275,28 +289,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mqtt_connect.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="qt05_thread02 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="JT EMQ Test Assistant" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="F:/Learning_Stuff/PyQt5-master/Chapter05" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="F:/Learning_Stuff/PyQt5-master/Chapter05/qt05_thread02.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -349,20 +341,42 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="tool" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="JT EMQ Test Assistant" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/UI" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/UI/tool.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.JT_EMQ_Test_Assistant_Simple" />
-      <item itemvalue="Python.mqtt_connect (1)" />
-      <item itemvalue="Python.qt05_thread02 (1)" />
+      <item itemvalue="Python.mqtt_connect" />
       <item itemvalue="Python.qt05_thread03" />
       <item itemvalue="Python.test" />
+      <item itemvalue="Python.tool" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.JT_EMQ_Test_Assistant_Simple" />
-        <item itemvalue="Python.mqtt_connect (1)" />
+        <item itemvalue="Python.mqtt_connect" />
+        <item itemvalue="Python.tool" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.qt05_thread03" />
-        <item itemvalue="Python.qt05_thread02 (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -469,24 +483,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/UI/tool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="23" selection-start-column="23" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-894620243/PyQt5/QtWidgets/QMainWindow.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="14" column="6" selection-start-line="14" selection-start-column="6" selection-end-line="14" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/UI/JT_EMQ_Test_Assistant_UI_Simple.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1600">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -517,10 +517,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/UI/tool.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="879">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/UI/JT_EMQ_Test_Assistant_UI_Simple.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/paho/mqtt/client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="670">
+          <caret line="1540" column="8" selection-start-line="1540" selection-start-column="8" selection-end-line="1540" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mqtt_connect.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <marker date="1549724755136" expanded="true" signature="592:852" ph="..." />
+            <marker date="1549724755136" expanded="true" signature="870:1388" ph="..." />
+            <marker date="1549724755136" expanded="true" signature="894:903" ph="..." />
+            <marker date="1549724755136" expanded="true" signature="1556:1627" ph="..." />
+            <marker date="1549724755136" expanded="true" signature="1758:1767" ph="..." />
+            <marker date="1549724755136" expanded="true" signature="2510:2514" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-894620243/PyQt5/QtCore/QThread.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="70" column="14" selection-start-line="70" selection-start-column="10" selection-end-line="70" selection-end-column="14" />
+        <state relative-caret-position="288">
+          <caret line="126" column="8" selection-start-line="126" selection-start-column="8" selection-end-line="126" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -533,31 +570,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/JT_EMQ_Test_Assistant_Simple.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="102" selection-start-line="102" selection-end-line="103" />
+        <state relative-caret-position="-2816">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
           <folding>
-            <element signature="e#111#137#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/paho/mqtt/client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="1095" lean-forward="true" selection-start-line="1095" selection-end-line="1095" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mqtt_connect.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="638">
-          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="58" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-            <marker date="1549718568856" expanded="true" signature="592:852" ph="..." />
-            <marker date="1549718568856" expanded="true" signature="870:1256" ph="..." />
-            <marker date="1549718568856" expanded="true" signature="894:903" ph="..." />
-            <marker date="1549718568856" expanded="true" signature="2261:2265" ph="..." />
+            <marker date="1549728355787" expanded="true" signature="3568:3573" ph="..." />
+            <marker date="1549728355787" expanded="true" signature="3998:4008" ph="..." />
+            <marker date="1549728355787" expanded="true" signature="4000:4004" ph="..." />
+            <marker date="1549728355787" expanded="true" signature="4538:4543" ph="..." />
+            <marker date="1549728355787" expanded="true" signature="4785:5160" ph="..." />
           </folding>
         </state>
       </provider>
