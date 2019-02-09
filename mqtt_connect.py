@@ -45,10 +45,17 @@ class MqttClient:
     def on_connect(self, client, userdata, flags, rc):
         infolog.info("Connected with result code " + str(rc))
 
+    def on_publish(self, topic, payload):
+        self.client.publish(topic, payload)
+
     def on_message(self, client, userdata, msg):
         # infolog.info('receive new message from ' + msg.topic + " + " + str(msg.payload))
 
         print('receive new message from ' + msg.topic + " + " + str(msg.payload))
+
+        # test_payload = 'Test PUBLISH'
+        # self.on_publish(MqttSetting.publish_topic, 'Test PUBLISH')
+
 
         # self.thread.messageTrigger.emit(str(msg.payload))
 
@@ -60,9 +67,6 @@ class MqttClient:
 
         # source_msg = json.loads(msg.payload.decode())
         # print(target_msg)
-
-    def on_publish(self, pub_topic, data):
-        self.client.publish(pub_topic, data)
 
     def start(self):
         # client = mqtt.Client(client_id=client_id, transport='websockets')
