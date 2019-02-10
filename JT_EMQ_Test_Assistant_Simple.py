@@ -50,6 +50,20 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
             self.Connect_EMQ_Button.setText("Disconnect from EMQ")
 
+            button_new_style = '''
+                    QPushButton{
+                        background-color:#E74C3C;
+                        color:#FFFFFF;
+                        border-radius: 5px;
+                    }       
+                    QPushButton:hover{
+                        color:#FFF5E7;
+                        background:#EC7064;
+                    }
+                    
+                '''
+            self.Connect_EMQ_Button.setStyleSheet(button_new_style)
+
             self.Emq_connect_lable.setText("MQTT connect successful !!")
             # self.EMQ_Data_textEdit.append("Ready to receive data:")
 
@@ -77,6 +91,20 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             self.mqttDataHandlerThread.start()
 
         elif self.Connect_EMQ_Button.text() == 'Disconnect from EMQ':
+
+            button_new_style = '''
+                    QPushButton{
+                        background-color:#1ABC9C;
+                        color:#FFFFFF;
+                        border-radius: 5px;
+                    }    
+                    QPushButton:hover{
+                        color:#FFFFFF;
+                        background:#2EE1C1;
+                    }                       
+                '''
+            self.Connect_EMQ_Button.setStyleSheet(button_new_style)
+
             self.Connect_EMQ_Button.setText("Connect to EMQ")
             self.Emq_connect_lable.setText("MQTT disconnected...")
             self.EMQ_Setting_groupBox.setEnabled(True)

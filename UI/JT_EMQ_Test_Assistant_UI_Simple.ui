@@ -16,6 +16,12 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:white</string>
+  </property>
   <property name="iconSize">
    <size>
     <width>20</width>
@@ -32,8 +38,28 @@
       <height>51</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>15</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="statusTip">
      <string>Connect to EMQ accroding to setting</string>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color:#16A085;
+	color:#ffffff;
+    border-radius: 5px;
+}
+
+QPushButton:hover{
+	color:#FFFFFF;
+	background:#2EE1C1;
+}</string>
     </property>
     <property name="text">
      <string>Connect to EMQ</string>
@@ -42,11 +68,19 @@
    <widget class="QLabel" name="Emq_connect_lable">
     <property name="geometry">
      <rect>
-      <x>950</x>
+      <x>920</x>
       <y>150</y>
-      <width>121</width>
+      <width>181</width>
       <height>31</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QStackedWidget, QLabel, QPushButton, QRadioButton, QCheckBox, 
+QGroupBox, QStatusBar, QToolButton, QComboBox, QDialog {
+    background-color: #222222;
+    color: #BBBBBB;
+    font-family: &quot;Calibri&quot;;
+}</string>
     </property>
     <property name="text">
      <string>EMQ Disconnect</string>
@@ -64,6 +98,30 @@
       <height>171</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    /* background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #E0E0E0, stop: 1 #FFFFFF);*/
+    border: 2px solid gray;
+    border-radius: 5px;
+    margin-top: 3ex; /* leave space at the top for the title */
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center; /* position at the top center */
+    padding: 0 10px;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #FFOECE, stop: 1 #FFFFFF);
+}
+</string>
+    </property>
     <property name="title">
      <string>EMQ Setting</string>
     </property>
@@ -79,6 +137,18 @@
         </property>
        </widget>
        <widget class="QLineEdit" name="Username_lineEdit">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+	border-style:none;
+	padding:6px;
+	border-radius:5px;
+	border:2px solid #DCE4EC;
+}
+
+QLineEdit:focus{
+	border:2px solid #3498DB;
+}</string>
+        </property>
         <property name="text">
          <string>eie-device</string>
         </property>
@@ -102,6 +172,18 @@
         </property>
        </widget>
        <widget class="QLineEdit" name="Port_lineEdit">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+	border-style:none;
+	padding:6px;
+	border-radius:5px;
+	border:2px solid #DCE4EC;
+}
+
+QLineEdit:focus{
+	border:2px solid #3498DB;
+}</string>
+        </property>
         <property name="text">
          <string>8083</string>
         </property>
@@ -122,6 +204,18 @@
         </property>
        </widget>
        <widget class="QLineEdit" name="PublishTopic_lineEdit">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+	border-style:none;
+	padding:6px;
+	border-radius:5px;
+	border:2px solid #DCE4EC;
+}
+
+QLineEdit:focus{
+	border:2px solid #3498DB;
+}</string>
+        </property>
         <property name="text">
          <string>EIE/out/00000000/00000001</string>
         </property>
@@ -145,6 +239,18 @@
         </property>
        </widget>
        <widget class="QLineEdit" name="KeepAlive_lineEdit">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+	border-style:none;
+	padding:6px;
+	border-radius:5px;
+	border:2px solid #DCE4EC;
+}
+
+QLineEdit:focus{
+	border:2px solid #3498DB;
+}</string>
+        </property>
         <property name="text">
          <string>60</string>
         </property>
@@ -177,6 +283,18 @@
         </property>
        </widget>
        <widget class="QLineEdit" name="ClientID_lineEdit">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+	border-style:none;
+	padding:6px;
+	border-radius:5px;
+	border:2px solid #DCE4EC;
+}
+
+QLineEdit:focus{
+	border:2px solid #3498DB;
+}</string>
+        </property>
         <property name="text">
          <string>mqtt_test_assistant</string>
         </property>
@@ -197,6 +315,18 @@
         </property>
        </widget>
        <widget class="QLineEdit" name="Password_lineEdit">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+	border-style:none;
+	padding:6px;
+	border-radius:5px;
+	border:2px solid #DCE4EC;
+}
+
+QLineEdit:focus{
+	border:2px solid #3498DB;
+}</string>
+        </property>
         <property name="text">
          <string>Eie_28918499</string>
         </property>
@@ -217,6 +347,18 @@
         </property>
        </widget>
        <widget class="QLineEdit" name="SubTopic_lineEdit">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+	border-style:none;
+	padding:6px;
+	border-radius:5px;
+	border:2px solid #DCE4EC;
+}
+
+QLineEdit:focus{
+	border:2px solid #3498DB;
+}</string>
+        </property>
         <property name="text">
          <string>EIE/in/00000000/00000001</string>
         </property>
@@ -237,6 +379,18 @@
         </property>
        </widget>
        <widget class="QLineEdit" name="Host_lineEdit">
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+	border-style:none;
+	padding:6px;
+	border-radius:5px;
+	border:2px solid #DCE4EC;
+}
+
+QLineEdit:focus{
+	border:2px solid #3498DB;
+}</string>
+        </property>
         <property name="text">
          <string>139.159.163.25</string>
         </property>
@@ -257,6 +411,29 @@
       <height>641</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #E0E0E0, stop: 1 #FFFFFF);
+    border: 2px solid gray;
+    border-radius: 5px;
+    margin-top: 3ex; /* leave space at the top for the title */
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center; /* position at the top center */
+    padding: 0 3px;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #FFOECE, stop: 1 #FFFFFF);
+}</string>
+    </property>
     <property name="title">
      <string>Receive + Send Data </string>
     </property>
@@ -269,6 +446,13 @@
        <height>571</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QStackedWidget, QComboBox, QLineEdit, QSpinBox, QTextEdit, QListView, QWebView, QTreeView, QHeaderView {
+    background-color: cornsilk;
+    selection-color: #0a214c; 
+    selection-background-color: #C19A6B;
+}</string>
+     </property>
     </widget>
     <widget class="QCheckBox" name="Save_Log_checkBox">
      <property name="geometry">
@@ -278,6 +462,9 @@
        <width>91</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>Save log</string>
@@ -292,6 +479,26 @@
        <height>28</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    border: 2px solid #8f8f91;
+    border-radius: 6px;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #f6f7fa, stop: 1 #dadbde);
+    min-width: 80px;
+}
+
+QPushButton:pressed {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+    border: none; /* no border for a flat push button */
+}
+
+QPushButton:default {
+    border-color: navy; /* make the default button prominent */
+}</string>
+     </property>
      <property name="text">
       <string>Clean</string>
      </property>
@@ -305,6 +512,21 @@
       <width>541</width>
       <height>641</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QGroupBox {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,stop: 0 #E0E0E0, stop: 1 #FFFFFF);
+    border: 2px solid gray;
+    border-radius: 5px;
+    margin-top: 3ex; /* leave space at the top for the title */
+}
+
+QGroupBox::title {
+    subcontrol-origin: margin;
+    subcontrol-position: top center; /* position at the top center */
+    padding: 0 3px;
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #FFOECE, stop: 1 #FFFFFF);
+}</string>
     </property>
     <property name="title">
      <string>Command List</string>
@@ -358,6 +580,24 @@
        <height>28</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	border-style:none;
+	padding:10px;
+	border-radius:5px;
+	color:#34495E;
+	background:#FFFFFF;
+}
+QPushButton:hover{
+	color:#4E6D8C;
+	background:#F0F0F0;
+}
+QPushButton:pressed{
+	color:#2D3E50;
+	background:#B8C6D1
+;
+}</string>
+     </property>
      <property name="text">
       <string>Add</string>
      </property>
@@ -371,6 +611,28 @@
        <height>28</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+border:2px solid #8f8f91;
+border-radius:6px;
+background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop:0#f6f7fa, stop: 1 #dadbde);
+min-width:80px;
+}
+
+QPushButton:pressed {
+background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop:0#dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+border: none;/* no border for a flat push button */
+}
+
+QPushButton:default{
+border-color: navy;/* make the default button prominent */
+}</string>
+     </property>
      <property name="text">
       <string>Del</string>
      </property>
@@ -383,9 +645,25 @@
       <rect>
        <x>20</x>
        <y>600</y>
-       <width>93</width>
+       <width>156</width>
        <height>28</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton {
+    background-color: red;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: beige;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;
+}
+QPushButton:pressed {
+    background-color: rgb(224, 0, 0);
+    border-style: inset;
+}</string>
      </property>
      <property name="text">
       <string>Activate</string>
@@ -402,6 +680,18 @@
      </property>
      <property name="statusTip">
       <string>Data you want to send</string>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QLineEdit{
+	border-style:none;
+	padding:6px;
+	border-radius:5px;
+	border:2px solid #DCE4EC;
+}
+
+QLineEdit:focus{
+	border:2px solid #E74C3C;
+}</string>
      </property>
      <property name="text">
       <string>Hey mate. </string>
@@ -421,6 +711,28 @@
        <width>93</width>
        <height>28</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+border:2px solid #8f8f91;
+border-radius:6px;
+background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop:0#f6f7fa, stop: 1 #dadbde);
+min-width:80px;
+}
+
+QPushButton:pressed {
+background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop:0#dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+border: none;/* no border for a flat push button */
+}
+
+QPushButton:default{
+border-color: navy;/* make the default button prominent */
+}</string>
      </property>
      <property name="text">
       <string>Send(&amp;Q)</string>
@@ -479,6 +791,7 @@
   </action>
  </widget>
  <tabstops>
+  <tabstop>Connect_EMQ_Button</tabstop>
   <tabstop>Host_lineEdit</tabstop>
   <tabstop>Username_lineEdit</tabstop>
   <tabstop>Port_lineEdit</tabstop>
@@ -487,10 +800,9 @@
   <tabstop>PublishTopic_lineEdit</tabstop>
   <tabstop>KeepAlive_lineEdit</tabstop>
   <tabstop>SubTopic_lineEdit</tabstop>
-  <tabstop>Connect_EMQ_Button</tabstop>
-  <tabstop>EMQ_Data_textEdit</tabstop>
   <tabstop>Command_Data_lineEdit</tabstop>
   <tabstop>Command_Send_Button</tabstop>
+  <tabstop>EMQ_Data_textEdit</tabstop>
   <tabstop>Command_list_tableWidget</tabstop>
   <tabstop>Save_Log_checkBox</tabstop>
   <tabstop>Rec_Data_Clean_Button</tabstop>
