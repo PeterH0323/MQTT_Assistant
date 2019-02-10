@@ -2,12 +2,15 @@
 <ui version="4.0">
  <class>JT_EMQ_Test_Assistant</class>
  <widget class="QMainWindow" name="JT_EMQ_Test_Assistant">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>1204</width>
-    <height>1220</height>
+    <height>925</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -334,7 +337,7 @@
      </column>
      <column>
       <property name="text">
-       <string>Time</string>
+       <string>Intervals(ms)</string>
       </property>
      </column>
      <column>
@@ -370,6 +373,44 @@
      </property>
     </widget>
     <widget class="QPushButton" name="Command_Activate_Button">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>600</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Activate</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="Command_Data_lineEdit">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>411</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="statusTip">
+      <string>Data you want to send</string>
+     </property>
+     <property name="text">
+      <string>Hey mate. </string>
+     </property>
+     <property name="placeholderText">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Command_Send_Button">
+     <property name="enabled">
+      <bool>false</bool>
+     </property>
      <property name="geometry">
       <rect>
        <x>440</x>
@@ -379,19 +420,9 @@
       </rect>
      </property>
      <property name="text">
-      <string>Activate</string>
+      <string>Send(&amp;Q)</string>
      </property>
     </widget>
-   </widget>
-   <widget class="QPlainTextEdit" name="EMQ_Data_plainTextEdit">
-    <property name="geometry">
-     <rect>
-      <x>60</x>
-      <y>890</y>
-      <width>331</width>
-      <height>221</height>
-     </rect>
-    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

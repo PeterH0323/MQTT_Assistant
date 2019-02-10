@@ -17,6 +17,10 @@ import random
 
 import JT_EMQ_Test_Assistant_Simple as mainWindow
 
+import datetime
+
+TimeFormat = '%H:%M:%S:%f'
+
 infolog = mqtt_Log.Log("collect.log", level='info').logger
 errorlog = mqtt_Log.Log("error.log", level='error').logger
 
@@ -65,6 +69,9 @@ class MqttClient:
 
     def on_publish(self, topic, payload):
         self.client.publish(topic, payload)
+        send_time = datetime.datetime.now().strftime(TimeFormat)
+        MqttClient.message_temp = "【" + str(send_time) + "】" + " Send Data -> " + payload
+
 
     def on_message(self, client, userdata, msg):
         # infolog.info('receive new message from ' + msg.topic + " + " + str(msg.payload))
