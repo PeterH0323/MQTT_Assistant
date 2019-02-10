@@ -14,10 +14,8 @@ from PyQt5.QtWidgets import *  # QMainWindow, QApplication, QDialog, QWidget, QM
 
 from UI.JT_EMQ_Test_Assistant_UI_Simple import Ui_JT_EMQ_Test_Assistant
 
-import mqtt_connect
+import Interface.mqtt_connect as mqtt_connect
 import time
-import datetime
-import mqtt_Log
 
 TimeFormat = '%H:%M:%S:%f'
 
@@ -140,14 +138,13 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
     def rec_data_clean_button_clicked(self):
         self.EMQ_Data_textEdit.clear()
 
-    # call_back function
-    def receive_messages(self, client, userdata, msg):
-        receive_time = datetime.datetime.now().strftime(TimeFormat)
-        mqtt_connect.MqttClient.message_temp = "【" + str(receive_time) + "】" + " Rec -> " + str(msg.payload)
-        print('receive new message from ' + msg.topic + " -> " + str(msg.payload))
-        mqtt_connect.storedToLog.info("Rec->" + msg.topic + " -> " + str(msg.payload))
-
-        # self.mqttDataHandlerThread.messageTrigger.emit(msg.topic + " -> " + str(msg.payload))
+    # # call_back function
+    # def receive_messages(self, client, userdata, msg):
+    #     receive_time = datetime.datetime.now().strftime(TimeFormat)
+    #     mqtt_connect.MqttClient.message_temp = "【" + str(receive_time) + "】" + " Rec -> " + str(msg.payload)
+    #     print('receive new message from ' + msg.topic + " -> " + str(msg.payload))
+    #     mqtt_connect.storedToLog.info("Rec->" + msg.topic + " -> " + str(msg.payload))
+    #     self.mqttDataHandlerThread.messageTrigger.emit(msg.topic + " -> " + str(msg.payload))
 
     def add_messages(self, message):
 

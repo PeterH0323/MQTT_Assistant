@@ -1,6 +1,6 @@
 import paho.mqtt.client as mqtt
 
-import mqtt_Log
+import Interface.mqtt_Log as mqtt_Log
 import string
 import random
 # import Interface.mqtt_Log as mqtt_Log
@@ -15,13 +15,13 @@ import random
 
 # import JT_EMQ_Test_Assistant_Simple
 
-import JT_EMQ_Test_Assistant_Simple as mainWindow
-
 import datetime
 
 TimeFormat = '%H:%M:%S:%f'
 
 storedToLog = mqtt_Log.Log("./Log/collect.log", level='info').logger
+
+
 # errorlog = mqtt_Log.Log("error.log", level='error').logger
 
 
@@ -37,7 +37,6 @@ class MqttSetting:
 
 
 def generate_client_id():
-
     MqttSetting.client_id = 'mqtt_assistant_'
 
     for i in range(0, 4):
@@ -47,7 +46,6 @@ def generate_client_id():
 
 
 class MqttClient:
-
     message_temp = ""
 
     def __init__(self):
@@ -56,8 +54,8 @@ class MqttClient:
         self.client = mqtt.Client(client_id=MqttSetting.client_id, transport='websockets')
         self.client.on_connect = self.on_connect
 
-        # self.client.on_message = self.on_message
-        self.client.on_message = mainWindow.MainWindow().receive_messages
+        self.client.on_message = self.on_message
+        # self.client.on_message = mainWindow.MainWindow().receive_messages
 
         self.client.on_disconnect = self.on_disconnect
 
@@ -73,16 +71,11 @@ class MqttClient:
         MqttClient.message_temp = "【" + str(send_time) + "】" + "Send -> " + payload
         storedToLog.info("Send->" + topic + " -> " + str(payload))
 
-
     def on_message(self, client, userdata, msg):
-        # infolog.info('receive new message from ' + msg.topic + " + " + str(msg.payload))
-        print('receive new message from ' + msg.topic + " + " + str(msg.payload))
-
-        # test_payload = 'Test PUBLISH'
-        # self.on_publish(MqttSetting.publish_topic, 'Test PUBLISH')
-
-        # source_msg = json.loads(msg.payload.decode())
-        # print(target_msg)
+        receive_time = datetime.datetime.now().strftime(TimeFormat)
+        MqttClient.message_temp = "【" + str(receive_time) + "】" + " Rec -> " + str(msg.payload)
+        print('receive new message from ' + msg.topic + " -> " + str(msg.payload))
+        storedToLog.info("Rec->" + msg.topic + " -> " + str(msg.payload))
 
     def mqtt_loop_start(self):
         self.client.loop_start()
