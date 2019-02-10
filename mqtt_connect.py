@@ -44,6 +44,8 @@ def generate_client_id():
 
 class MqttClient:
 
+    message_temp = ""
+
     def __init__(self):
         # generate_client_id()
         # print("client_id = ", MqttSetting.client_id)
