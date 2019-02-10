@@ -21,8 +21,8 @@ import datetime
 
 TimeFormat = '%H:%M:%S:%f'
 
-infolog = mqtt_Log.Log("collect.log", level='info').logger
-errorlog = mqtt_Log.Log("error.log", level='error').logger
+storedToLog = mqtt_Log.Log("./Log/collect.log", level='info').logger
+# errorlog = mqtt_Log.Log("error.log", level='error').logger
 
 
 class MqttSetting:
@@ -62,15 +62,16 @@ class MqttClient:
         self.client.on_disconnect = self.on_disconnect
 
     def on_connect(self, client, userdata, flags, rc):
-        infolog.info("Connected with result code " + str(rc))
+        storedToLog.info("Connected with result code " + str(rc))
 
     def on_disconnect(self, client, userdata, rc):
-        infolog.info("Disconnected with result code " + str(rc))
+        storedToLog.info("Disconnected with result code " + str(rc))
 
     def on_publish(self, topic, payload):
         self.client.publish(topic, payload)
         send_time = datetime.datetime.now().strftime(TimeFormat)
-        MqttClient.message_temp = "【" + str(send_time) + "】" + " Send Data -> " + payload
+        MqttClient.message_temp = "【" + str(send_time) + "】" + "Send -> " + payload
+        storedToLog.info("Send->" + topic + " -> " + str(payload))
 
 
     def on_message(self, client, userdata, msg):

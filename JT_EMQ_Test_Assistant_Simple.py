@@ -17,6 +17,7 @@ from UI.JT_EMQ_Test_Assistant_UI_Simple import Ui_JT_EMQ_Test_Assistant
 import mqtt_connect
 import time
 import datetime
+import mqtt_Log
 
 TimeFormat = '%H:%M:%S:%f'
 
@@ -32,6 +33,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
 
         self.Command_list_tableWidget.setEnabled(False)
+
+        self.Host_lineEdit.setInputMask("000.000.000.000")
 
         self.Connect_EMQ_Button.clicked.connect(self.connect_emq_button_clicked)
         self.Command_Activate_Button.clicked.connect(self.command_activate_button_clicked)
@@ -140,8 +143,10 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
     # call_back function
     def receive_messages(self, client, userdata, msg):
         receive_time = datetime.datetime.now().strftime(TimeFormat)
-        mqtt_connect.MqttClient.message_temp = "【" + str(receive_time) + "】" + " Receive: -> " + str(msg.payload)
+        mqtt_connect.MqttClient.message_temp = "【" + str(receive_time) + "】" + " Rec -> " + str(msg.payload)
         print('receive new message from ' + msg.topic + " -> " + str(msg.payload))
+        mqtt_connect.storedToLog.info("Rec->" + msg.topic + " -> " + str(msg.payload))
+
         # self.mqttDataHandlerThread.messageTrigger.emit(msg.topic + " -> " + str(msg.payload))
 
     def add_messages(self, message):
