@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1204</width>
-    <height>925</height>
+    <width>1199</width>
+    <height>948</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -51,6 +51,9 @@
     <property name="text">
      <string>EMQ Disconnect</string>
     </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
    </widget>
    <widget class="QGroupBox" name="EMQ_Setting_groupBox">
     <property name="geometry">
@@ -65,26 +68,6 @@
      <string>EMQ Setting</string>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QSplitter" name="splitter">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <widget class="QLabel" name="label_2">
-        <property name="text">
-         <string>Host:</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="Host_lineEdit">
-        <property name="text">
-         <string>139.159.163.25</string>
-        </property>
-        <property name="placeholderText">
-         <string/>
-        </property>
-       </widget>
-      </widget>
-     </item>
      <item row="0" column="1">
       <widget class="QSplitter" name="splitter_5">
        <property name="orientation">
@@ -121,58 +104,6 @@
        <widget class="QLineEdit" name="Port_lineEdit">
         <property name="text">
          <string>8083</string>
-        </property>
-        <property name="placeholderText">
-         <string/>
-        </property>
-       </widget>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QSplitter" name="splitter_6">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <widget class="QLabel" name="label_6">
-        <property name="text">
-         <string>Password:</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="Password_lineEdit">
-        <property name="text">
-         <string>Eie_28918499</string>
-        </property>
-        <property name="placeholderText">
-         <string/>
-        </property>
-       </widget>
-      </widget>
-     </item>
-     <item row="2" column="0">
-      <widget class="QSplitter" name="splitter_3">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="handleWidth">
-        <number>6</number>
-       </property>
-       <property name="childrenCollapsible">
-        <bool>false</bool>
-       </property>
-       <widget class="QLabel" name="label_4">
-        <property name="minimumSize">
-         <size>
-          <width>119</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>Client ID:</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="ClientID_lineEdit">
-        <property name="text">
-         <string>mqtt_test_assistant</string>
         </property>
         <property name="placeholderText">
          <string/>
@@ -223,6 +154,58 @@
        </widget>
       </widget>
      </item>
+     <item row="2" column="0">
+      <widget class="QSplitter" name="splitter_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="handleWidth">
+        <number>6</number>
+       </property>
+       <property name="childrenCollapsible">
+        <bool>false</bool>
+       </property>
+       <widget class="QLabel" name="label_4">
+        <property name="minimumSize">
+         <size>
+          <width>119</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string>Client ID:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="ClientID_lineEdit">
+        <property name="text">
+         <string>mqtt_test_assistant</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QSplitter" name="splitter_6">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>Password:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="Password_lineEdit">
+        <property name="text">
+         <string>Eie_28918499</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
      <item row="3" column="1">
       <widget class="QSplitter" name="splitter_8">
        <property name="orientation">
@@ -236,6 +219,26 @@
        <widget class="QLineEdit" name="SubTopic_lineEdit">
         <property name="text">
          <string>EIE/in/00000000/00000001</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QSplitter" name="splitter">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Host:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="Host_lineEdit">
+        <property name="text">
+         <string>139.159.163.25</string>
         </property>
         <property name="placeholderText">
          <string/>
@@ -306,7 +309,7 @@
     <property name="title">
      <string>Command List</string>
     </property>
-    <widget class="QTableWidget" name="tableWidget">
+    <widget class="QTableWidget" name="Command_list_tableWidget">
      <property name="geometry">
       <rect>
        <x>10</x>
@@ -430,7 +433,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1204</width>
+     <width>1199</width>
      <height>23</height>
     </rect>
    </property>
@@ -475,6 +478,26 @@
    </property>
   </action>
  </widget>
+ <tabstops>
+  <tabstop>Host_lineEdit</tabstop>
+  <tabstop>Username_lineEdit</tabstop>
+  <tabstop>Port_lineEdit</tabstop>
+  <tabstop>Password_lineEdit</tabstop>
+  <tabstop>ClientID_lineEdit</tabstop>
+  <tabstop>PublishTopic_lineEdit</tabstop>
+  <tabstop>KeepAlive_lineEdit</tabstop>
+  <tabstop>SubTopic_lineEdit</tabstop>
+  <tabstop>Connect_EMQ_Button</tabstop>
+  <tabstop>EMQ_Data_textEdit</tabstop>
+  <tabstop>Command_Data_lineEdit</tabstop>
+  <tabstop>Command_Send_Button</tabstop>
+  <tabstop>Command_list_tableWidget</tabstop>
+  <tabstop>Save_Log_checkBox</tabstop>
+  <tabstop>Rec_Data_Clean_Button</tabstop>
+  <tabstop>Command_Activate_Button</tabstop>
+  <tabstop>Command_Add_Button</tabstop>
+  <tabstop>Command_Del_Button</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
  <slots>

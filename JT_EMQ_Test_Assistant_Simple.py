@@ -31,6 +31,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
         self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
 
+        self.Command_list_tableWidget.setEnabled(False)
+
         self.Connect_EMQ_Button.clicked.connect(self.connect_emq_button_clicked)
         self.Command_Activate_Button.clicked.connect(self.command_activate_button_clicked)
         self.Rec_Data_Clean_Button.clicked.connect(self.rec_data_clean_button_clicked)
@@ -80,7 +82,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             self.EMQ_Setting_groupBox.setEnabled(True)
             self.Command_Activate_Button.setEnabled(False)
             self.Command_Send_Button.setEnabled(False)
-
 
             mqtt_connect.generate_client_id()
             self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
@@ -175,5 +176,4 @@ if __name__ == '__main__':
     test_Assistant_MainWidow.show()
 
     mqtt_client = mqtt_connect.MqttClient()
-
     sys.exit(app.exec_())
