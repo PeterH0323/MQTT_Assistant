@@ -1,7 +1,8 @@
-?## Ignore file below:
+## Ignore file below:
 
 
 
 
 Log/*
 __pycache__
+.idea
