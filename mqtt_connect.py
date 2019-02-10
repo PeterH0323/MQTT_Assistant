@@ -39,21 +39,20 @@ def generate_client_id():
     for i in range(0, 4):
         MqttSetting.client_id += random.choice(string.digits + string.ascii_letters)
 
-    print("client_id = !", MqttSetting.client_id)
+    print("client_id = ", MqttSetting.client_id)
 
 
 class MqttClient:
 
     def __init__(self):
         # generate_client_id()
-        print("client_id = !!", MqttSetting.client_id)
-
+        # print("client_id = ", MqttSetting.client_id)
         self.client = mqtt.Client(client_id=MqttSetting.client_id, transport='websockets')
-
         self.client.on_connect = self.on_connect
-        # self.client.on_message = self.on_message
 
+        # self.client.on_message = self.on_message
         self.client.on_message = mainWindow.MainWindow().receive_messages
+
         self.client.on_disconnect = self.on_disconnect
 
     def on_connect(self, client, userdata, flags, rc):
@@ -67,19 +66,10 @@ class MqttClient:
 
     def on_message(self, client, userdata, msg):
         # infolog.info('receive new message from ' + msg.topic + " + " + str(msg.payload))
-
         print('receive new message from ' + msg.topic + " + " + str(msg.payload))
 
         # test_payload = 'Test PUBLISH'
         # self.on_publish(MqttSetting.publish_topic, 'Test PUBLISH')
-
-        # self.thread.messageTrigger.emit(str(msg.payload))
-
-        # main_window = MainWindow()
-        # # main_window.EMQ_Data_textEdit.append('receive new message from ' + msg.topic + " + " + str(msg.payload))
-        #
-        # main_window.Signal_OneParameter.connect(main_window.on_EMQ_Data_emit_slot)
-        # main_window.EMQ_Data_textEdit.append('receive new message')
 
         # source_msg = json.loads(msg.payload.decode())
         # print(target_msg)
@@ -87,7 +77,7 @@ class MqttClient:
     def mqtt_loop_start(self):
         self.client.loop_start()
 
-    def mqtt_loop_stop(self, force=True):
+    def mqtt_loop_stop(self, force=False):
         self.client.loop_stop(force=force)
 
     def mqtt_connect(self):

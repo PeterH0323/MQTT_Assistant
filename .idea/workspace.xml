@@ -4,6 +4,8 @@
     <list default="true" id="a2fb5859-0550-4b92-8fd9-4f5ed1c66d5c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/JT_EMQ_Test_Assistant_Simple.py" beforeDir="false" afterPath="$PROJECT_DIR$/JT_EMQ_Test_Assistant_Simple.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/JT_EMQ_Test_Assistant_UI_Simple.py" beforeDir="false" afterPath="$PROJECT_DIR$/UI/JT_EMQ_Test_Assistant_UI_Simple.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UI/JT_EMQ_Test_Assistant_UI_Simple.ui" beforeDir="false" afterPath="$PROJECT_DIR$/UI/JT_EMQ_Test_Assistant_UI_Simple.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mqtt_connect.py" beforeDir="false" afterPath="$PROJECT_DIR$/mqtt_connect.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,13 +19,13 @@
     <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$mqtt_connect__1_.coverage" NAME="mqtt_connect Coverage Results" MODIFIED="1549722914289" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$tool__1_.coverage" NAME="tool (1) Coverage Results" MODIFIED="1548923050312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/UI" />
     <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$test.coverage" NAME="test Coverage Results" MODIFIED="1549711571446" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../Python_PLC_Protocol/Python_PLC_Protocol" />
-    <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$JT_EMQ_Test_Assistant_Simple.coverage" NAME="JT_EMQ_Test_Assistant_Simple Coverage Results" MODIFIED="1549735808643" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$JT_EMQ_Test_Assistant_Simple.coverage" NAME="JT_EMQ_Test_Assistant_Simple Coverage Results" MODIFIED="1549778679421" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$mqtt_connect.coverage" NAME="mqtt_connect Coverage Results" MODIFIED="1548923650234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Interface" />
     <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$qt05_thread02__1_.coverage" NAME="qt05_thread02 (1) Coverage Results" MODIFIED="1549542831815" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="F:/Learning_Stuff/PyQt5-master/Chapter05" />
     <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$qt05_thread02.coverage" NAME="qt05_thread02 Coverage Results" MODIFIED="1548935349459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../PyQt5-master/Chapter05" />
     <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$JT_EMQ_Test_Assistant.coverage" NAME="JT_EMQ_Test_Assistant Coverage Results" MODIFIED="1548923341135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$CallDialogMainWin2.coverage" NAME="CallDialogMainWin2 Coverage Results" MODIFIED="1548933482098" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../PyQt5-master/Chapter07/transParam" />
-    <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$tool.coverage" NAME="tool Coverage Results" MODIFIED="1549720762838" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/UI" />
+    <SUITE FILE_PATH="coverage/JT_EMQ_Test_Assistant$tool.coverage" NAME="tool Coverage Results" MODIFIED="1549775813734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/UI" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-726955717">
@@ -74,25 +76,25 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="md" value="88" />
-          <entry key="py" value="2905" />
+          <entry key="py" value="3267" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="88" />
-          <entry key="Python" value="2905" />
+          <entry key="Python" value="3267" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="md" value="1" />
-          <entry key="py" value="28" />
+          <entry key="py" value="37" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Markdown" value="1" />
-          <entry key="Python" value="28" />
+          <entry key="Python" value="37" />
         </counts>
       </usages-collector>
     </session>
@@ -102,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/UI/tool.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="879">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="635">
+              <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
             </state>
           </provider>
         </entry>
@@ -111,16 +113,26 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/JT_EMQ_Test_Assistant_Simple.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="604">
-              <caret line="91" column="12" lean-forward="true" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
+            <state relative-caret-position="480">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
               <folding>
-                <element signature="e#110#123#0" expanded="true" />
-                <marker date="1549735806561" expanded="true" signature="430:704" ph="..." />
-                <marker date="1549735806561" expanded="true" signature="3904:3909" ph="..." />
-                <marker date="1549735806561" expanded="true" signature="4385:4387" ph="..." />
-                <marker date="1549735806561" expanded="true" signature="5211:5216" ph="..." />
-                <marker date="1549735806561" expanded="true" signature="5568:5968" ph="..." />
+                <element signature="e#111#122#0" expanded="true" />
+                <marker date="1549778662447" expanded="true" signature="403:1037" ph="..." />
+                <marker date="1549778662447" expanded="true" signature="1049:1053" ph="..." />
+                <marker date="1549778662447" expanded="true" signature="1090:1100" ph="..." />
+                <marker date="1549778662447" expanded="true" signature="3537:3731" ph="..." />
+                <marker date="1549778662447" expanded="true" signature="4675:4680" ph="..." />
+                <marker date="1549778662447" expanded="true" signature="4963:4965" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://F:/Learning_Stuff/PyQt5-master/Chapter04/qt04_lineEdit01.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="448">
+              <caret line="15" selection-start-line="15" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -128,18 +140,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mqtt_connect.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1252">
-              <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="308">
+              <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
-                <marker date="1549735751808" expanded="true" signature="885:1092" ph="..." />
-                <marker date="1549735751808" expanded="true" signature="1110:1545" ph="..." />
-                <marker date="1549735751808" expanded="true" signature="1134:1135" ph="..." />
-                <marker date="1549735751808" expanded="true" signature="1713:1784" ph="..." />
-                <marker date="1549735751808" expanded="true" signature="1915:1924" ph="..." />
-                <marker date="1549735751808" expanded="true" signature="2697:2706" ph="..." />
-                <marker date="1549735751808" expanded="true" signature="2818:2822" ph="..." />
-                <marker date="1549735751808" expanded="true" signature="3236:3240" ph="..." />
+                <marker date="1549778021675" expanded="true" signature="885:1091" ph="..." />
+                <marker date="1549778021675" expanded="true" signature="1109:1543" ph="..." />
+                <marker date="1549778021675" expanded="true" signature="1133:1134" ph="..." />
+                <marker date="1549778021675" expanded="true" signature="1711:1782" ph="..." />
+                <marker date="1549778021675" expanded="true" signature="1913:1922" ph="..." />
+                <marker date="1549778021675" expanded="true" signature="2313:2322" ph="..." />
+                <marker date="1549778021675" expanded="true" signature="2435:2439" ph="..." />
+                <marker date="1549778021675" expanded="true" signature="2853:2857" ph="..." />
               </folding>
             </state>
           </provider>
@@ -148,8 +160,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/paho/mqtt/client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6750">
-              <caret line="1609" column="8" selection-start-line="1609" selection-start-column="8" selection-end-line="1609" selection-end-column="8" />
+            <state relative-caret-position="404">
+              <caret line="1010" column="12" selection-start-line="1010" selection-start-column="8" selection-end-line="1010" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -191,6 +203,8 @@
       <find>connect</find>
       <find>loop()loop()</find>
       <find>client_id</find>
+      <find>Slot</find>
+      <find>on_publish</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -386,8 +400,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.JT_EMQ_Test_Assistant_Simple" />
-        <item itemvalue="Python.mqtt_connect" />
         <item itemvalue="Python.tool" />
+        <item itemvalue="Python.mqtt_connect" />
         <item itemvalue="Python.test" />
         <item itemvalue="Python.qt05_thread03" />
       </list>
@@ -503,16 +517,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Python_PLC_Protocol/Python_PLC_Protocol/GUI/control.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1792">
-          <caret line="71" lean-forward="true" selection-start-line="71" selection-end-line="71" />
-          <folding>
-            <element signature="e#0#71#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Python_PLC_Protocol/Python_PLC_Protocol/test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -530,20 +534,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-894620243/PyQt5/QtCore/QThread.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="126" column="8" selection-start-line="126" selection-start-column="8" selection-end-line="126" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-894620243/PyQt5/QtCore/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="113" column="4" selection-start-line="113" selection-start-column="4" selection-end-line="113" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/UI/JT_EMQ_Test_Assistant_UI_Simple.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="244">
@@ -551,49 +541,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-894620243/PyQt5/QtCore/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="116" column="4" lean-forward="true" selection-start-line="116" selection-start-column="4" selection-end-line="116" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.PyCharm2018.2/system/python_stubs/-894620243/PyQt5/QtCore/QThread.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="100" column="8" selection-start-line="100" selection-start-column="8" selection-end-line="100" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/UI/tool.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="879">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="635">
+          <caret line="42" lean-forward="true" selection-start-line="42" selection-end-line="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Python_PLC_Protocol/Python_PLC_Protocol/GUI/control.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3013">
+          <caret line="36" column="59" lean-forward="true" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#71#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python35/Lib/site-packages/paho/mqtt/client.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6750">
-          <caret line="1609" column="8" selection-start-line="1609" selection-start-column="8" selection-end-line="1609" selection-end-column="8" />
+        <state relative-caret-position="404">
+          <caret line="1010" column="12" selection-start-line="1010" selection-start-column="8" selection-end-line="1010" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mqtt_connect.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1252">
-          <caret line="45" lean-forward="true" selection-start-line="45" selection-end-line="45" />
+        <state relative-caret-position="308">
+          <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
-            <marker date="1549735751808" expanded="true" signature="885:1092" ph="..." />
-            <marker date="1549735751808" expanded="true" signature="1110:1545" ph="..." />
-            <marker date="1549735751808" expanded="true" signature="1134:1135" ph="..." />
-            <marker date="1549735751808" expanded="true" signature="1713:1784" ph="..." />
-            <marker date="1549735751808" expanded="true" signature="1915:1924" ph="..." />
-            <marker date="1549735751808" expanded="true" signature="2697:2706" ph="..." />
-            <marker date="1549735751808" expanded="true" signature="2818:2822" ph="..." />
-            <marker date="1549735751808" expanded="true" signature="3236:3240" ph="..." />
+            <marker date="1549778021675" expanded="true" signature="885:1091" ph="..." />
+            <marker date="1549778021675" expanded="true" signature="1109:1543" ph="..." />
+            <marker date="1549778021675" expanded="true" signature="1133:1134" ph="..." />
+            <marker date="1549778021675" expanded="true" signature="1711:1782" ph="..." />
+            <marker date="1549778021675" expanded="true" signature="1913:1922" ph="..." />
+            <marker date="1549778021675" expanded="true" signature="2313:2322" ph="..." />
+            <marker date="1549778021675" expanded="true" signature="2435:2439" ph="..." />
+            <marker date="1549778021675" expanded="true" signature="2853:2857" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://F:/Learning_Stuff/PyQt5-master/Chapter04/qt04_lineEdit01.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="15" selection-start-line="15" selection-end-line="16" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/JT_EMQ_Test_Assistant_Simple.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="604">
-          <caret line="91" column="12" lean-forward="true" selection-start-line="91" selection-start-column="12" selection-end-line="91" selection-end-column="12" />
+        <state relative-caret-position="480">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
           <folding>
-            <element signature="e#110#123#0" expanded="true" />
-            <marker date="1549735806561" expanded="true" signature="430:704" ph="..." />
-            <marker date="1549735806561" expanded="true" signature="3904:3909" ph="..." />
-            <marker date="1549735806561" expanded="true" signature="4385:4387" ph="..." />
-            <marker date="1549735806561" expanded="true" signature="5211:5216" ph="..." />
-            <marker date="1549735806561" expanded="true" signature="5568:5968" ph="..." />
+            <element signature="e#111#122#0" expanded="true" />
+            <marker date="1549778662447" expanded="true" signature="403:1037" ph="..." />
+            <marker date="1549778662447" expanded="true" signature="1049:1053" ph="..." />
+            <marker date="1549778662447" expanded="true" signature="1090:1100" ph="..." />
+            <marker date="1549778662447" expanded="true" signature="3537:3731" ph="..." />
+            <marker date="1549778662447" expanded="true" signature="4675:4680" ph="..." />
+            <marker date="1549778662447" expanded="true" signature="4963:4965" ph="..." />
           </folding>
         </state>
       </provider>

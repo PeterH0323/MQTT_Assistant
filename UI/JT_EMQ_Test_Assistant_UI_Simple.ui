@@ -307,9 +307,9 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>20</y>
+       <y>60</y>
        <width>521</width>
-       <height>571</height>
+       <height>531</height>
       </rect>
      </property>
      <row>
@@ -367,6 +367,19 @@
      </property>
      <property name="text">
       <string>Del</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="Command_Activate_Button">
+     <property name="geometry">
+      <rect>
+       <x>440</x>
+       <y>20</y>
+       <width>93</width>
+       <height>28</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Activate</string>
      </property>
     </widget>
    </widget>

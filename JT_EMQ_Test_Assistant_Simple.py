@@ -8,8 +8,7 @@ author: Peter H
 last edited: January 2019
 
 """
-import string
-import random
+
 import time
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import QMainWindow, QApplication, QDialog
@@ -25,14 +24,22 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         super(MainWindow, self).__init__(parent)
 
         self.setupUi(self)
+        self.setWindowTitle("EIE MQTT Assistant")
+
+        self.Command_Activate_Button.setEnabled(False)
 
         self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
+
+        self.Connect_EMQ_Button.clicked.connect(self.connect_emq_button_clicked)
+        self.Command_Activate_Button.clicked.connect(self.command_activate_button_clicked)
 
         self.mqttRunThread = MqttRunThread()
         self.mqttRunThread.messageTrigger.connect(self.add_messages)
 
+        # self.mqttRunThread.started.connect(self.mqttRunThread.thread_started)
+
     @pyqtSlot()
-    def on_Connect_EMQ_Button_released(self):
+    def connect_emq_button_clicked(self):
 
         if self.Connect_EMQ_Button.text() == 'Connect to EMQ':
 
@@ -57,19 +64,10 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             #       mqtt_connect.MqttSetting.keep_alive, mqtt_connect.MqttSetting.publish_topic,
             #       mqtt_connect.MqttSetting.subscribe_topic)
 
-            # self.Connect_EMQ_Button.setEnabled(False)
-            self.Host_lineEdit.setEnabled(False)
-            self.Host_lineEdit.setEnabled(False)
-            self.Port_lineEdit.setEnabled(False)
-            self.ClientID_lineEdit.setEnabled(False)
-            self.Username_lineEdit.setEnabled(False)
-            self.Password_lineEdit.setEnabled(False)
-            self.KeepAlive_lineEdit.setEnabled(False)
-            self.PublishTopic_lineEdit.setEnabled(False)
-            self.SubTopic_lineEdit.setEnabled(False)
+            self.EMQ_Setting_groupBox.setEnabled(False)
+            self.Command_Activate_Button.setEnabled(True)
 
-
-            mqtt_client = mqtt_connect.MqttClient()
+            # mqtt_client = mqtt_connect.MqttClient()
             mqtt_connect.MqttClient.mqtt_connect(mqtt_client)
 
             # self.mqttRunThread.start()
@@ -77,51 +75,41 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         elif self.Connect_EMQ_Button.text() == 'Disconnect from EMQ':
             self.Connect_EMQ_Button.setText("Connect to EMQ")
             self.Emq_connect_lable.setText("MQTT disconnected...")
-            self.Host_lineEdit.setEnabled(True)
-            self.Host_lineEdit.setEnabled(True)
-            self.Port_lineEdit.setEnabled(True)
-            self.ClientID_lineEdit.setEnabled(True)
-            self.Username_lineEdit.setEnabled(True)
-            self.Password_lineEdit.setEnabled(True)
-            self.KeepAlive_lineEdit.setEnabled(True)
-            self.PublishTopic_lineEdit.setEnabled(True)
-            self.SubTopic_lineEdit.setEnabled(True)
+            self.EMQ_Setting_groupBox.setEnabled(True)
+            self.Command_Activate_Button.setEnabled(False)
 
             mqtt_connect.generate_client_id()
             self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
 
-            mqtt_client = mqtt_connect.MqttClient()
+            # mqtt_client = mqtt_connect.MqttClient()
             mqtt_connect.MqttClient.mqtt_disconnect(mqtt_client)
+            mqtt_connect.MqttClient.mqtt_loop_stop(mqtt_client)
 
             # self.mqttRunThread.running = False
 
+    @pyqtSlot()
+    def command_activate_button_clicked(self):
+        print('publish_topic = ' + mqtt_connect.MqttSetting.publish_topic)
+
+        mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, "Test PUBLISH")
+
+    @pyqtSlot()
     def receive_messages(self, client, userdata, msg):
-        # self.EMQ_Data_textEdit.append('receive new message')
-        # print('receive new message from ' + msg.topic + " -> " + str(msg.payload))
-        # self.EMQ_Data_textEdit.append(str(msg.payload))
-        # print('receive new message' + str(msg.payload))
 
         print('receive new message from ' + msg.topic + " -> " + str(msg.payload))
-
         self.mqttRunThread.messageTrigger.emit(msg.topic + " -> " + str(msg.payload))
 
     def add_messages(self, receive_message):
-
-        # self.mqttRunThread.running = False
-        # self.mqttRunThread.wait()
 
         # mqtt_client = mqtt_connect.MqttClient()
         # mqtt_connect.MqttClient.mqtt_loop_stop(mqtt_client, force=True)
 
         self.EMQ_Data_textEdit.append("i fucking did it + 2")
         self.EMQ_Data_textEdit.append(receive_message + "2")
-
         self.EMQ_Data_plainTextEdit.appendPlainText(receive_message + "2")
 
         # mqtt_connect.MqttClient.mqtt_loop_start(mqtt_client)
 
-        # self.mqttRunThread.start()
-        # self.mqttRunThread.running = True
         print("add_messages: ->" + receive_message)
 
 
@@ -137,33 +125,15 @@ class MqttRunThread(QThread):
         self.wait()
 
     def run(self):
-        # self.running = True
+        self.messageTrigger.emit("hi,im here")
 
-        # mqtt_client = mqtt_connect.MqttClient()
-        # mqtt_connect.MqttClient.mqtt_connect(mqtt_client)
+        # while self.running:
+        #     self.messageTrigger.emit("hi,im here")
+        #     self.sleep(1)
 
-        # self.running = False
-        while self.running:
-            self.messageTrigger.emit("hi,im here")
-            self.sleep(1)
-
-
-#
-# class UpdateWindowData(QThread):
-#     updateTrigger = pyqtSignal(str)
-#
-#     def __init__(self):
-#         super(UpdateWindowData, self).__init__()
-#         self.running = True
-#
-#     def __del__(self):
-#         self.wait()
-#
-#     def run(self):
-#         while self.running:
-#             mqtt_client = mqtt_connect.MqttClient()
-#             mqtt_connect.MqttClient.mqtt_connect(mqtt_client)
-#             # self.sleep(1)
+    # @pyqtSlot()
+    def thread_started(self):
+        print("MqttRunThread started")
 
 
 if __name__ == '__main__':
@@ -175,5 +145,7 @@ if __name__ == '__main__':
 
     test_Assistant_MainWidow = MainWindow()
     test_Assistant_MainWidow.show()
+
+    mqtt_client = mqtt_connect.MqttClient()
 
     sys.exit(app.exec_())
