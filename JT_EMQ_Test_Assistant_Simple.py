@@ -38,6 +38,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.Command_Activate_Button.clicked.connect(self.command_activate_button_clicked)
         self.Rec_Data_Clean_Button.clicked.connect(self.rec_data_clean_button_clicked)
         self.Command_Send_Button.clicked.connect(self.command_send_button_clicked)
+        self.Save_Log_checkBox.stateChanged.connect(self.save_log_checkbox_state_changed)
 
         self.mqttDataHandlerThread = MqttDataHandlerThread()
         self.mqttDataHandlerThread.messageTrigger.connect(self.add_messages)
@@ -78,6 +79,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             mqtt_connect.MqttSetting.publish_topic = self.PublishTopic_lineEdit.text()
             mqtt_connect.MqttSetting.subscribe_topic = self.SubTopic_lineEdit.text()
 
+            mqtt_connect.MqttSetting.save_log_flag = bool(self.Save_Log_checkBox.checkState())
+            # print("save_log_flag = " + str(mqtt_connect.MqttSetting.save_log_flag))
             # print("result = ", mqtt_connect.MqttSetting.host, mqtt_connect.MqttSetting.port,
             #       mqtt_connect.MqttSetting.client_id, mqtt_connect.MqttSetting.username, mqtt_connect.MqttSetting.password,
             #       mqtt_connect.MqttSetting.keep_alive, mqtt_connect.MqttSetting.publish_topic,
@@ -137,6 +140,16 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
     @pyqtSlot()
     def rec_data_clean_button_clicked(self):
         self.EMQ_Data_textEdit.clear()
+
+    @pyqtSlot()
+    def save_log_checkbox_state_changed(self):
+
+        if self.Save_Log_checkBox.isChecked():
+            mqtt_connect.MqttSetting.save_log_flag = True
+            print("mqtt_connect.MqttSetting.save_log_flag = True")
+        else:
+            mqtt_connect.MqttSetting.save_log_flag = False
+            print("mqtt_connect.MqttSetting.save_log_flag = False")
 
     # # call_back function
     # def receive_messages(self, client, userdata, msg):

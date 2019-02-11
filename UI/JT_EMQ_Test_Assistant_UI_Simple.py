@@ -12,10 +12,25 @@ class Ui_JT_EMQ_Test_Assistant(object):
     def setupUi(self, JT_EMQ_Test_Assistant):
         JT_EMQ_Test_Assistant.setObjectName("JT_EMQ_Test_Assistant")
         JT_EMQ_Test_Assistant.setEnabled(True)
-        JT_EMQ_Test_Assistant.resize(1199, 1015)
+        JT_EMQ_Test_Assistant.resize(1198, 1005)
         JT_EMQ_Test_Assistant.setAutoFillBackground(False)
-        JT_EMQ_Test_Assistant.setStyleSheet("background-color:white;\n"
+        JT_EMQ_Test_Assistant.setStyleSheet("QMainWindow    {\n"
+"    background-color:white;\n"
+"}\n"
 "\n"
+"/*\n"
+"QStatusBar {\n"
+"    border: 1px solid #32414B;\n"
+"}\n"
+"\n"
+"QStatusBar QToolTip {\n"
+"    background-color: #148CD2;\n"
+"    border: 1px solid #19232D;\n"
+"    color: #19232D;\n"
+"    padding: 0;   //remove padding, for fix combo box tooltip\n"
+"    opacity: 230; //reducing transparency to read better\n"
+"}\n"
+"*/\n"
 "")
         JT_EMQ_Test_Assistant.setIconSize(QtCore.QSize(20, 30))
         self.centralwidget = QtWidgets.QWidget(JT_EMQ_Test_Assistant)
@@ -77,78 +92,6 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.EMQ_Setting_groupBox.setObjectName("EMQ_Setting_groupBox")
         self.gridLayout = QtWidgets.QGridLayout(self.EMQ_Setting_groupBox)
         self.gridLayout.setObjectName("gridLayout")
-        self.splitter_4 = QtWidgets.QSplitter(self.EMQ_Setting_groupBox)
-        self.splitter_4.setOrientation(QtCore.Qt.Horizontal)
-        self.splitter_4.setObjectName("splitter_4")
-        self.label_2 = QtWidgets.QLabel(self.splitter_4)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
-        self.label_2.setSizePolicy(sizePolicy)
-        self.label_2.setMinimumSize(QtCore.QSize(100, 37))
-        self.label_2.setStyleSheet("QFrame, QLabel, QToolTip {\n"
-"   /* border: 2px solid blue;*/\n"
-"    border-radius: 4px;\n"
-"    padding: 2px;\n"
-"    font-family:\"微软雅黑\";\n"
-"    font-size:13px;\n"
-"    font-weight:bold;\n"
-"}")
-        self.label_2.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
-        self.label_2.setObjectName("label_2")
-        self.Host_lineEdit = QtWidgets.QLineEdit(self.splitter_4)
-        self.Host_lineEdit.setMinimumSize(QtCore.QSize(270, 30))
-        font = QtGui.QFont()
-        font.setFamily("微软雅黑")
-        font.setPointSize(-1)
-        self.Host_lineEdit.setFont(font)
-        self.Host_lineEdit.setStyleSheet("QLineEdit{\n"
-"    border-style:none;\n"
-"    padding:6px;\n"
-"    border-radius:5px;\n"
-"    border:2px solid #DCE4EC;\n"
-"    font-family:\"微软雅黑\";\n"
-"    font-size:13px;\n"
-"}\n"
-"\n"
-"QLineEdit:focus{\n"
-"    border:2px solid #3498DB;\n"
-"}")
-        self.Host_lineEdit.setPlaceholderText("")
-        self.Host_lineEdit.setObjectName("Host_lineEdit")
-        self.gridLayout.addWidget(self.splitter_4, 0, 0, 1, 1)
-        self.splitter_5 = QtWidgets.QSplitter(self.EMQ_Setting_groupBox)
-        self.splitter_5.setOrientation(QtCore.Qt.Horizontal)
-        self.splitter_5.setObjectName("splitter_5")
-        self.label_5 = QtWidgets.QLabel(self.splitter_5)
-        self.label_5.setMinimumSize(QtCore.QSize(100, 37))
-        self.label_5.setStyleSheet("QFrame, QLabel, QToolTip {\n"
-"   /* border: 2px solid blue;*/\n"
-"    border-radius: 4px;\n"
-"    padding: 2px;\n"
-"    font-family:\"微软雅黑\";\n"
-"    font-size:13px;\n"
-"    font-weight:bold;\n"
-"}")
-        self.label_5.setObjectName("label_5")
-        self.Username_lineEdit = QtWidgets.QLineEdit(self.splitter_5)
-        self.Username_lineEdit.setMinimumSize(QtCore.QSize(270, 37))
-        self.Username_lineEdit.setStyleSheet("QLineEdit{\n"
-"    border-style:none;\n"
-"    padding:6px;\n"
-"    border-radius:5px;\n"
-"    border:2px solid #DCE4EC;\n"
-"    font-family:\"微软雅黑\";\n"
-"    font-size:13px;\n"
-"}\n"
-"\n"
-"QLineEdit:focus{\n"
-"    border:2px solid #3498DB;\n"
-"}")
-        self.Username_lineEdit.setPlaceholderText("")
-        self.Username_lineEdit.setObjectName("Username_lineEdit")
-        self.gridLayout.addWidget(self.splitter_5, 0, 2, 1, 1)
         self.splitter_3 = QtWidgets.QSplitter(self.EMQ_Setting_groupBox)
         self.splitter_3.setOrientation(QtCore.Qt.Horizontal)
         self.splitter_3.setObjectName("splitter_3")
@@ -243,6 +186,37 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.ClientID_lineEdit.setPlaceholderText("")
         self.ClientID_lineEdit.setObjectName("ClientID_lineEdit")
         self.gridLayout.addWidget(self.splitter_2, 2, 0, 1, 1)
+        self.splitter = QtWidgets.QSplitter(self.EMQ_Setting_groupBox)
+        self.splitter.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter.setObjectName("splitter")
+        self.label_8 = QtWidgets.QLabel(self.splitter)
+        self.label_8.setMinimumSize(QtCore.QSize(100, 37))
+        self.label_8.setStyleSheet("QFrame, QLabel, QToolTip {\n"
+"   /* border: 2px solid blue;*/\n"
+"    border-radius: 4px;\n"
+"    padding: 2px;\n"
+"    font-family:\"微软雅黑\";\n"
+"    font-size:13px;\n"
+"    font-weight:bold;\n"
+"}")
+        self.label_8.setObjectName("label_8")
+        self.KeepAlive_lineEdit = QtWidgets.QLineEdit(self.splitter)
+        self.KeepAlive_lineEdit.setMinimumSize(QtCore.QSize(270, 37))
+        self.KeepAlive_lineEdit.setStyleSheet("QLineEdit{\n"
+"    border-style:none;\n"
+"    padding:6px;\n"
+"    border-radius:5px;\n"
+"    border:2px solid #DCE4EC;\n"
+"    font-family:\"微软雅黑\";\n"
+"    font-size:13px;\n"
+"}\n"
+"\n"
+"QLineEdit:focus{\n"
+"    border:2px solid #3498DB;\n"
+"}")
+        self.KeepAlive_lineEdit.setPlaceholderText("")
+        self.KeepAlive_lineEdit.setObjectName("KeepAlive_lineEdit")
+        self.gridLayout.addWidget(self.splitter, 3, 0, 1, 1)
         self.splitter_7 = QtWidgets.QSplitter(self.EMQ_Setting_groupBox)
         self.splitter_7.setOrientation(QtCore.Qt.Horizontal)
         self.splitter_7.setObjectName("splitter_7")
@@ -275,37 +249,6 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.PublishTopic_lineEdit.setPlaceholderText("")
         self.PublishTopic_lineEdit.setObjectName("PublishTopic_lineEdit")
         self.gridLayout.addWidget(self.splitter_7, 2, 2, 1, 1)
-        self.splitter = QtWidgets.QSplitter(self.EMQ_Setting_groupBox)
-        self.splitter.setOrientation(QtCore.Qt.Horizontal)
-        self.splitter.setObjectName("splitter")
-        self.label_8 = QtWidgets.QLabel(self.splitter)
-        self.label_8.setMinimumSize(QtCore.QSize(100, 37))
-        self.label_8.setStyleSheet("QFrame, QLabel, QToolTip {\n"
-"   /* border: 2px solid blue;*/\n"
-"    border-radius: 4px;\n"
-"    padding: 2px;\n"
-"    font-family:\"微软雅黑\";\n"
-"    font-size:13px;\n"
-"    font-weight:bold;\n"
-"}")
-        self.label_8.setObjectName("label_8")
-        self.KeepAlive_lineEdit = QtWidgets.QLineEdit(self.splitter)
-        self.KeepAlive_lineEdit.setMinimumSize(QtCore.QSize(270, 37))
-        self.KeepAlive_lineEdit.setStyleSheet("QLineEdit{\n"
-"    border-style:none;\n"
-"    padding:6px;\n"
-"    border-radius:5px;\n"
-"    border:2px solid #DCE4EC;\n"
-"    font-family:\"微软雅黑\";\n"
-"    font-size:13px;\n"
-"}\n"
-"\n"
-"QLineEdit:focus{\n"
-"    border:2px solid #3498DB;\n"
-"}")
-        self.KeepAlive_lineEdit.setPlaceholderText("")
-        self.KeepAlive_lineEdit.setObjectName("KeepAlive_lineEdit")
-        self.gridLayout.addWidget(self.splitter, 3, 0, 1, 1)
         self.splitter_8 = QtWidgets.QSplitter(self.EMQ_Setting_groupBox)
         self.splitter_8.setOrientation(QtCore.Qt.Horizontal)
         self.splitter_8.setObjectName("splitter_8")
@@ -338,6 +281,78 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.SubTopic_lineEdit.setPlaceholderText("")
         self.SubTopic_lineEdit.setObjectName("SubTopic_lineEdit")
         self.gridLayout.addWidget(self.splitter_8, 3, 2, 1, 1)
+        self.splitter_4 = QtWidgets.QSplitter(self.EMQ_Setting_groupBox)
+        self.splitter_4.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_4.setObjectName("splitter_4")
+        self.label_2 = QtWidgets.QLabel(self.splitter_4)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.label_2.sizePolicy().hasHeightForWidth())
+        self.label_2.setSizePolicy(sizePolicy)
+        self.label_2.setMinimumSize(QtCore.QSize(100, 37))
+        self.label_2.setStyleSheet("QFrame, QLabel, QToolTip {\n"
+"   /* border: 2px solid blue;*/\n"
+"    border-radius: 4px;\n"
+"    padding: 2px;\n"
+"    font-family:\"微软雅黑\";\n"
+"    font-size:13px;\n"
+"    font-weight:bold;\n"
+"}")
+        self.label_2.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.label_2.setObjectName("label_2")
+        self.Host_lineEdit = QtWidgets.QLineEdit(self.splitter_4)
+        self.Host_lineEdit.setMinimumSize(QtCore.QSize(270, 30))
+        font = QtGui.QFont()
+        font.setFamily("微软雅黑")
+        font.setPointSize(-1)
+        self.Host_lineEdit.setFont(font)
+        self.Host_lineEdit.setStyleSheet("QLineEdit{\n"
+"    border-style:none;\n"
+"    padding:6px;\n"
+"    border-radius:5px;\n"
+"    border:2px solid #DCE4EC;\n"
+"    font-family:\"微软雅黑\";\n"
+"    font-size:13px;\n"
+"}\n"
+"\n"
+"QLineEdit:focus{\n"
+"    border:2px solid #3498DB;\n"
+"}")
+        self.Host_lineEdit.setPlaceholderText("")
+        self.Host_lineEdit.setObjectName("Host_lineEdit")
+        self.gridLayout.addWidget(self.splitter_4, 0, 0, 1, 1)
+        self.splitter_5 = QtWidgets.QSplitter(self.EMQ_Setting_groupBox)
+        self.splitter_5.setOrientation(QtCore.Qt.Horizontal)
+        self.splitter_5.setObjectName("splitter_5")
+        self.label_5 = QtWidgets.QLabel(self.splitter_5)
+        self.label_5.setMinimumSize(QtCore.QSize(100, 37))
+        self.label_5.setStyleSheet("QFrame, QLabel, QToolTip {\n"
+"   /* border: 2px solid blue;*/\n"
+"    border-radius: 4px;\n"
+"    padding: 2px;\n"
+"    font-family:\"微软雅黑\";\n"
+"    font-size:13px;\n"
+"    font-weight:bold;\n"
+"}")
+        self.label_5.setObjectName("label_5")
+        self.Username_lineEdit = QtWidgets.QLineEdit(self.splitter_5)
+        self.Username_lineEdit.setMinimumSize(QtCore.QSize(270, 37))
+        self.Username_lineEdit.setStyleSheet("QLineEdit{\n"
+"    border-style:none;\n"
+"    padding:6px;\n"
+"    border-radius:5px;\n"
+"    border:2px solid #DCE4EC;\n"
+"    font-family:\"微软雅黑\";\n"
+"    font-size:13px;\n"
+"}\n"
+"\n"
+"QLineEdit:focus{\n"
+"    border:2px solid #3498DB;\n"
+"}")
+        self.Username_lineEdit.setPlaceholderText("")
+        self.Username_lineEdit.setObjectName("Username_lineEdit")
+        self.gridLayout.addWidget(self.splitter_5, 0, 2, 1, 1)
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem, 0, 1, 1, 1)
         self.R_S_Data_groupBox = QtWidgets.QGroupBox(self.centralwidget)
@@ -378,10 +393,6 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "}\n"
 "")
         self.EMQ_Data_textEdit.setObjectName("EMQ_Data_textEdit")
-        self.Save_Log_checkBox = QtWidgets.QCheckBox(self.R_S_Data_groupBox)
-        self.Save_Log_checkBox.setGeometry(QtCore.QRect(340, 600, 91, 31))
-        self.Save_Log_checkBox.setStyleSheet("")
-        self.Save_Log_checkBox.setObjectName("Save_Log_checkBox")
         self.Rec_Data_Clean_Button = QtWidgets.QPushButton(self.R_S_Data_groupBox)
         self.Rec_Data_Clean_Button.setGeometry(QtCore.QRect(440, 600, 93, 28))
         self.Rec_Data_Clean_Button.setStyleSheet("QPushButton{    \n"
@@ -407,6 +418,31 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "border-color: navy;/* make the default button prominent */\n"
 "}")
         self.Rec_Data_Clean_Button.setObjectName("Rec_Data_Clean_Button")
+        self.Save_Log_checkBox = QtWidgets.QCheckBox(self.R_S_Data_groupBox)
+        self.Save_Log_checkBox.setGeometry(QtCore.QRect(10, 600, 121, 31))
+        self.Save_Log_checkBox.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.Save_Log_checkBox.setStyleSheet("/*RadioButton和checkbox字体和间距设置*/\n"
+"QRadioButton ,QCheckBox{\n"
+"    spacing: 5px;\n"
+"    font-size: 15px;\n"
+"}\n"
+"/*checkbox样式设置*/\n"
+"QCheckBox::indicator { \n"
+"    width: 26px;\n"
+"    height: 50px;\n"
+"}\n"
+"/*未选中*/\n"
+"QCheckBox::indicator::unchecked {   \n"
+"    image: url(./images/checkbox_unchecked.png);\n"
+"}\n"
+"/*选中*/\n"
+"QCheckBox::indicator::checked { \n"
+"    image: url(./images/checkbox_checked.png);\n"
+"}")
+        self.Save_Log_checkBox.setIconSize(QtCore.QSize(40, 40))
+        self.Save_Log_checkBox.setChecked(True)
+        self.Save_Log_checkBox.setTristate(False)
+        self.Save_Log_checkBox.setObjectName("Save_Log_checkBox")
         self.Command_groupBox = QtWidgets.QGroupBox(self.centralwidget)
         self.Command_groupBox.setGeometry(QtCore.QRect(620, 290, 541, 641))
         font = QtGui.QFont()
@@ -566,7 +602,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.Command_Send_Button.setObjectName("Command_Send_Button")
         JT_EMQ_Test_Assistant.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(JT_EMQ_Test_Assistant)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1199, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1198, 23))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
@@ -617,30 +653,31 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.Connect_EMQ_Button.setText(_translate("JT_EMQ_Test_Assistant", "Connect to EMQ"))
         self.Emq_connect_lable.setText(_translate("JT_EMQ_Test_Assistant", "EMQ Disconnect"))
         self.EMQ_Setting_groupBox.setTitle(_translate("JT_EMQ_Test_Assistant", "EMQ Setting"))
-        self.label_2.setText(_translate("JT_EMQ_Test_Assistant", "Host:"))
-        self.Host_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "139.159.163.25"))
-        self.label_5.setText(_translate("JT_EMQ_Test_Assistant", "Username:"))
-        self.Username_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "eie-device"))
         self.label_3.setText(_translate("JT_EMQ_Test_Assistant", "Port:"))
         self.Port_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "8083"))
         self.label_6.setText(_translate("JT_EMQ_Test_Assistant", "Password:"))
         self.Password_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "Eie_28918499"))
         self.label_4.setText(_translate("JT_EMQ_Test_Assistant", "Client ID:"))
         self.ClientID_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "mqtt_test_assistant"))
-        self.label_9.setText(_translate("JT_EMQ_Test_Assistant", "Publish Topic: "))
-        self.PublishTopic_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "EIE/out/00000000/00000001"))
         self.label_8.setText(_translate("JT_EMQ_Test_Assistant", "Keep Alive:"))
         self.KeepAlive_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "120"))
+        self.label_9.setText(_translate("JT_EMQ_Test_Assistant", "Publish Topic: "))
+        self.PublishTopic_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "EIE/out/00000000/00000001"))
         self.label_10.setText(_translate("JT_EMQ_Test_Assistant", "Subscribe Topic: "))
         self.SubTopic_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "EIE/in/00000000/00000001"))
+        self.label_2.setText(_translate("JT_EMQ_Test_Assistant", "Host:"))
+        self.Host_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "139.159.163.25"))
+        self.label_5.setText(_translate("JT_EMQ_Test_Assistant", "Username:"))
+        self.Username_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "eie-device"))
         self.R_S_Data_groupBox.setTitle(_translate("JT_EMQ_Test_Assistant", "Receive + Send Data "))
         self.EMQ_Data_textEdit.setHtml(_translate("JT_EMQ_Test_Assistant", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:\'Calibri\'; font-size:11pt; font-weight:600; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'Calibir\'; font-size:12pt; font-weight:400;\"><br /></p></body></html>"))
-        self.Save_Log_checkBox.setText(_translate("JT_EMQ_Test_Assistant", "Save log"))
         self.Rec_Data_Clean_Button.setText(_translate("JT_EMQ_Test_Assistant", "Clean"))
+        self.Save_Log_checkBox.setText(_translate("JT_EMQ_Test_Assistant", "Save log"))
+        self.Save_Log_checkBox.setShortcut(_translate("JT_EMQ_Test_Assistant", "Ctrl+R"))
         self.Command_groupBox.setTitle(_translate("JT_EMQ_Test_Assistant", "Command List"))
         item = self.Command_list_tableWidget.verticalHeaderItem(0)
         item.setText(_translate("JT_EMQ_Test_Assistant", "1"))

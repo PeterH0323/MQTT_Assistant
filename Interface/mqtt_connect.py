@@ -35,6 +35,8 @@ class MqttSetting:
     publish_topic = 'EIE/out/00000000/0000000C'
     subscribe_topic = 'EIE/in/00000000/0000000C'
 
+    save_log_flag = False
+
 
 def generate_client_id():
     MqttSetting.client_id = 'mqtt_assistant_'
@@ -60,22 +62,28 @@ class MqttClient:
         self.client.on_disconnect = self.on_disconnect
 
     def on_connect(self, client, userdata, flags, rc):
-        storedToLog.info("Connected with result code " + str(rc))
+        if MqttSetting.save_log_flag:
+            storedToLog.info("Connected with result code " + str(rc))
 
     def on_disconnect(self, client, userdata, rc):
-        storedToLog.info("Disconnected with result code " + str(rc))
+        if MqttSetting.save_log_flag:
+            storedToLog.info("Disconnected with result code " + str(rc))
 
     def on_publish(self, topic, payload):
         self.client.publish(topic, payload)
         send_time = datetime.datetime.now().strftime(TimeFormat)
         MqttClient.message_temp = "【" + str(send_time) + "】" + "Send -> " + payload
-        storedToLog.info("Send->" + topic + " -> " + str(payload))
+
+        if MqttSetting.save_log_flag:
+            storedToLog.info("Send->" + topic + " -> " + str(payload))
 
     def on_message(self, client, userdata, msg):
         receive_time = datetime.datetime.now().strftime(TimeFormat)
         MqttClient.message_temp = "【" + str(receive_time) + "】" + " Rec -> " + str(msg.payload)
-        print('receive new message from ' + msg.topic + " -> " + str(msg.payload))
-        storedToLog.info("Rec->" + msg.topic + " -> " + str(msg.payload))
+        # print('receive new message from ' + msg.topic + " -> " + str(msg.payload))
+
+        if MqttSetting.save_log_flag:
+            storedToLog.info("Rec->" + msg.topic + " -> " + str(msg.payload))
 
     def mqtt_loop_start(self):
         self.client.loop_start()

@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1199</width>
-    <height>1015</height>
+    <width>1198</width>
+    <height>1005</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,8 +20,23 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color:white;
+   <string notr="true">QMainWindow	{
+	background-color:white;
+}
 
+/*
+QStatusBar {
+    border: 1px solid #32414B;
+}
+
+QStatusBar QToolTip {
+    background-color: #148CD2;
+    border: 1px solid #19232D;
+    color: #19232D;
+    padding: 0;   //remove padding, for fix combo box tooltip
+    opacity: 230; //reducing transparency to read better
+}
+*/
 </string>
   </property>
   <property name="iconSize">
@@ -131,133 +146,6 @@ QGroupBox::title {
      <string>EMQ Setting</string>
     </property>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="0" column="0">
-      <widget class="QSplitter" name="splitter_4">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <widget class="QLabel" name="label_2">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>37</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QFrame, QLabel, QToolTip {
-   /* border: 2px solid blue;*/
-    border-radius: 4px;
-    padding: 2px;
-	font-family:&quot;微软雅黑&quot;;
-	font-size:13px;
-	font-weight:bold;
-}</string>
-        </property>
-        <property name="text">
-         <string>Host:</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="Host_lineEdit">
-        <property name="minimumSize">
-         <size>
-          <width>270</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>微软雅黑</family>
-          <pointsize>-1</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-	border-style:none;
-	padding:6px;
-	border-radius:5px;
-	border:2px solid #DCE4EC;
-	font-family:&quot;微软雅黑&quot;;
-	font-size:13px;
-}
-
-QLineEdit:focus{
-	border:2px solid #3498DB;
-}</string>
-        </property>
-        <property name="text">
-         <string>139.159.163.25</string>
-        </property>
-        <property name="placeholderText">
-         <string/>
-        </property>
-       </widget>
-      </widget>
-     </item>
-     <item row="0" column="2">
-      <widget class="QSplitter" name="splitter_5">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <widget class="QLabel" name="label_5">
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>37</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QFrame, QLabel, QToolTip {
-   /* border: 2px solid blue;*/
-    border-radius: 4px;
-    padding: 2px;
-	font-family:&quot;微软雅黑&quot;;
-	font-size:13px;
-	font-weight:bold;
-}</string>
-        </property>
-        <property name="text">
-         <string>Username:</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="Username_lineEdit">
-        <property name="minimumSize">
-         <size>
-          <width>270</width>
-          <height>37</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-	border-style:none;
-	padding:6px;
-	border-radius:5px;
-	border:2px solid #DCE4EC;
-	font-family:&quot;微软雅黑&quot;;
-	font-size:13px;
-}
-
-QLineEdit:focus{
-	border:2px solid #3498DB;
-}</string>
-        </property>
-        <property name="text">
-         <string>eie-device</string>
-        </property>
-        <property name="placeholderText">
-         <string/>
-        </property>
-       </widget>
-      </widget>
-     </item>
      <item row="1" column="0">
       <widget class="QSplitter" name="splitter_3">
        <property name="orientation">
@@ -432,6 +320,62 @@ QLineEdit:focus{
        </widget>
       </widget>
      </item>
+     <item row="3" column="0">
+      <widget class="QSplitter" name="splitter">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QLabel" name="label_8">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>37</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame, QLabel, QToolTip {
+   /* border: 2px solid blue;*/
+    border-radius: 4px;
+    padding: 2px;
+	font-family:&quot;微软雅黑&quot;;
+	font-size:13px;
+	font-weight:bold;
+}</string>
+        </property>
+        <property name="text">
+         <string>Keep Alive:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="KeepAlive_lineEdit">
+        <property name="minimumSize">
+         <size>
+          <width>270</width>
+          <height>37</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+	border-style:none;
+	padding:6px;
+	border-radius:5px;
+	border:2px solid #DCE4EC;
+	font-family:&quot;微软雅黑&quot;;
+	font-size:13px;
+}
+
+QLineEdit:focus{
+	border:2px solid #3498DB;
+}</string>
+        </property>
+        <property name="text">
+         <string>120</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
      <item row="2" column="2">
       <widget class="QSplitter" name="splitter_7">
        <property name="orientation">
@@ -494,62 +438,6 @@ QLineEdit:focus{
        </widget>
       </widget>
      </item>
-     <item row="3" column="0">
-      <widget class="QSplitter" name="splitter">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <widget class="QLabel" name="label_8">
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>37</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QFrame, QLabel, QToolTip {
-   /* border: 2px solid blue;*/
-    border-radius: 4px;
-    padding: 2px;
-	font-family:&quot;微软雅黑&quot;;
-	font-size:13px;
-	font-weight:bold;
-}</string>
-        </property>
-        <property name="text">
-         <string>Keep Alive:</string>
-        </property>
-       </widget>
-       <widget class="QLineEdit" name="KeepAlive_lineEdit">
-        <property name="minimumSize">
-         <size>
-          <width>270</width>
-          <height>37</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QLineEdit{
-	border-style:none;
-	padding:6px;
-	border-radius:5px;
-	border:2px solid #DCE4EC;
-	font-family:&quot;微软雅黑&quot;;
-	font-size:13px;
-}
-
-QLineEdit:focus{
-	border:2px solid #3498DB;
-}</string>
-        </property>
-        <property name="text">
-         <string>120</string>
-        </property>
-        <property name="placeholderText">
-         <string/>
-        </property>
-       </widget>
-      </widget>
-     </item>
      <item row="3" column="2">
       <widget class="QSplitter" name="splitter_8">
        <property name="orientation">
@@ -605,6 +493,133 @@ QLineEdit:focus{
         </property>
         <property name="text">
          <string>EIE/in/00000000/00000001</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QSplitter" name="splitter_4">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QLabel" name="label_2">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>37</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame, QLabel, QToolTip {
+   /* border: 2px solid blue;*/
+    border-radius: 4px;
+    padding: 2px;
+	font-family:&quot;微软雅黑&quot;;
+	font-size:13px;
+	font-weight:bold;
+}</string>
+        </property>
+        <property name="text">
+         <string>Host:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="Host_lineEdit">
+        <property name="minimumSize">
+         <size>
+          <width>270</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+	border-style:none;
+	padding:6px;
+	border-radius:5px;
+	border:2px solid #DCE4EC;
+	font-family:&quot;微软雅黑&quot;;
+	font-size:13px;
+}
+
+QLineEdit:focus{
+	border:2px solid #3498DB;
+}</string>
+        </property>
+        <property name="text">
+         <string>139.159.163.25</string>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QSplitter" name="splitter_5">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QLabel" name="label_5">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>37</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QFrame, QLabel, QToolTip {
+   /* border: 2px solid blue;*/
+    border-radius: 4px;
+    padding: 2px;
+	font-family:&quot;微软雅黑&quot;;
+	font-size:13px;
+	font-weight:bold;
+}</string>
+        </property>
+        <property name="text">
+         <string>Username:</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="Username_lineEdit">
+        <property name="minimumSize">
+         <size>
+          <width>270</width>
+          <height>37</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLineEdit{
+	border-style:none;
+	padding:6px;
+	border-radius:5px;
+	border:2px solid #DCE4EC;
+	font-family:&quot;微软雅黑&quot;;
+	font-size:13px;
+}
+
+QLineEdit:focus{
+	border:2px solid #3498DB;
+}</string>
+        </property>
+        <property name="text">
+         <string>eie-device</string>
         </property>
         <property name="placeholderText">
          <string/>
@@ -699,22 +714,6 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Calibir'; font-size:12pt; font-weight:400;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
-    <widget class="QCheckBox" name="Save_Log_checkBox">
-     <property name="geometry">
-      <rect>
-       <x>340</x>
-       <y>600</y>
-       <width>91</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="styleSheet">
-      <string notr="true"/>
-     </property>
-     <property name="text">
-      <string>Save log</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="Rec_Data_Clean_Button">
      <property name="geometry">
       <rect>
@@ -750,6 +749,57 @@ border-color: navy;/* make the default button prominent */
      </property>
      <property name="text">
       <string>Clean</string>
+     </property>
+    </widget>
+    <widget class="QCheckBox" name="Save_Log_checkBox">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>600</y>
+       <width>121</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">/*RadioButton和checkbox字体和间距设置*/
+QRadioButton ,QCheckBox{
+    spacing: 5px;
+    font-size: 15px;
+}
+/*checkbox样式设置*/
+QCheckBox::indicator { 
+    width: 26px;
+    height: 50px;
+}
+/*未选中*/
+QCheckBox::indicator::unchecked {   
+    image: url(./images/checkbox_unchecked.png);
+}
+/*选中*/
+QCheckBox::indicator::checked { 
+    image: url(./images/checkbox_checked.png);
+}</string>
+     </property>
+     <property name="text">
+      <string>Save log</string>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>40</width>
+       <height>40</height>
+      </size>
+     </property>
+     <property name="shortcut">
+      <string>Ctrl+R</string>
+     </property>
+     <property name="checked">
+      <bool>true</bool>
+     </property>
+     <property name="tristate">
+      <bool>false</bool>
      </property>
     </widget>
    </widget>
@@ -1027,7 +1077,7 @@ border-color: navy;/* make the default button prominent */
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1199</width>
+     <width>1198</width>
      <height>23</height>
     </rect>
    </property>
