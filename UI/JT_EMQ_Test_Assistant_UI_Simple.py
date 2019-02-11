@@ -352,6 +352,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         font.setBold(True)
         font.setWeight(75)
         self.Connect_EMQ_Button.setFont(font)
+        self.Connect_EMQ_Button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.Connect_EMQ_Button.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.Connect_EMQ_Button.setStyleSheet("QPushButton{\n"
 "    background-color:#16A085;\n"
@@ -442,7 +443,9 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.Save_Log_checkBox.setStyleSheet("/*RadioButton和checkbox字体和间距设置*/\n"
 "QRadioButton ,QCheckBox{\n"
 "    spacing: 5px;\n"
-"    font-size: 15px;\n"
+"    font-family: \"Calibri\";\n"
+"    font-weight:bold;\n"
+"    font-size:15px\n"
 "}\n"
 "/*checkbox样式设置*/\n"
 "QCheckBox::indicator { \n"
@@ -467,6 +470,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.Rec_Data_Clean_Button = QtWidgets.QPushButton(self.R_S_Data_groupBox)
         self.Rec_Data_Clean_Button.setMinimumSize(QtCore.QSize(84, 28))
         self.Rec_Data_Clean_Button.setMaximumSize(QtCore.QSize(91, 28))
+        self.Rec_Data_Clean_Button.setCursor(QtGui.QCursor(QtCore.Qt.UpArrowCursor))
         self.Rec_Data_Clean_Button.setStyleSheet("QPushButton{    \n"
 "    border:2px solid #8f8f91;\n"
 "    border-radius:6px;\n"
@@ -495,7 +499,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.gridLayout_3.addWidget(self.R_S_Data_groupBox, 0, 1, 2, 1)
         self.Command_groupBox = QtWidgets.QGroupBox(self.widget)
         self.Command_groupBox.setMinimumSize(QtCore.QSize(541, 0))
-        self.Command_groupBox.setMaximumSize(QtCore.QSize(600, 16777215))
+        self.Command_groupBox.setMaximumSize(QtCore.QSize(1000, 16777215))
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(11)
@@ -519,8 +523,76 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.gridLayout_4 = QtWidgets.QGridLayout(self.Command_groupBox)
         self.gridLayout_4.setObjectName("gridLayout_4")
         self.Command_list_tableWidget = QtWidgets.QTableWidget(self.Command_groupBox)
+        self.Command_list_tableWidget.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.Command_list_tableWidget.setAutoFillBackground(False)
+        self.Command_list_tableWidget.setStyleSheet("/* 标题头 每个单独的标题区域*/\n"
+"QHeaderView::section {\n"
+"\n"
+"    font-size:14px;                /* 每个标题的字体大小*/\n"
+"    font-family:\"Microsoft YaHei\"; /* 每个标题的字体类型*/\n"
+"    color:#FFFFFF;                 /* 每个标题的字体颜色*/\n"
+"\n"
+"    background:#60669B;            /* 每个标题区域的背景色*/\n"
+"    border:none;                   /* 每个标题区域的边框*/\n"
+"\n"
+"    min-height:49px;               /* 标题区域的高度*/\n"
+"    max-height:49px;              \n"
+"\n"
+"    margin-left:0px;               /* 每个标题区域的margin*/\n"
+"    padding-left:0px;              /* 每个标题区域的padding*/\n"
+"}\n"
+"\n"
+"/* 整个表格控件*/\n"
+"QTableWidget{\n"
+"    background:#FFFFFF;            /* 整个表格控件 背景色*/\n"
+"    border:none;                   /* 整个表格控件 边框*/\n"
+"\n"
+"    font-size:12px;                /* 所有字体大小*/\n"
+"    font-family:\"Microsoft YaHei\"; /* 所有字体 family*/\n"
+"    color:#666666;                 /* 所有字体颜色*/\n"
+"}\n"
+"\n"
+"/* 每个单元格*/\n"
+"QTableWidget::item {\n"
+"    border-bottom:1px solid #EEF1F7 ; /* 只显示每个单元格下边框*/\n"
+"}\n"
+"\n"
+"/* 每个单元格被选中状态*/\n"
+"QTableWidget::item::selected {\n"
+"    color:red;                        /* 每个单元格被选中时 字体颜色*/\n"
+"    background:#EFF4FF;               /* 每个单元格被选中时 背景颜色*/\n"
+"}\n"
+"\n"
+" /* 垂直滚动条 handle*/\n"
+"QScrollBar::handle:vertical{\n"
+"    background: rgba(255,255,255,20%); /* 垂直滚动条 handle 的背景色*/\n"
+"    border: 0px solid grey;            /* 垂直滚动条 handle 边框*/\n"
+"    border-radius:3px;                 /* 垂直滚动条 handle 圆角*/\n"
+"    width: 8px;                        /* 垂直滚动条 handle 宽度*/\n"
+"}\n"
+"\n"
+"/* 垂直滚动条 区域*/\n"
+"QScrollBar::vertical {\n"
+"    border-width:1px;                       /* 垂直滚动条 区域 边框宽度*/\n"
+"    border-style: solid;                    /* 垂直滚动条 区域 边框类型*/\n"
+"    border-color: rgba(255, 255, 255, 10%); /* 垂直滚动条 区域 边框颜色*/\n"
+"    width: 8px;                             /* 垂直滚动条 区域 宽度*/\n"
+"    margin:0px 0px 0px 0px;                 /* 垂直滚动条 区域 margin*/\n"
+"    border-radius:3px;                      /* 垂直滚动条 区域 圆角*/\n"
+"}\n"
+"\n"
+"/* 垂直滚动条  handle上、下区域（未被handle占用的区域）*/\n"
+"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+"    background:rgba(255,255,255,10%);                            /* 垂直滚动条 handle上、下区域的背景色*/\n"
+"}\n"
+"\n"
+" /* 垂直滚动条 最顶端与最低端的区域*/\n"
+"QScollBar::add-line:vertical, QScrollBar::sub-line:vertical {\n"
+"    background:transparent;                                      /* 垂直滚动条 最顶端与最低端区域的背景色*/\n"
+"}\n"
+"")
         self.Command_list_tableWidget.setObjectName("Command_list_tableWidget")
-        self.Command_list_tableWidget.setColumnCount(4)
+        self.Command_list_tableWidget.setColumnCount(5)
         self.Command_list_tableWidget.setRowCount(2)
         item = QtWidgets.QTableWidgetItem()
         self.Command_list_tableWidget.setVerticalHeaderItem(0, item)
@@ -534,6 +606,29 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.Command_list_tableWidget.setHorizontalHeaderItem(2, item)
         item = QtWidgets.QTableWidgetItem()
         self.Command_list_tableWidget.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.Command_list_tableWidget.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.Command_list_tableWidget.setItem(0, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.Command_list_tableWidget.setItem(0, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.Command_list_tableWidget.setItem(0, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.Command_list_tableWidget.setItem(0, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.Command_list_tableWidget.setItem(0, 4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.Command_list_tableWidget.setItem(1, 0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.Command_list_tableWidget.setItem(1, 1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.Command_list_tableWidget.setItem(1, 2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.Command_list_tableWidget.setItem(1, 3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.Command_list_tableWidget.setItem(1, 4, item)
+        self.Command_list_tableWidget.horizontalHeader().setMinimumSectionSize(25)
         self.gridLayout_4.addWidget(self.Command_list_tableWidget, 1, 0, 1, 2)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
@@ -731,6 +826,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.KeepAlive_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "120"))
         self.label_3.setText(_translate("JT_EMQ_Test_Assistant", "Port:"))
         self.Port_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "8083"))
+        self.Connect_EMQ_Button.setToolTip(_translate("JT_EMQ_Test_Assistant", "Connect to EMQ"))
         self.Connect_EMQ_Button.setStatusTip(_translate("JT_EMQ_Test_Assistant", "Connect to EMQ accroding to setting"))
         self.Connect_EMQ_Button.setText(_translate("JT_EMQ_Test_Assistant", "Connect to EMQ"))
         self.Emq_connect_lable.setText(_translate("JT_EMQ_Test_Assistant", "EMQ Disconnect"))
@@ -749,13 +845,38 @@ class Ui_JT_EMQ_Test_Assistant(object):
         item = self.Command_list_tableWidget.verticalHeaderItem(1)
         item.setText(_translate("JT_EMQ_Test_Assistant", "2"))
         item = self.Command_list_tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("JT_EMQ_Test_Assistant", "Command Name"))
+        item.setText(_translate("JT_EMQ_Test_Assistant", "No."))
         item = self.Command_list_tableWidget.horizontalHeaderItem(1)
-        item.setText(_translate("JT_EMQ_Test_Assistant", "Data"))
-        item = self.Command_list_tableWidget.horizontalHeaderItem(2)
-        item.setText(_translate("JT_EMQ_Test_Assistant", "Intervals(ms)"))
-        item = self.Command_list_tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("JT_EMQ_Test_Assistant", "Activate"))
+        item = self.Command_list_tableWidget.horizontalHeaderItem(2)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "Delay_ms"))
+        item = self.Command_list_tableWidget.horizontalHeaderItem(3)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "Name"))
+        item = self.Command_list_tableWidget.horizontalHeaderItem(4)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "Data"))
+        __sortingEnabled = self.Command_list_tableWidget.isSortingEnabled()
+        self.Command_list_tableWidget.setSortingEnabled(False)
+        item = self.Command_list_tableWidget.item(0, 0)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "1"))
+        item = self.Command_list_tableWidget.item(0, 1)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "True"))
+        item = self.Command_list_tableWidget.item(0, 2)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "1000"))
+        item = self.Command_list_tableWidget.item(0, 3)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "修改从机地址"))
+        item = self.Command_list_tableWidget.item(0, 4)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "xxx"))
+        item = self.Command_list_tableWidget.item(1, 0)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "3"))
+        item = self.Command_list_tableWidget.item(1, 1)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "True"))
+        item = self.Command_list_tableWidget.item(1, 2)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "1000"))
+        item = self.Command_list_tableWidget.item(1, 3)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "修改心跳包间隔"))
+        item = self.Command_list_tableWidget.item(1, 4)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "xxx"))
+        self.Command_list_tableWidget.setSortingEnabled(__sortingEnabled)
         self.Command_Activate_Button.setText(_translate("JT_EMQ_Test_Assistant", "Activate"))
         self.Command_Add_Button.setText(_translate("JT_EMQ_Test_Assistant", "Add"))
         self.Command_Del_Button.setText(_translate("JT_EMQ_Test_Assistant", "Del"))

@@ -79,7 +79,7 @@ class MqttClient:
 
     def on_message(self, client, userdata, msg):
         receive_time = datetime.datetime.now().strftime(TimeFormat)
-        MqttClient.message_temp = "【" + str(receive_time) + "】" + " Rec -> " + str(msg.payload)
+        MqttClient.message_temp = "【" + str(receive_time) + "】" + "Rec -> " + str(msg.payload)
         # print('receive new message from ' + msg.topic + " -> " + str(msg.payload))
 
         if MqttSetting.save_log_flag:

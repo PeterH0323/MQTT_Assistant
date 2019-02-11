@@ -11,6 +11,7 @@
 
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *  # QMainWindow, QApplication, QDialog, QWidget, QMessageBox
+from PyQt5.QtGui import QCursor
 
 from UI.JT_EMQ_Test_Assistant_UI_Simple import Ui_JT_EMQ_Test_Assistant
 
@@ -30,7 +31,26 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
         self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
 
-        self.Command_list_tableWidget.setEnabled(False)
+
+        self.Command_list_tableWidget.setColumnWidth(0, 50)  # Set table width
+        self.Command_list_tableWidget.setColumnWidth(1, 80)
+        self.Command_list_tableWidget.setColumnWidth(2, 80)
+        self.Command_list_tableWidget.setColumnWidth(3, 150)
+
+        # Table cover the blank
+        self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+
+        # Enable manually adjust column width
+        self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(0, QHeaderView.Interactive)
+        self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(1, QHeaderView.Interactive)
+        self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(2, QHeaderView.Interactive)
+        self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(3, QHeaderView.Interactive)
+
+        # self.Command_list_tableWidget.setEnabled(False)
+        self.Command_Add_Button.setEnabled(False)
+        self.Command_Del_Button.setEnabled(False)
+
+
 
         self.Host_lineEdit.setInputMask("000.000.000.000")
 
@@ -39,6 +59,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.Rec_Data_Clean_Button.clicked.connect(self.rec_data_clean_button_clicked)
         self.Command_Send_Button.clicked.connect(self.command_send_button_clicked)
         self.Save_Log_checkBox.stateChanged.connect(self.save_log_checkbox_state_changed)
+
+        # self.Rec_Data_Clean_Button.setCursor(QCursor(Qt.PointingHandCursor))
 
         self.mqttDataHandlerThread = MqttDataHandlerThread()
         self.mqttDataHandlerThread.messageTrigger.connect(self.add_messages)
