@@ -41,7 +41,7 @@ class MqttSetting:
 def generate_client_id():
     MqttSetting.client_id = 'mqtt_assistant_'
 
-    for i in range(0, 4):
+    for i in range(0, 5):
         MqttSetting.client_id += random.choice(string.digits + string.ascii_letters)
 
     print("client_id = ", MqttSetting.client_id)
