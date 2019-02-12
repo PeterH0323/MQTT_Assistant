@@ -77,11 +77,12 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
              PyQt Slot connect
         '''
         self.Connect_EMQ_Button.clicked.connect(self.connect_emq_button_clicked)
-        self.Command_Activate_Button.clicked.connect(self.command_activate_button_clicked)
+        self.Command_Activate_Button.stateChanged.connect(self.command_activate_button_state_changed)
         self.Rec_Data_Clean_Button.clicked.connect(self.rec_data_clean_button_clicked)
         self.Command_Send_Button.clicked.connect(self.command_send_button_clicked)
         self.Save_Log_checkBox.stateChanged.connect(self.save_log_checkbox_state_changed)
         self.Command_Add_Button.clicked.connect(self.command_add_button_clicked)
+        self.Command_Single_Send_Button.clicked.connect(self.command_single_send_button_clicked)
 
         # self.Rec_Data_Clean_Button.setCursor(QCursor(Qt.PointingHandCursor))
 
@@ -147,8 +148,11 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             #       mqtt_connect.MqttSetting.subscribe_topic)
 
             self.EMQ_Setting_groupBox.setEnabled(False)
-            self.Command_Activate_Button.setEnabled(True)
             self.Command_Send_Button.setEnabled(True)
+
+            row = self.Command_list_tableWidget.rowCount()
+            if row > 0:
+                self.Command_Activate_Button.setEnabled(True)
 
             save_load_info(mqtt_connect.MqttSetting, "Save")
 
@@ -188,10 +192,17 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             self.mqttDataHandlerThread.running = False
 
     @pyqtSlot()
-    def command_activate_button_clicked(self):
+    def command_activate_button_state_changed(self):
 
-        # print('publish_topic = ' + mqtt_connect.MqttSetting.publish_topic)
-        mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, "Test PUBLISH")
+        # mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, "Test PUBLISH")
+
+        item = self.Command_list_tableWidget.item(0, 0)
+        print(item.checkState())
+
+        if self.Command_Activate_Button.isChecked():
+            print("Command_Activate_Button.isChecked")
+        else:
+            print("Command_Activate_Button.is unChecked")
 
     @pyqtSlot()
     def command_send_button_clicked(self):
@@ -202,6 +213,15 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
     @pyqtSlot()
     def rec_data_clean_button_clicked(self):
         self.EMQ_Data_textEdit.clear()
+
+    @pyqtSlot()
+    def command_single_send_button_clicked(self):
+
+        # get selected row
+        selected_row = self.Command_list_tableWidget.currentRow()
+        data_send = self.Command_list_tableWidget.item(selected_row, 3).text()
+        mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, data_send)
+
 
     @pyqtSlot()
     def save_log_checkbox_state_changed(self):
@@ -215,6 +235,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
     @pyqtSlot()
     def command_add_button_clicked(self):
+
+        self.Command_Activate_Button.setEnabled(True)
 
         row = self.Command_list_tableWidget.rowCount()
         self.Command_list_tableWidget.setRowCount(row + 1)

@@ -606,11 +606,36 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.gridLayout_4.addWidget(self.Command_list_tableWidget, 1, 0, 1, 2)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.Command_Activate_Button = QtWidgets.QPushButton(self.Command_groupBox)
+        self.Command_Activate_Button = QtWidgets.QCheckBox(self.Command_groupBox)
         self.Command_Activate_Button.setEnabled(False)
-        self.Command_Activate_Button.setMinimumSize(QtCore.QSize(84, 28))
-        self.Command_Activate_Button.setMaximumSize(QtCore.QSize(84, 28))
-        self.Command_Activate_Button.setStyleSheet("QPushButton{    \n"
+        self.Command_Activate_Button.setMinimumSize(QtCore.QSize(90, 28))
+        self.Command_Activate_Button.setMaximumSize(QtCore.QSize(84, 90))
+        self.Command_Activate_Button.setStyleSheet("/*RadioButton和checkbox字体和间距设置*/\n"
+"QRadioButton ,QCheckBox{\n"
+"    spacing: 5px;\n"
+"    font-family: \"Calibri\";\n"
+"    font-weight:bold;\n"
+"    font-size:15px\n"
+"}\n"
+"/*checkbox样式设置*/\n"
+"QCheckBox::indicator { \n"
+"    width: 26px;\n"
+"    height: 50px;\n"
+"}\n"
+"/*未选中*/\n"
+"QCheckBox::indicator::unchecked {   \n"
+"    image: url(./images/checkbox_unchecked.png);\n"
+"}\n"
+"/*选中*/\n"
+"QCheckBox::indicator::checked { \n"
+"    image: url(./images/checkbox_checked.png);\n"
+"}")
+        self.Command_Activate_Button.setObjectName("Command_Activate_Button")
+        self.horizontalLayout_3.addWidget(self.Command_Activate_Button)
+        self.Command_Single_Send_Button = QtWidgets.QPushButton(self.Command_groupBox)
+        self.Command_Single_Send_Button.setMinimumSize(QtCore.QSize(84, 0))
+        self.Command_Single_Send_Button.setMaximumSize(QtCore.QSize(150, 28))
+        self.Command_Single_Send_Button.setStyleSheet("QPushButton{    \n"
 "    border:2px solid #8f8f91;\n"
 "    border-radius:6px;\n"
 "    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#f6f7fa, stop: 1 #dadbde);\n"
@@ -621,8 +646,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"stop:0#dadbde, stop: 1 #f6f7fa);\n"
+"background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#dadbde, stop: 1 #f6f7fa);\n"
 "}\n"
 "\n"
 "QPushButton:flat {\n"
@@ -632,8 +656,8 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "QPushButton:default{\n"
 "border-color: navy;/* make the default button prominent */\n"
 "}")
-        self.Command_Activate_Button.setObjectName("Command_Activate_Button")
-        self.horizontalLayout_3.addWidget(self.Command_Activate_Button)
+        self.Command_Single_Send_Button.setObjectName("Command_Single_Send_Button")
+        self.horizontalLayout_3.addWidget(self.Command_Single_Send_Button)
         spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem8)
         self.Command_Add_Button = QtWidgets.QPushButton(self.Command_groupBox)
@@ -823,6 +847,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         item = self.Command_list_tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("JT_EMQ_Test_Assistant", "Data"))
         self.Command_Activate_Button.setText(_translate("JT_EMQ_Test_Assistant", "Activate"))
+        self.Command_Single_Send_Button.setText(_translate("JT_EMQ_Test_Assistant", "Single send"))
         self.Command_Add_Button.setText(_translate("JT_EMQ_Test_Assistant", "Add"))
         self.Command_Del_Button.setText(_translate("JT_EMQ_Test_Assistant", "Del"))
         self.Command_Send_Button.setText(_translate("JT_EMQ_Test_Assistant", "Send(&Q)"))
