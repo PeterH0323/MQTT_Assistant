@@ -31,7 +31,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
         self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
 
-
         self.Command_list_tableWidget.setColumnWidth(0, 50)  # Set table width
         self.Command_list_tableWidget.setColumnWidth(1, 80)
         self.Command_list_tableWidget.setColumnWidth(2, 80)
@@ -49,8 +48,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         # self.Command_list_tableWidget.setEnabled(False)
         self.Command_Add_Button.setEnabled(False)
         self.Command_Del_Button.setEnabled(False)
-
-
 
         self.Host_lineEdit.setInputMask("000.000.000.000")
 
@@ -185,7 +182,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
         self.EMQ_Data_textEdit.append(message)
         print("add_messages: ->" + message)
-        mqtt_connect.MqttClient.message_temp = ""
+        # mqtt_connect.MqttClient.message_temp = ""
 
     def closeEvent(self, event):
 
@@ -221,7 +218,9 @@ class MqttDataHandlerThread(QThread):
             # self.sleep(1)
             if mqtt_connect.MqttClient.message_temp != "":
                 self.messageTrigger.emit(mqtt_connect.MqttClient.message_temp)
-                time.sleep(0.05)
+                mqtt_connect.MqttClient.message_temp = ""
+
+                # time.sleep(0.05)
 
     def thread_started(self):
         print("mqttDataHandlerThread started")

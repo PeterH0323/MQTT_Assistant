@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1188</width>
-    <height>939</height>
+    <width>1191</width>
+    <height>972</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -282,7 +282,7 @@ QLineEdit:focus{
 }</string>
               </property>
               <property name="text">
-               <string>EIE/out/00000000/00000001</string>
+               <string>EIE/in/00000000/00000001</string>
               </property>
               <property name="placeholderText">
                <string/>
@@ -406,7 +406,7 @@ QLineEdit:focus{
 }</string>
               </property>
               <property name="text">
-               <string>EIE/in/00000000/00000001</string>
+               <string>EIE/out/00000000/00000001</string>
               </property>
               <property name="placeholderText">
                <string/>
@@ -1427,8 +1427,8 @@ QLineEdit:focus{
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1188</width>
-     <height>23</height>
+     <width>1191</width>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

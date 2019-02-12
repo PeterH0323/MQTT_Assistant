@@ -32,8 +32,8 @@ class MqttSetting:
     username = 'eie-device'
     password = 'Eie_28918499'
     keep_alive = 60
-    publish_topic = 'EIE/out/00000000/0000000C'
-    subscribe_topic = 'EIE/in/00000000/0000000C'
+    publish_topic = 'EIE/in/00000000/0000000C'
+    subscribe_topic = 'EIE/out/00000000/0000000C'
 
     save_log_flag = False
 

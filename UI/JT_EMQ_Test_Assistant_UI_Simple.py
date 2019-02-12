@@ -12,7 +12,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
     def setupUi(self, JT_EMQ_Test_Assistant):
         JT_EMQ_Test_Assistant.setObjectName("JT_EMQ_Test_Assistant")
         JT_EMQ_Test_Assistant.setEnabled(True)
-        JT_EMQ_Test_Assistant.resize(1188, 939)
+        JT_EMQ_Test_Assistant.resize(1191, 972)
         JT_EMQ_Test_Assistant.setAutoFillBackground(False)
         JT_EMQ_Test_Assistant.setStyleSheet("QMainWindow    {\n"
 "    background-color:white;\n"
@@ -766,7 +766,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.gridLayout_5.addWidget(self.widget, 1, 0, 1, 1)
         JT_EMQ_Test_Assistant.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(JT_EMQ_Test_Assistant)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1188, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1191, 26))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
@@ -815,11 +815,11 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.label_4.setText(_translate("JT_EMQ_Test_Assistant", "Client ID:"))
         self.ClientID_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "mqtt_test_assistant"))
         self.label_9.setText(_translate("JT_EMQ_Test_Assistant", "Publish Topic: "))
-        self.PublishTopic_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "EIE/out/00000000/00000001"))
+        self.PublishTopic_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "EIE/in/00000000/00000001"))
         self.label_6.setText(_translate("JT_EMQ_Test_Assistant", "Password:"))
         self.Password_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "Eie_28918499"))
         self.label_10.setText(_translate("JT_EMQ_Test_Assistant", "Subscribe Topic: "))
-        self.SubTopic_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "EIE/in/00000000/00000001"))
+        self.SubTopic_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "EIE/out/00000000/00000001"))
         self.label_2.setText(_translate("JT_EMQ_Test_Assistant", "Host:"))
         self.Host_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "139.159.163.25"))
         self.label_8.setText(_translate("JT_EMQ_Test_Assistant", "Keep Alive:"))
