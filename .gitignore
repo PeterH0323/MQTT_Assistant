@@ -1,9 +1,9 @@
 ## Ignore file below:
 
 
-
-
 Log/*
 __pycache__
 .idea
 Data/*
+
+!.gitkeep
