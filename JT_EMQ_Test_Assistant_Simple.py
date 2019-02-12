@@ -16,6 +16,8 @@ from UI.JT_EMQ_Test_Assistant_UI_Simple import Ui_JT_EMQ_Test_Assistant
 
 import Interface.mqtt_connect as mqtt_connect
 import pickle
+import csv
+import sys
 
 TimeFormat = '%H:%M:%S:%f'
 
@@ -83,6 +85,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.Save_Log_checkBox.stateChanged.connect(self.save_log_checkbox_state_changed)
         self.Command_Add_Button.clicked.connect(self.command_add_button_clicked)
         self.Command_Single_Send_Button.clicked.connect(self.command_single_send_button_clicked)
+        self.Command_Del_Button.clicked.connect(self.command_del_button_clicked)
 
         # self.Rec_Data_Clean_Button.setCursor(QCursor(Qt.PointingHandCursor))
 
@@ -222,7 +225,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         data_send = self.Command_list_tableWidget.item(selected_row, 3).text()
         mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, data_send)
 
-
     @pyqtSlot()
     def save_log_checkbox_state_changed(self):
 
@@ -264,6 +266,42 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.EMQ_Data_textEdit.append(message)
         print("add_messages: ->" + message)
         # mqtt_connect.MqttClient.message_temp = ""
+
+    @pyqtSlot()
+    def command_del_button_clicked(self):
+
+        headers = []
+        item = self.Command_list_tableWidget.columnCount()
+        for i in range(0, item):
+            headers.append(self.Command_list_tableWidget.horizontalHeaderItem(i).text())
+        print(headers)
+
+        with open('./Data/Command_List.csv', 'w') as f:
+            f_csv = csv.writer(f)
+            f_csv.writerow(headers)
+
+            for row in range(self.Command_list_tableWidget.rowCount()):
+                row_data = []
+                for column in range(self.Command_list_tableWidget.columnCount()):
+                    item = self.Command_list_tableWidget.item(row, column).text()
+                    row_data.append(item)
+                f_csv.writerow(row_data)
+
+    #
+    # def handleOpen(self):
+    #     path = QtGui.QFileDialog.getOpenFileName(
+    #         self, 'Open File', '', 'CSV(*.csv)')
+    #     if not path.isEmpty():
+    #         with open(unicode(path), 'rb') as stream:
+    #             self.table.setRowCount(0)
+    #             self.table.setColumnCount(0)
+    #             for rowdata in csv.reader(stream):
+    #                 row = self.table.rowCount()
+    #                 self.table.insertRow(row)
+    #                 self.table.setColumnCount(len(rowdata))
+    #                 for column, data in enumerate(rowdata):
+    #                     item = QtGui.QTableWidgetItem(data.decode('utf8'))
+    #                     self.table.setItem(row, column, item)
 
     def closeEvent(self, event):
 
