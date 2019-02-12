@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'JT_EMQ_Test_Assistant_UI_Simple.ui'
+# Form implementation generated from reading ui file 'JT_EMQ_Test_Assistant_UI_Simple_backup.ui'
 #
 # Created by: PyQt5 UI code generator 5.11.3
 #
@@ -497,10 +497,6 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.horizontalLayout_4.addWidget(self.Rec_Data_Clean_Button)
         self.gridLayout_2.addLayout(self.horizontalLayout_4, 1, 0, 1, 1)
         self.gridLayout_3.addWidget(self.R_S_Data_groupBox, 0, 1, 2, 1)
-        spacerItem8 = QtWidgets.QSpacerItem(15, 10, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem8, 1, 2, 1, 1)
-        spacerItem9 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
-        self.gridLayout_3.addItem(spacerItem9, 1, 4, 1, 1)
         self.Command_groupBox = QtWidgets.QGroupBox(self.widget)
         self.Command_groupBox.setMinimumSize(QtCore.QSize(541, 0))
         self.Command_groupBox.setMaximumSize(QtCore.QSize(1000, 16777215))
@@ -526,141 +522,6 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.Command_groupBox.setObjectName("Command_groupBox")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.Command_groupBox)
         self.gridLayout_4.setObjectName("gridLayout_4")
-        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
-        self.Command_Save_Button = QtWidgets.QPushButton(self.Command_groupBox)
-        self.Command_Save_Button.setMinimumSize(QtCore.QSize(84, 0))
-        self.Command_Save_Button.setMaximumSize(QtCore.QSize(150, 28))
-        self.Command_Save_Button.setStyleSheet("QPushButton{    \n"
-"    border:2px solid #8f8f91;\n"
-"    border-radius:6px;\n"
-"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#f6f7fa, stop: 1 #dadbde);\n"
-"    min-width:80px;\n"
-"    font-family:\"微软雅黑\";\n"
-"    font-size:13px;\n"
-"    font-weight:bold;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#dadbde, stop: 1 #f6f7fa);\n"
-"}\n"
-"\n"
-"QPushButton:flat {\n"
-"border: none;/* no border for a flat push button */\n"
-"}\n"
-"\n"
-"QPushButton:default{\n"
-"border-color: navy;/* make the default button prominent */\n"
-"}")
-        self.Command_Save_Button.setObjectName("Command_Save_Button")
-        self.horizontalLayout_3.addWidget(self.Command_Save_Button)
-        spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_3.addItem(spacerItem10)
-        self.Command_Add_Button = QtWidgets.QPushButton(self.Command_groupBox)
-        self.Command_Add_Button.setMinimumSize(QtCore.QSize(84, 28))
-        self.Command_Add_Button.setMaximumSize(QtCore.QSize(84, 28))
-        self.Command_Add_Button.setStyleSheet("QPushButton{    \n"
-"    border:2px solid #8f8f91;\n"
-"    border-radius:6px;\n"
-"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#f6f7fa, stop: 1 #dadbde);\n"
-"    min-width:80px;\n"
-"    font-family:\"微软雅黑\";\n"
-"    font-size:13px;\n"
-"    font-weight:bold;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"stop:0#dadbde, stop: 1 #f6f7fa);\n"
-"}\n"
-"\n"
-"QPushButton:flat {\n"
-"border: none;/* no border for a flat push button */\n"
-"}\n"
-"\n"
-"QPushButton:default{\n"
-"border-color: navy;/* make the default button prominent */\n"
-"}")
-        self.Command_Add_Button.setObjectName("Command_Add_Button")
-        self.horizontalLayout_3.addWidget(self.Command_Add_Button)
-        self.Command_Del_Button = QtWidgets.QPushButton(self.Command_groupBox)
-        self.Command_Del_Button.setMaximumSize(QtCore.QSize(84, 28))
-        self.Command_Del_Button.setStyleSheet("QPushButton{    \n"
-"    border:2px solid #8f8f91;\n"
-"    border-radius:6px;\n"
-"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#f6f7fa, stop: 1 #dadbde);\n"
-"    min-width:80px;\n"
-"    font-family:\"微软雅黑\";\n"
-"    font-size:13px;\n"
-"    font-weight:bold;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"stop:0#dadbde, stop: 1 #f6f7fa);\n"
-"}\n"
-"\n"
-"QPushButton:flat {\n"
-"border: none;/* no border for a flat push button */\n"
-"}\n"
-"\n"
-"QPushButton:default{\n"
-"border-color: navy;/* make the default button prominent */\n"
-"}")
-        self.Command_Del_Button.setObjectName("Command_Del_Button")
-        self.horizontalLayout_3.addWidget(self.Command_Del_Button)
-        self.gridLayout_4.addLayout(self.horizontalLayout_3, 6, 0, 1, 1)
-        self.progressBar = QtWidgets.QProgressBar(self.Command_groupBox)
-        self.progressBar.setProperty("value", 24)
-        self.progressBar.setObjectName("progressBar")
-        self.gridLayout_4.addWidget(self.progressBar, 3, 0, 1, 1)
-        self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        self.Command_Data_lineEdit = QtWidgets.QLineEdit(self.Command_groupBox)
-        self.Command_Data_lineEdit.setMinimumSize(QtCore.QSize(270, 37))
-        self.Command_Data_lineEdit.setMaximumSize(QtCore.QSize(500, 37))
-        self.Command_Data_lineEdit.setStyleSheet("QLineEdit{\n"
-"    border-style:none;\n"
-"    padding:6px;\n"
-"    border-radius:5px;\n"
-"    border:2px solid #DCE4EC;\n"
-"    font-family:\"微软雅黑\";\n"
-"    font-size:13px;\n"
-"}\n"
-"\n"
-"QLineEdit:focus{\n"
-"    border:2px solid #3498DB;\n"
-"}")
-        self.Command_Data_lineEdit.setPlaceholderText("")
-        self.Command_Data_lineEdit.setObjectName("Command_Data_lineEdit")
-        self.horizontalLayout_5.addWidget(self.Command_Data_lineEdit)
-        self.Command_Send_Button = QtWidgets.QPushButton(self.Command_groupBox)
-        self.Command_Send_Button.setEnabled(False)
-        self.Command_Send_Button.setMaximumSize(QtCore.QSize(84, 28))
-        self.Command_Send_Button.setStyleSheet("QPushButton{    \n"
-"    border:2px solid #8f8f91;\n"
-"    border-radius:6px;\n"
-"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#f6f7fa, stop: 1 #dadbde);\n"
-"    min-width:80px;\n"
-"    font-family:\"微软雅黑\";\n"
-"    font-size:13px;\n"
-"    font-weight:bold;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#dadbde, stop: 1 #f6f7fa);\n"
-"}\n"
-"\n"
-"QPushButton:flat {\n"
-"border: none;/* no border for a flat push button */\n"
-"}\n"
-"\n"
-"QPushButton:default{\n"
-"border-color: navy;/* make the default button prominent */\n"
-"}")
-        self.Command_Send_Button.setObjectName("Command_Send_Button")
-        self.horizontalLayout_5.addWidget(self.Command_Send_Button)
-        self.gridLayout_4.addLayout(self.horizontalLayout_5, 1, 0, 1, 1)
         self.Command_list_tableWidget = QtWidgets.QTableWidget(self.Command_groupBox)
         self.Command_list_tableWidget.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.Command_list_tableWidget.setAutoFillBackground(False)
@@ -742,38 +603,9 @@ class Ui_JT_EMQ_Test_Assistant(object):
         item = QtWidgets.QTableWidgetItem()
         self.Command_list_tableWidget.setHorizontalHeaderItem(3, item)
         self.Command_list_tableWidget.horizontalHeader().setMinimumSectionSize(25)
-        self.gridLayout_4.addWidget(self.Command_list_tableWidget, 2, 0, 1, 1)
-        self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        spacerItem11 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_6.addItem(spacerItem11)
-        self.Command_Single_Send_Button = QtWidgets.QPushButton(self.Command_groupBox)
-        self.Command_Single_Send_Button.setEnabled(False)
-        self.Command_Single_Send_Button.setMinimumSize(QtCore.QSize(84, 28))
-        self.Command_Single_Send_Button.setMaximumSize(QtCore.QSize(150, 28))
-        self.Command_Single_Send_Button.setStyleSheet("QPushButton{    \n"
-"    border:2px solid #8f8f91;\n"
-"    border-radius:6px;\n"
-"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#f6f7fa, stop: 1 #dadbde);\n"
-"    min-width:80px;\n"
-"    font-family:\"微软雅黑\";\n"
-"    font-size:13px;\n"
-"    font-weight:bold;\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#dadbde, stop: 1 #f6f7fa);\n"
-"}\n"
-"\n"
-"QPushButton:flat {\n"
-"border: none;/* no border for a flat push button */\n"
-"}\n"
-"\n"
-"QPushButton:default{\n"
-"border-color: navy;/* make the default button prominent */\n"
-"}")
-        self.Command_Single_Send_Button.setObjectName("Command_Single_Send_Button")
-        self.horizontalLayout_6.addWidget(self.Command_Single_Send_Button)
+        self.gridLayout_4.addWidget(self.Command_list_tableWidget, 1, 0, 1, 2)
+        self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
         self.Command_Activate_Button = QtWidgets.QCheckBox(self.Command_groupBox)
         self.Command_Activate_Button.setEnabled(False)
         self.Command_Activate_Button.setMinimumSize(QtCore.QSize(90, 28))
@@ -799,24 +631,166 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "    image: url(./images/checkbox_checked.png);\n"
 "}")
         self.Command_Activate_Button.setObjectName("Command_Activate_Button")
-        self.horizontalLayout_6.addWidget(self.Command_Activate_Button)
-        self.radioButton = QtWidgets.QRadioButton(self.Command_groupBox)
-        self.radioButton.setObjectName("radioButton")
-        self.horizontalLayout_6.addWidget(self.radioButton)
-        self.spinBox = QtWidgets.QSpinBox(self.Command_groupBox)
-        self.spinBox.setObjectName("spinBox")
-        self.horizontalLayout_6.addWidget(self.spinBox)
-        self.radioButton_2 = QtWidgets.QRadioButton(self.Command_groupBox)
-        self.radioButton_2.setObjectName("radioButton_2")
-        self.horizontalLayout_6.addWidget(self.radioButton_2)
-        self.gridLayout_4.addLayout(self.horizontalLayout_6, 4, 0, 1, 1)
-        spacerItem12 = QtWidgets.QSpacerItem(20, 3, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
-        self.gridLayout_4.addItem(spacerItem12, 5, 0, 1, 1)
+        self.horizontalLayout_3.addWidget(self.Command_Activate_Button)
+        self.Command_Single_Send_Button = QtWidgets.QPushButton(self.Command_groupBox)
+        self.Command_Single_Send_Button.setMinimumSize(QtCore.QSize(84, 0))
+        self.Command_Single_Send_Button.setMaximumSize(QtCore.QSize(150, 28))
+        self.Command_Single_Send_Button.setStyleSheet("QPushButton{    \n"
+"    border:2px solid #8f8f91;\n"
+"    border-radius:6px;\n"
+"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#f6f7fa, stop: 1 #dadbde);\n"
+"    min-width:80px;\n"
+"    font-family:\"微软雅黑\";\n"
+"    font-size:13px;\n"
+"    font-weight:bold;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"border: none;/* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default{\n"
+"border-color: navy;/* make the default button prominent */\n"
+"}")
+        self.Command_Single_Send_Button.setObjectName("Command_Single_Send_Button")
+        self.horizontalLayout_3.addWidget(self.Command_Single_Send_Button)
+        spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_3.addItem(spacerItem8)
+        self.Command_Save_Button = QtWidgets.QPushButton(self.Command_groupBox)
+        self.Command_Save_Button.setMinimumSize(QtCore.QSize(84, 0))
+        self.Command_Save_Button.setMaximumSize(QtCore.QSize(150, 28))
+        self.Command_Save_Button.setStyleSheet("QPushButton{    \n"
+"    border:2px solid #8f8f91;\n"
+"    border-radius:6px;\n"
+"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#f6f7fa, stop: 1 #dadbde);\n"
+"    min-width:80px;\n"
+"    font-family:\"微软雅黑\";\n"
+"    font-size:13px;\n"
+"    font-weight:bold;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"border: none;/* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default{\n"
+"border-color: navy;/* make the default button prominent */\n"
+"}")
+        self.Command_Save_Button.setObjectName("Command_Save_Button")
+        self.horizontalLayout_3.addWidget(self.Command_Save_Button)
+        self.Command_Add_Button = QtWidgets.QPushButton(self.Command_groupBox)
+        self.Command_Add_Button.setMaximumSize(QtCore.QSize(84, 28))
+        self.Command_Add_Button.setStyleSheet("QPushButton{    \n"
+"    border:2px solid #8f8f91;\n"
+"    border-radius:6px;\n"
+"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#f6f7fa, stop: 1 #dadbde);\n"
+"    min-width:80px;\n"
+"    font-family:\"微软雅黑\";\n"
+"    font-size:13px;\n"
+"    font-weight:bold;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+"stop:0#dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"border: none;/* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default{\n"
+"border-color: navy;/* make the default button prominent */\n"
+"}")
+        self.Command_Add_Button.setObjectName("Command_Add_Button")
+        self.horizontalLayout_3.addWidget(self.Command_Add_Button)
+        self.Command_Del_Button = QtWidgets.QPushButton(self.Command_groupBox)
+        self.Command_Del_Button.setMaximumSize(QtCore.QSize(84, 28))
+        self.Command_Del_Button.setStyleSheet("QPushButton{    \n"
+"    border:2px solid #8f8f91;\n"
+"    border-radius:6px;\n"
+"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#f6f7fa, stop: 1 #dadbde);\n"
+"    min-width:80px;\n"
+"    font-family:\"微软雅黑\";\n"
+"    font-size:13px;\n"
+"    font-weight:bold;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+"stop:0#dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"border: none;/* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default{\n"
+"border-color: navy;/* make the default button prominent */\n"
+"}")
+        self.Command_Del_Button.setObjectName("Command_Del_Button")
+        self.horizontalLayout_3.addWidget(self.Command_Del_Button)
+        self.gridLayout_4.addLayout(self.horizontalLayout_3, 3, 0, 1, 2)
+        self.Command_Send_Button = QtWidgets.QPushButton(self.Command_groupBox)
+        self.Command_Send_Button.setEnabled(False)
+        self.Command_Send_Button.setMaximumSize(QtCore.QSize(84, 28))
+        self.Command_Send_Button.setStyleSheet("QPushButton{    \n"
+"    border:2px solid #8f8f91;\n"
+"    border-radius:6px;\n"
+"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#f6f7fa, stop: 1 #dadbde);\n"
+"    min-width:80px;\n"
+"    font-family:\"微软雅黑\";\n"
+"    font-size:13px;\n"
+"    font-weight:bold;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"border: none;/* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default{\n"
+"border-color: navy;/* make the default button prominent */\n"
+"}")
+        self.Command_Send_Button.setObjectName("Command_Send_Button")
+        self.gridLayout_4.addWidget(self.Command_Send_Button, 0, 1, 1, 1)
+        self.Command_Data_lineEdit = QtWidgets.QLineEdit(self.Command_groupBox)
+        self.Command_Data_lineEdit.setMinimumSize(QtCore.QSize(270, 37))
+        self.Command_Data_lineEdit.setStyleSheet("QLineEdit{\n"
+"    border-style:none;\n"
+"    padding:6px;\n"
+"    border-radius:5px;\n"
+"    border:2px solid #DCE4EC;\n"
+"    font-family:\"微软雅黑\";\n"
+"    font-size:13px;\n"
+"}\n"
+"\n"
+"QLineEdit:focus{\n"
+"    border:2px solid #3498DB;\n"
+"}")
+        self.Command_Data_lineEdit.setPlaceholderText("")
+        self.Command_Data_lineEdit.setObjectName("Command_Data_lineEdit")
+        self.gridLayout_4.addWidget(self.Command_Data_lineEdit, 0, 0, 1, 1)
         self.gridLayout_3.addWidget(self.Command_groupBox, 0, 3, 2, 1)
+        spacerItem9 = QtWidgets.QSpacerItem(15, 10, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem9, 1, 2, 1, 1)
+        spacerItem10 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        self.gridLayout_3.addItem(spacerItem10, 1, 4, 1, 1)
         self.gridLayout_5.addWidget(self.widget, 1, 0, 1, 1)
         JT_EMQ_Test_Assistant.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(JT_EMQ_Test_Assistant)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1191, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1191, 26))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
@@ -849,7 +823,8 @@ class Ui_JT_EMQ_Test_Assistant(object):
         JT_EMQ_Test_Assistant.setTabOrder(self.ClientID_lineEdit, self.PublishTopic_lineEdit)
         JT_EMQ_Test_Assistant.setTabOrder(self.PublishTopic_lineEdit, self.KeepAlive_lineEdit)
         JT_EMQ_Test_Assistant.setTabOrder(self.KeepAlive_lineEdit, self.SubTopic_lineEdit)
-        JT_EMQ_Test_Assistant.setTabOrder(self.SubTopic_lineEdit, self.Command_Send_Button)
+        JT_EMQ_Test_Assistant.setTabOrder(self.SubTopic_lineEdit, self.Command_Data_lineEdit)
+        JT_EMQ_Test_Assistant.setTabOrder(self.Command_Data_lineEdit, self.Command_Send_Button)
         JT_EMQ_Test_Assistant.setTabOrder(self.Command_Send_Button, self.EMQ_Data_textEdit)
         JT_EMQ_Test_Assistant.setTabOrder(self.EMQ_Data_textEdit, self.Command_list_tableWidget)
         JT_EMQ_Test_Assistant.setTabOrder(self.Command_list_tableWidget, self.Save_Log_checkBox)
@@ -889,6 +864,16 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.Save_Log_checkBox.setShortcut(_translate("JT_EMQ_Test_Assistant", "Ctrl+R"))
         self.Rec_Data_Clean_Button.setText(_translate("JT_EMQ_Test_Assistant", "Clean"))
         self.Command_groupBox.setTitle(_translate("JT_EMQ_Test_Assistant", "Command List"))
+        item = self.Command_list_tableWidget.horizontalHeaderItem(0)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "Activate"))
+        item = self.Command_list_tableWidget.horizontalHeaderItem(1)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "Delay_ms"))
+        item = self.Command_list_tableWidget.horizontalHeaderItem(2)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "Name"))
+        item = self.Command_list_tableWidget.horizontalHeaderItem(3)
+        item.setText(_translate("JT_EMQ_Test_Assistant", "Data"))
+        self.Command_Activate_Button.setText(_translate("JT_EMQ_Test_Assistant", "Activate"))
+        self.Command_Single_Send_Button.setText(_translate("JT_EMQ_Test_Assistant", "Single send"))
         self.Command_Save_Button.setStatusTip(_translate("JT_EMQ_Test_Assistant", "Save command list , Short cut : Ctrl + S"))
         self.Command_Save_Button.setText(_translate("JT_EMQ_Test_Assistant", "Save(s)"))
         self.Command_Save_Button.setShortcut(_translate("JT_EMQ_Test_Assistant", "Ctrl+S"))
@@ -898,21 +883,9 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.Command_Del_Button.setStatusTip(_translate("JT_EMQ_Test_Assistant", "Delete a command  , Short cut : Ctrl + D"))
         self.Command_Del_Button.setText(_translate("JT_EMQ_Test_Assistant", "Del(D)"))
         self.Command_Del_Button.setShortcut(_translate("JT_EMQ_Test_Assistant", "Ctrl+D"))
+        self.Command_Send_Button.setText(_translate("JT_EMQ_Test_Assistant", "Send(&Q)"))
         self.Command_Data_lineEdit.setStatusTip(_translate("JT_EMQ_Test_Assistant", "Data you want to send"))
         self.Command_Data_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "Hey mate. "))
-        self.Command_Send_Button.setText(_translate("JT_EMQ_Test_Assistant", "Send(&Q)"))
-        item = self.Command_list_tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("JT_EMQ_Test_Assistant", "Activate"))
-        item = self.Command_list_tableWidget.horizontalHeaderItem(1)
-        item.setText(_translate("JT_EMQ_Test_Assistant", "Delay_ms"))
-        item = self.Command_list_tableWidget.horizontalHeaderItem(2)
-        item.setText(_translate("JT_EMQ_Test_Assistant", "Name"))
-        item = self.Command_list_tableWidget.horizontalHeaderItem(3)
-        item.setText(_translate("JT_EMQ_Test_Assistant", "Data"))
-        self.Command_Single_Send_Button.setText(_translate("JT_EMQ_Test_Assistant", "Single send"))
-        self.Command_Activate_Button.setText(_translate("JT_EMQ_Test_Assistant", "Activate"))
-        self.radioButton.setText(_translate("JT_EMQ_Test_Assistant", "次数："))
-        self.radioButton_2.setText(_translate("JT_EMQ_Test_Assistant", "无限"))
         self.menuFile.setTitle(_translate("JT_EMQ_Test_Assistant", "File(&F)"))
         self.menuSetting.setTitle(_translate("JT_EMQ_Test_Assistant", "Setting(&S)"))
         self.actionImport_configuration_file.setText(_translate("JT_EMQ_Test_Assistant", "Import Configuration file"))

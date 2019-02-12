@@ -13,6 +13,7 @@
         3、循环发送的时候 鲜颜色底色 标出所在的指令位置
         4、Activate 需要加多一个 QThread
             for i in range(scroll数字)
+        5、右边栏增加右键菜单代替按钮：一次性发送、删除
 
 """
 
@@ -85,8 +86,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(1, QHeaderView.Interactive)
         self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(2, QHeaderView.Interactive)
 
-        self.Command_list_tableWidget.setSelectionBehavior(QTableWidget.SelectRows)    # Select whole row
-        self.Command_list_tableWidget.setSelectionMode(QTableWidget.SingleSelection)   # Select single row
+        self.Command_list_tableWidget.setSelectionBehavior(QTableWidget.SelectRows)  # Select whole row
+        self.Command_list_tableWidget.setSelectionMode(QTableWidget.SingleSelection)  # Select single row
 
         '''
              PyQt Slot connect
@@ -124,9 +125,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             self.PublishTopic_lineEdit.setText(get_setting_data.get('publish_topic'))
             self.SubTopic_lineEdit.setText(get_setting_data.get('subscribe_topic'))
             # self.Host_lineEdit.setText(get_setting_data.get('save_log_flag'))
-
-
-
 
     @pyqtSlot()
     def connect_emq_button_clicked(self):
@@ -171,6 +169,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
             self.EMQ_Setting_groupBox.setEnabled(False)
             self.Command_Send_Button.setEnabled(True)
+            self.Command_Single_Send_Button.setEnabled(True)
 
             row = self.Command_list_tableWidget.rowCount()
             if row > 0:
@@ -202,6 +201,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             self.EMQ_Setting_groupBox.setEnabled(True)
             self.Command_Activate_Button.setEnabled(False)
             self.Command_Send_Button.setEnabled(False)
+            self.Command_Single_Send_Button.setEnabled(False)
 
             mqtt_connect.generate_client_id()
             self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
@@ -241,8 +241,16 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
         # get selected row
         selected_row = self.Command_list_tableWidget.currentRow()
-        data_send = self.Command_list_tableWidget.item(selected_row, 3).text()
-        mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, data_send)
+        if selected_row != -1:
+            print("selected_row != -1")
+            try:
+                data_send = self.Command_list_tableWidget.item(selected_row, 3).text()
+            except AttributeError:  # a blank item !!
+                print("AttributeError")
+                # item = ""
+
+            else:
+                mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, data_send)
 
     @pyqtSlot()
     def save_log_checkbox_state_changed(self):
