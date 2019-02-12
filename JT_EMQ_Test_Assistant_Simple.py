@@ -11,14 +11,37 @@
 
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *  # QMainWindow, QApplication, QDialog, QWidget, QMessageBox
-from PyQt5.QtGui import QCursor
 
 from UI.JT_EMQ_Test_Assistant_UI_Simple import Ui_JT_EMQ_Test_Assistant
 
 import Interface.mqtt_connect as mqtt_connect
-import time
+import pickle
 
 TimeFormat = '%H:%M:%S:%f'
+
+
+def save_load_info(data_class, opt):
+
+    if opt == "Save":
+        save_dict = {key: value for key, value in data_class.__dict__.items() if
+                     not key.startswith('__') and not callable(key)}
+        # print(save_dict)
+
+        save_file = open("./Data/mqtt_setting_info.txt", "wb")
+
+        pickle.dump(save_dict, save_file)
+        save_file.close()
+        print("saved")
+
+    elif opt == "Load":
+
+        load_file = open("./Data/mqtt_setting_info.txt", "rb")
+        loaded_setting_data = pickle.load(load_file)
+        load_file.close()
+
+        # print(loaded_setting_data)
+
+        return loaded_setting_data
 
 
 class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
@@ -64,6 +87,20 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.mqttDataHandlerThread.started.connect(self.mqttDataHandlerThread.thread_started)
         self.mqttDataHandlerThread.finished.connect(self.mqttDataHandlerThread.thread_finished)
 
+        get_setting_data = save_load_info(None, "Load")
+        # print(get_setting_data)
+        self.Host_lineEdit.setText(get_setting_data.get('host'))
+        self.Port_lineEdit.setText(str(get_setting_data.get('port')))
+        # self.ClientID_lineEdit.setText(get_setting_data.get('client_id'))
+        self.Username_lineEdit.setText(get_setting_data.get('username'))
+        self.Password_lineEdit.setText(get_setting_data.get('password'))
+        self.KeepAlive_lineEdit.setText(str(get_setting_data.get('keep_alive')))
+        self.PublishTopic_lineEdit.setText(get_setting_data.get('publish_topic'))
+        self.SubTopic_lineEdit.setText(get_setting_data.get('subscribe_topic'))
+        # self.Host_lineEdit.setText(get_setting_data.get('save_log_flag'))
+
+
+
     @pyqtSlot()
     def connect_emq_button_clicked(self):
 
@@ -108,6 +145,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             self.EMQ_Setting_groupBox.setEnabled(False)
             self.Command_Activate_Button.setEnabled(True)
             self.Command_Send_Button.setEnabled(True)
+
+            save_load_info(mqtt_connect.MqttSetting, "Save")
 
             mqtt_connect.MqttClient.mqtt_connect(mqtt_client)
 
