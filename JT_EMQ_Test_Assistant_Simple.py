@@ -56,7 +56,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
         self.Host_lineEdit.setInputMask("000.000.000.000")
 
-        self.load_inster_command_data()
+        self.load_insert_command_data()
 
         '''
             QTableView QSS 
@@ -72,6 +72,9 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(0, QHeaderView.Interactive)
         self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(1, QHeaderView.Interactive)
         self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(2, QHeaderView.Interactive)
+
+        self.Command_list_tableWidget.setSelectionBehavior(QTableWidget.SelectRows)    # Select whole row
+        self.Command_list_tableWidget.setSelectionMode(QTableWidget.SingleSelection)   # Select single row
 
         '''
              PyQt Slot connect
@@ -239,7 +242,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
         row = self.Command_list_tableWidget.currentRow()
         self.Command_list_tableWidget.removeRow(row)
-        # pass
 
     @pyqtSlot()
     def command_add_button_clicked(self):
@@ -278,7 +280,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
                     try:
                         item = self.Command_list_tableWidget.item(row, column).text()
 
-                    except AttributeError:   # a blank item !!
+                    except AttributeError:  # a blank item !!
                         # print("AttributeError")
                         item = ""
 
@@ -290,10 +292,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
                 f_csv.writerow(row_data)
         print("Saved CSV")
 
-
-
-
-    def load_inster_command_data(self):
+    def load_insert_command_data(self):
         # path = QtGui.QFileDialog.getOpenFileName(
         #     self, 'Open File', '', 'CSV(*.csv)')
         # if not path.isEmpty():
@@ -341,16 +340,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
                             # print("row =", row, "column=", column, " item = ", item)
 
             # delete the last row
-            last_row = self.Command_list_tableWidget.rowCount()-1
+            last_row = self.Command_list_tableWidget.rowCount() - 1
             self.Command_list_tableWidget.removeRow(last_row)
-
-
-
-
-
-
-
-
 
     # # call_back function
     # def receive_messages(self, client, userdata, msg):
@@ -365,8 +356,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.EMQ_Data_textEdit.append(message)
         print("add_messages: ->" + message)
         # mqtt_connect.MqttClient.message_temp = ""
-
-
 
     def closeEvent(self, event):
 
