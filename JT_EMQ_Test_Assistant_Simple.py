@@ -4,8 +4,15 @@
 
 # This program is for JT EMQ test
 # author: Peter H.
-# First Version : 2019.01
-# Last Edited: 2019.2
+# First Version : 2019.02.04
+# Last Edited: 2019.02.13
+
+    后续升级思路：
+        1、在 Activate 隔壁加上 循环次数的 scroll 控件，看看有什么数字可以代表无限，或者使用 Radio Button
+        2、在右边的下面加条 进度bar， 显示还有剩余多少的 Delay 时间进度，加上qss
+        3、循环发送的时候 鲜颜色底色 标出所在的指令位置
+        4、Activate 需要加多一个 QThread
+            for i in range(scroll数字)
 
 """
 
