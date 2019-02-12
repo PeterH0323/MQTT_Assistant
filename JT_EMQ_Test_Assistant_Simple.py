@@ -17,7 +17,6 @@ from UI.JT_EMQ_Test_Assistant_UI_Simple import Ui_JT_EMQ_Test_Assistant
 import Interface.mqtt_connect as mqtt_connect
 import pickle
 import csv
-import sys
 
 TimeFormat = '%H:%M:%S:%f'
 
@@ -35,14 +34,17 @@ def save_load_info(data_class, opt):
         print("saved")
 
     elif opt == "Load":
+        try:
+            load_file = open("./Data/mqtt_setting_info.txt", "rb")
 
-        load_file = open("./Data/mqtt_setting_info.txt", "rb")
-        loaded_setting_data = pickle.load(load_file)
-        load_file.close()
+        except FileNotFoundError:  # No file exists
+            # print("Unexpected error:", sys.exc_info()[0])
+            return "FileNotFoundError"
 
-        # print(loaded_setting_data)
-
-        return loaded_setting_data
+        else:
+            loaded_setting_data = pickle.load(load_file)
+            load_file.close()
+            return loaded_setting_data
 
 
 class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
@@ -56,6 +58,9 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
         self.Host_lineEdit.setInputMask("000.000.000.000")
 
+        '''
+             QTableView data load
+        '''
         self.load_insert_command_data()
 
         '''
@@ -100,16 +105,21 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
              Mqtt setting load
         '''
         get_setting_data = save_load_info(None, "Load")
-        # print(get_setting_data)
-        self.Host_lineEdit.setText(get_setting_data.get('host'))
-        self.Port_lineEdit.setText(str(get_setting_data.get('port')))
-        # self.ClientID_lineEdit.setText(get_setting_data.get('client_id'))
-        self.Username_lineEdit.setText(get_setting_data.get('username'))
-        self.Password_lineEdit.setText(get_setting_data.get('password'))
-        self.KeepAlive_lineEdit.setText(str(get_setting_data.get('keep_alive')))
-        self.PublishTopic_lineEdit.setText(get_setting_data.get('publish_topic'))
-        self.SubTopic_lineEdit.setText(get_setting_data.get('subscribe_topic'))
-        # self.Host_lineEdit.setText(get_setting_data.get('save_log_flag'))
+
+        if get_setting_data != "FileNotFoundError":
+            print('get_setting_data != "FileNotFoundError"')
+            self.Host_lineEdit.setText(get_setting_data.get('host'))
+            self.Port_lineEdit.setText(str(get_setting_data.get('port')))
+            # self.ClientID_lineEdit.setText(get_setting_data.get('client_id'))
+            self.Username_lineEdit.setText(get_setting_data.get('username'))
+            self.Password_lineEdit.setText(get_setting_data.get('password'))
+            self.KeepAlive_lineEdit.setText(str(get_setting_data.get('keep_alive')))
+            self.PublishTopic_lineEdit.setText(get_setting_data.get('publish_topic'))
+            self.SubTopic_lineEdit.setText(get_setting_data.get('subscribe_topic'))
+            # self.Host_lineEdit.setText(get_setting_data.get('save_log_flag'))
+
+
+
 
     @pyqtSlot()
     def connect_emq_button_clicked(self):
@@ -284,9 +294,9 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
                         # print("AttributeError")
                         item = ""
 
-                    except:
-                        print("Unexpected error:", sys.exc_info()[0])
-                        # raise
+                    # except:
+                    #     print("Unexpected error:", sys.exc_info()[0])
+                    #     # raise
 
                     row_data.append(item)
                 f_csv.writerow(row_data)
@@ -301,47 +311,54 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         #     f_tsv = csv.reader(f, delimiter='\t')
         #     for row in f_tsv:
         #         print(row)
+        try:
+            load_file = open("./Data/Command_List.csv", "r")
 
-        with open('./Data/Command_List.csv', 'r') as f:
+        except FileNotFoundError:  # No file exists
+            # print("Unexpected error:", sys.exc_info()[0])
+            return "FileNotFoundError"
 
-            f_tsv = csv.reader(f, delimiter='\t')
+        else:
+            with open('./Data/Command_List.csv', 'r') as f:
 
-            self.Command_list_tableWidget.setRowCount(0)
-            self.Command_list_tableWidget.setColumnCount(0)
+                f_tsv = csv.reader(f, delimiter='\t')
 
-            for f_tsv in csv.reader(f):
-                row = self.Command_list_tableWidget.rowCount()
-                self.Command_list_tableWidget.insertRow(row)
-                self.Command_list_tableWidget.setColumnCount(len(f_tsv))
+                self.Command_list_tableWidget.setRowCount(0)
+                self.Command_list_tableWidget.setColumnCount(0)
 
-                if row == 0:  # header
+                for f_tsv in csv.reader(f):
+                    row = self.Command_list_tableWidget.rowCount()
+                    self.Command_list_tableWidget.insertRow(row)
+                    self.Command_list_tableWidget.setColumnCount(len(f_tsv))
 
-                    for column, data in enumerate(f_tsv):
-                        item = QTableWidgetItem(str(data))
-                        self.Command_list_tableWidget.setHorizontalHeaderItem(column, item)
-                        # print("row =", row, "column=", column, " item = ", item)
+                    if row == 0:  # header
 
-                else:
-                    row = row - 1
-                    for column, data in enumerate(f_tsv):
-
-                        if column == 0:
-                            # Insert a checkbox
-                            checkBox = QTableWidgetItem(str(data))
-
-                            # Set checkBox state to unchecked
-                            checkBox.setCheckState(Qt.Unchecked)
-
-                            self.Command_list_tableWidget.setItem(row, column, checkBox)
-
-                        else:
+                        for column, data in enumerate(f_tsv):
                             item = QTableWidgetItem(str(data))
-                            self.Command_list_tableWidget.setItem(row, column, item)
+                            self.Command_list_tableWidget.setHorizontalHeaderItem(column, item)
                             # print("row =", row, "column=", column, " item = ", item)
 
-            # delete the last row
-            last_row = self.Command_list_tableWidget.rowCount() - 1
-            self.Command_list_tableWidget.removeRow(last_row)
+                    else:
+                        row = row - 1
+                        for column, data in enumerate(f_tsv):
+
+                            if column == 0:
+                                # Insert a checkbox
+                                checkBox = QTableWidgetItem(str(data))
+
+                                # Set checkBox state to unchecked
+                                checkBox.setCheckState(Qt.Unchecked)
+
+                                self.Command_list_tableWidget.setItem(row, column, checkBox)
+
+                            else:
+                                item = QTableWidgetItem(str(data))
+                                self.Command_list_tableWidget.setItem(row, column, item)
+                                # print("row =", row, "column=", column, " item = ", item)
+
+                # delete the last row
+                last_row = self.Command_list_tableWidget.rowCount() - 1
+                self.Command_list_tableWidget.removeRow(last_row)
 
     # # call_back function
     # def receive_messages(self, client, userdata, msg):
