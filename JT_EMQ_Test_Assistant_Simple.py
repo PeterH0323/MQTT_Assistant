@@ -237,8 +237,9 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
     @pyqtSlot()
     def command_del_button_clicked(self):
 
-
-        pass
+        row = self.Command_list_tableWidget.currentRow()
+        self.Command_list_tableWidget.removeRow(row)
+        # pass
 
     @pyqtSlot()
     def command_add_button_clicked(self):
@@ -306,23 +307,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
             f_tsv = csv.reader(f, delimiter='\t')
 
-
-
-            # '''
-            #     QTableView QSS
-            # '''
-            # self.Command_list_tableWidget.setColumnWidth(0, 65)  # Set table width
-            # self.Command_list_tableWidget.setColumnWidth(1, 80)
-            # self.Command_list_tableWidget.setColumnWidth(2, 150)
-            #
-            # # Table cover the blank
-            # self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-            #
-            # # Enable manually adjust column width
-            # self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(0, QHeaderView.Interactive)
-            # self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(1, QHeaderView.Interactive)
-            # self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(2, QHeaderView.Interactive)
-
             self.Command_list_tableWidget.setRowCount(0)
             self.Command_list_tableWidget.setColumnCount(0)
 
@@ -336,7 +320,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
                     for column, data in enumerate(f_tsv):
                         item = QTableWidgetItem(str(data))
                         self.Command_list_tableWidget.setHorizontalHeaderItem(column, item)
-                        print("row =", row, "column=", column, " item = ", item)
+                        # print("row =", row, "column=", column, " item = ", item)
 
                 else:
                     row = row - 1
@@ -354,7 +338,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
                         else:
                             item = QTableWidgetItem(str(data))
                             self.Command_list_tableWidget.setItem(row, column, item)
-                            print("row =", row, "column=", column, " item = ", item)
+                            # print("row =", row, "column=", column, " item = ", item)
 
             # delete the last row
             last_row = self.Command_list_tableWidget.rowCount()-1
