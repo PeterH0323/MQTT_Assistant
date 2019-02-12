@@ -56,9 +56,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
         self.Host_lineEdit.setInputMask("000.000.000.000")
 
-        # self.Command_list_tableWidget.setEnabled(False)
-        # self.Command_Add_Button.setEnabled(False)
-        # self.Command_Del_Button.setEnabled(False)
+        self.load_inster_command_data()
 
         '''
             QTableView QSS 
@@ -238,6 +236,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
     @pyqtSlot()
     def command_del_button_clicked(self):
+
+
         pass
 
     @pyqtSlot()
@@ -267,7 +267,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             headers.append(self.Command_list_tableWidget.horizontalHeaderItem(i).text())
         print(headers)
 
-        with open('./Data/Command_List.csv', 'w') as f:
+        with open('./Data/Command_List.csv', 'w', newline='') as f:
             f_csv = csv.writer(f)
             f_csv.writerow(headers)
 
@@ -276,23 +276,97 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
                 for column in range(self.Command_list_tableWidget.columnCount()):
                     try:
                         item = self.Command_list_tableWidget.item(row, column).text()
-                    # except IOError :
-                    #     print("IOError ")
 
-                    except AttributeError:
+                    except AttributeError:   # a blank item !!
                         # print("AttributeError")
                         item = ""
 
-                    # except:
-                    #     print("Unexpected error:", sys.exc_info()[0])
-                    #     # raise
+                    except:
+                        print("Unexpected error:", sys.exc_info()[0])
+                        # raise
 
-                        # else:
                     row_data.append(item)
-
                 f_csv.writerow(row_data)
-
         print("Saved CSV")
+
+
+
+
+    def load_inster_command_data(self):
+        # path = QtGui.QFileDialog.getOpenFileName(
+        #     self, 'Open File', '', 'CSV(*.csv)')
+        # if not path.isEmpty():
+
+        # with open('./Data/Command_List.csv') as f:
+        #     f_tsv = csv.reader(f, delimiter='\t')
+        #     for row in f_tsv:
+        #         print(row)
+
+        with open('./Data/Command_List.csv', 'r') as f:
+
+            f_tsv = csv.reader(f, delimiter='\t')
+
+
+
+            # '''
+            #     QTableView QSS
+            # '''
+            # self.Command_list_tableWidget.setColumnWidth(0, 65)  # Set table width
+            # self.Command_list_tableWidget.setColumnWidth(1, 80)
+            # self.Command_list_tableWidget.setColumnWidth(2, 150)
+            #
+            # # Table cover the blank
+            # self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+            #
+            # # Enable manually adjust column width
+            # self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(0, QHeaderView.Interactive)
+            # self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(1, QHeaderView.Interactive)
+            # self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(2, QHeaderView.Interactive)
+
+            self.Command_list_tableWidget.setRowCount(0)
+            self.Command_list_tableWidget.setColumnCount(0)
+
+            for f_tsv in csv.reader(f):
+                row = self.Command_list_tableWidget.rowCount()
+                self.Command_list_tableWidget.insertRow(row)
+                self.Command_list_tableWidget.setColumnCount(len(f_tsv))
+
+                if row == 0:  # header
+
+                    for column, data in enumerate(f_tsv):
+                        item = QTableWidgetItem(str(data))
+                        self.Command_list_tableWidget.setHorizontalHeaderItem(column, item)
+                        print("row =", row, "column=", column, " item = ", item)
+
+                else:
+                    row = row - 1
+                    for column, data in enumerate(f_tsv):
+
+                        if column == 0:
+                            # Insert a checkbox
+                            checkBox = QTableWidgetItem(str(data))
+
+                            # Set checkBox state to unchecked
+                            checkBox.setCheckState(Qt.Unchecked)
+
+                            self.Command_list_tableWidget.setItem(row, column, checkBox)
+
+                        else:
+                            item = QTableWidgetItem(str(data))
+                            self.Command_list_tableWidget.setItem(row, column, item)
+                            print("row =", row, "column=", column, " item = ", item)
+
+            # delete the last row
+            last_row = self.Command_list_tableWidget.rowCount()-1
+            self.Command_list_tableWidget.removeRow(last_row)
+
+
+
+
+
+
+
+
 
     # # call_back function
     # def receive_messages(self, client, userdata, msg):
@@ -308,21 +382,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         print("add_messages: ->" + message)
         # mqtt_connect.MqttClient.message_temp = ""
 
-    #
-    # def handleOpen(self):
-    #     path = QtGui.QFileDialog.getOpenFileName(
-    #         self, 'Open File', '', 'CSV(*.csv)')
-    #     if not path.isEmpty():
-    #         with open(unicode(path), 'rb') as stream:
-    #             self.table.setRowCount(0)
-    #             self.table.setColumnCount(0)
-    #             for rowdata in csv.reader(stream):
-    #                 row = self.table.rowCount()
-    #                 self.table.insertRow(row)
-    #                 self.table.setColumnCount(len(rowdata))
-    #                 for column, data in enumerate(rowdata):
-    #                     item = QtGui.QTableWidgetItem(data.decode('utf8'))
-    #                     self.table.setItem(row, column, item)
+
 
     def closeEvent(self, event):
 
