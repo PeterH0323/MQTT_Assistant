@@ -86,6 +86,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.Command_Add_Button.clicked.connect(self.command_add_button_clicked)
         self.Command_Single_Send_Button.clicked.connect(self.command_single_send_button_clicked)
         self.Command_Del_Button.clicked.connect(self.command_del_button_clicked)
+        self.Command_Save_Button.clicked.connect(self.command_save_button_clicked)
 
         # self.Rec_Data_Clean_Button.setCursor(QCursor(Qt.PointingHandCursor))
 
@@ -236,6 +237,10 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             print("mqtt_connect.MqttSetting.save_log_flag = False")
 
     @pyqtSlot()
+    def command_del_button_clicked(self):
+        pass
+
+    @pyqtSlot()
     def command_add_button_clicked(self):
 
         self.Command_Activate_Button.setEnabled(True)
@@ -253,6 +258,42 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.Command_list_tableWidget.setItem(table_row, 0, checkBox)
         self.Command_list_tableWidget.setItem(table_row, 1, QTableWidgetItem("1000"))
 
+    @pyqtSlot()
+    def command_save_button_clicked(self):
+
+        headers = []
+        column_count = self.Command_list_tableWidget.columnCount()
+        for i in range(0, column_count):
+            headers.append(self.Command_list_tableWidget.horizontalHeaderItem(i).text())
+        print(headers)
+
+        with open('./Data/Command_List.csv', 'w') as f:
+            f_csv = csv.writer(f)
+            f_csv.writerow(headers)
+
+            for row in range(self.Command_list_tableWidget.rowCount()):
+                row_data = []
+                for column in range(self.Command_list_tableWidget.columnCount()):
+                    try:
+                        item = self.Command_list_tableWidget.item(row, column).text()
+                    # except IOError :
+                    #     print("IOError ")
+
+                    except AttributeError:
+                        # print("AttributeError")
+                        item = ""
+
+                    # except:
+                    #     print("Unexpected error:", sys.exc_info()[0])
+                    #     # raise
+
+                        # else:
+                    row_data.append(item)
+
+                f_csv.writerow(row_data)
+
+        print("Saved CSV")
+
     # # call_back function
     # def receive_messages(self, client, userdata, msg):
     #     receive_time = datetime.datetime.now().strftime(TimeFormat)
@@ -266,26 +307,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.EMQ_Data_textEdit.append(message)
         print("add_messages: ->" + message)
         # mqtt_connect.MqttClient.message_temp = ""
-
-    @pyqtSlot()
-    def command_del_button_clicked(self):
-
-        headers = []
-        item = self.Command_list_tableWidget.columnCount()
-        for i in range(0, item):
-            headers.append(self.Command_list_tableWidget.horizontalHeaderItem(i).text())
-        print(headers)
-
-        with open('./Data/Command_List.csv', 'w') as f:
-            f_csv = csv.writer(f)
-            f_csv.writerow(headers)
-
-            for row in range(self.Command_list_tableWidget.rowCount()):
-                row_data = []
-                for column in range(self.Command_list_tableWidget.columnCount()):
-                    item = self.Command_list_tableWidget.item(row, column).text()
-                    row_data.append(item)
-                f_csv.writerow(row_data)
 
     #
     # def handleOpen(self):

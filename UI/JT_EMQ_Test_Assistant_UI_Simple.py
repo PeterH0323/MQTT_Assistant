@@ -660,6 +660,32 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.horizontalLayout_3.addWidget(self.Command_Single_Send_Button)
         spacerItem8 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_3.addItem(spacerItem8)
+        self.Command_Save_Button = QtWidgets.QPushButton(self.Command_groupBox)
+        self.Command_Save_Button.setMinimumSize(QtCore.QSize(84, 0))
+        self.Command_Save_Button.setMaximumSize(QtCore.QSize(150, 28))
+        self.Command_Save_Button.setStyleSheet("QPushButton{    \n"
+"    border:2px solid #8f8f91;\n"
+"    border-radius:6px;\n"
+"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#f6f7fa, stop: 1 #dadbde);\n"
+"    min-width:80px;\n"
+"    font-family:\"微软雅黑\";\n"
+"    font-size:13px;\n"
+"    font-weight:bold;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"border: none;/* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default{\n"
+"border-color: navy;/* make the default button prominent */\n"
+"}")
+        self.Command_Save_Button.setObjectName("Command_Save_Button")
+        self.horizontalLayout_3.addWidget(self.Command_Save_Button)
         self.Command_Add_Button = QtWidgets.QPushButton(self.Command_groupBox)
         self.Command_Add_Button.setMaximumSize(QtCore.QSize(84, 28))
         self.Command_Add_Button.setStyleSheet("QPushButton{    \n"
@@ -848,6 +874,8 @@ class Ui_JT_EMQ_Test_Assistant(object):
         item.setText(_translate("JT_EMQ_Test_Assistant", "Data"))
         self.Command_Activate_Button.setText(_translate("JT_EMQ_Test_Assistant", "Activate"))
         self.Command_Single_Send_Button.setText(_translate("JT_EMQ_Test_Assistant", "Single send"))
+        self.Command_Save_Button.setText(_translate("JT_EMQ_Test_Assistant", "Save"))
+        self.Command_Save_Button.setShortcut(_translate("JT_EMQ_Test_Assistant", "Ctrl+S"))
         self.Command_Add_Button.setText(_translate("JT_EMQ_Test_Assistant", "Add"))
         self.Command_Del_Button.setText(_translate("JT_EMQ_Test_Assistant", "Del"))
         self.Command_Send_Button.setText(_translate("JT_EMQ_Test_Assistant", "Send(&Q)"))
