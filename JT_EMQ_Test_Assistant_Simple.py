@@ -21,7 +21,6 @@ TimeFormat = '%H:%M:%S:%f'
 
 
 def save_load_info(data_class, opt):
-
     if opt == "Save":
         save_dict = {key: value for key, value in data_class.__dict__.items() if
                      not key.startswith('__') and not callable(key)}
@@ -53,11 +52,18 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.setWindowTitle("EIE MQTT Assistant")
 
         self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
+        self.Host_lineEdit.setInputMask("000.000.000.000")
 
-        self.Command_list_tableWidget.setColumnWidth(0, 50)  # Set table width
+        # self.Command_list_tableWidget.setEnabled(False)
+        # self.Command_Add_Button.setEnabled(False)
+        # self.Command_Del_Button.setEnabled(False)
+
+        '''
+            QTableView QSS 
+        '''
+        self.Command_list_tableWidget.setColumnWidth(0, 65)  # Set table width
         self.Command_list_tableWidget.setColumnWidth(1, 80)
-        self.Command_list_tableWidget.setColumnWidth(2, 80)
-        self.Command_list_tableWidget.setColumnWidth(3, 150)
+        self.Command_list_tableWidget.setColumnWidth(2, 150)
 
         # Table cover the blank
         self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
@@ -66,19 +72,16 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(0, QHeaderView.Interactive)
         self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(1, QHeaderView.Interactive)
         self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(2, QHeaderView.Interactive)
-        self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(3, QHeaderView.Interactive)
 
-        # self.Command_list_tableWidget.setEnabled(False)
-        self.Command_Add_Button.setEnabled(False)
-        self.Command_Del_Button.setEnabled(False)
-
-        self.Host_lineEdit.setInputMask("000.000.000.000")
-
+        '''
+             PyQt Slot connect
+        '''
         self.Connect_EMQ_Button.clicked.connect(self.connect_emq_button_clicked)
         self.Command_Activate_Button.clicked.connect(self.command_activate_button_clicked)
         self.Rec_Data_Clean_Button.clicked.connect(self.rec_data_clean_button_clicked)
         self.Command_Send_Button.clicked.connect(self.command_send_button_clicked)
         self.Save_Log_checkBox.stateChanged.connect(self.save_log_checkbox_state_changed)
+        self.Command_Add_Button.clicked.connect(self.command_add_button_clicked)
 
         # self.Rec_Data_Clean_Button.setCursor(QCursor(Qt.PointingHandCursor))
 
@@ -87,6 +90,9 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.mqttDataHandlerThread.started.connect(self.mqttDataHandlerThread.thread_started)
         self.mqttDataHandlerThread.finished.connect(self.mqttDataHandlerThread.thread_finished)
 
+        '''
+             Mqtt setting load
+        '''
         get_setting_data = save_load_info(None, "Load")
         # print(get_setting_data)
         self.Host_lineEdit.setText(get_setting_data.get('host'))
@@ -98,8 +104,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.PublishTopic_lineEdit.setText(get_setting_data.get('publish_topic'))
         self.SubTopic_lineEdit.setText(get_setting_data.get('subscribe_topic'))
         # self.Host_lineEdit.setText(get_setting_data.get('save_log_flag'))
-
-
 
     @pyqtSlot()
     def connect_emq_button_clicked(self):
@@ -208,6 +212,22 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         else:
             mqtt_connect.MqttSetting.save_log_flag = False
             print("mqtt_connect.MqttSetting.save_log_flag = False")
+
+    @pyqtSlot()
+    def command_add_button_clicked(self):
+
+        row = self.Command_list_tableWidget.rowCount()
+        self.Command_list_tableWidget.setRowCount(row + 1)
+        table_row = row
+
+        # Insert a checkbox
+        checkBox = QTableWidgetItem("False")
+
+        # Set checkBox state to unchecked
+        checkBox.setCheckState(Qt.Unchecked)
+
+        self.Command_list_tableWidget.setItem(table_row, 0, checkBox)
+        self.Command_list_tableWidget.setItem(table_row, 1, QTableWidgetItem("1000"))
 
     # # call_back function
     # def receive_messages(self, client, userdata, msg):

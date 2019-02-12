@@ -1086,21 +1086,6 @@ QScollBar::add-line:vertical, QScrollBar::sub-line:vertical {
             <attribute name="horizontalHeaderMinimumSectionSize">
              <number>25</number>
             </attribute>
-            <row>
-             <property name="text">
-              <string>1</string>
-             </property>
-            </row>
-            <row>
-             <property name="text">
-              <string>2</string>
-             </property>
-            </row>
-            <column>
-             <property name="text">
-              <string>No.</string>
-             </property>
-            </column>
             <column>
              <property name="text">
               <string>Activate</string>
@@ -1121,56 +1106,6 @@ QScollBar::add-line:vertical, QScrollBar::sub-line:vertical {
               <string>Data</string>
              </property>
             </column>
-            <item row="0" column="0">
-             <property name="text">
-              <string>1</string>
-             </property>
-            </item>
-            <item row="0" column="1">
-             <property name="text">
-              <string>True</string>
-             </property>
-            </item>
-            <item row="0" column="2">
-             <property name="text">
-              <string>1000</string>
-             </property>
-            </item>
-            <item row="0" column="3">
-             <property name="text">
-              <string>修改从机地址</string>
-             </property>
-            </item>
-            <item row="0" column="4">
-             <property name="text">
-              <string>xxx</string>
-             </property>
-            </item>
-            <item row="1" column="0">
-             <property name="text">
-              <string>3</string>
-             </property>
-            </item>
-            <item row="1" column="1">
-             <property name="text">
-              <string>True</string>
-             </property>
-            </item>
-            <item row="1" column="2">
-             <property name="text">
-              <string>1000</string>
-             </property>
-            </item>
-            <item row="1" column="3">
-             <property name="text">
-              <string>修改心跳包间隔</string>
-             </property>
-            </item>
-            <item row="1" column="4">
-             <property name="text">
-              <string>xxx</string>
-             </property>
-            </item>
            </widget>
           </item>
           <item row="3" column="0" colspan="2">
