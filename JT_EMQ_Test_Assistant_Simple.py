@@ -8,12 +8,10 @@
 # Last Edited: 2019.02.13
 
     后续升级思路：
-        1、在 Activate 隔壁加上 循环次数的 scroll 控件，看看有什么数字可以代表无限，或者使用 Radio Button
-        2、在右边的下面加条 进度bar， 显示还有剩余多少的 Delay 时间进度，加上qss
-        3、循环发送的时候 鲜颜色底色 标出所在的指令位置
-        4、Activate 需要加多一个 QThread
+        1、循环发送的时候 鲜颜色底色 标出所在的指令位置
+        2、Activate 需要加多一个 QThread
             for i in range(scroll数字)
-        5、右边栏增加右键菜单代替按钮：一次性发送、删除
+        3、右边栏增加右键菜单代替按钮：一次性发送、删除
 
 """
 
@@ -86,8 +84,12 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(1, QHeaderView.Interactive)
         self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(2, QHeaderView.Interactive)
 
+        # Already set by Qt designer
         self.Command_list_tableWidget.setSelectionBehavior(QTableWidget.SelectRows)  # Select whole row
         self.Command_list_tableWidget.setSelectionMode(QTableWidget.SingleSelection)  # Select single row
+
+        # self.Command_list_tableWidget.setContextMenuPolicy(Qt.CustomContextMenu)
+        # self.Command_list_tableWidget.customContextMenuRequested.connect(self.command_list_tableWidget_menu)
 
         '''
              PyQt Slot connect
@@ -101,6 +103,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.Command_Single_Send_Button.clicked.connect(self.command_single_send_button_clicked)
         self.Command_Del_Button.clicked.connect(self.command_del_button_clicked)
         self.Command_Save_Button.clicked.connect(self.command_save_button_clicked)
+        self.radioButton_loop_times.toggled.connect(self.radioButton_toggled)
 
         # self.Rec_Data_Clean_Button.setCursor(QCursor(Qt.PointingHandCursor))
 
@@ -235,6 +238,25 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
     @pyqtSlot()
     def rec_data_clean_button_clicked(self):
         self.EMQ_Data_textEdit.clear()
+
+    @pyqtSlot()
+    def radioButton_toggled(self):
+        # print("radioButton_loop_times_toggled")
+        if self.radioButton_loop_times.isChecked():
+            print("self.radioButton_loop_times.isChecked()")
+        elif self.radioButton_infinite.isChecked():
+            print("self.radioButton_infinite.isChecked()")
+
+    @pyqtSlot()
+    def command_list_tableWidget_menu(self):
+        # print("command_list_tableWidget_menu")
+        pass
+
+
+
+
+
+
 
     @pyqtSlot()
     def command_single_send_button_clicked(self):
