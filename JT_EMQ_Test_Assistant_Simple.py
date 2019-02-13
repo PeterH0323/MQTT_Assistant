@@ -118,6 +118,11 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.mqttDataHandlerThread.started.connect(self.mqttDataHandlerThread.thread_started)
         self.mqttDataHandlerThread.finished.connect(self.mqttDataHandlerThread.thread_finished)
 
+        self.commandActivateThread = CommandActivateThread()
+        self.commandActivateThread.commandTrigger.connect(self.command_send_message)
+        self.commandActivateThread.started.connect(self.commandActivateThread.thread_started)
+        self.commandActivateThread.finished.connect(self.commandActivateThread.thread_finished)
+
         '''
              Mqtt setting load
         '''
@@ -234,7 +239,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
             row = self.Command_list_tableWidget.rowCount() - 1
             check_box_state = []
-            send_time_state = []
 
             for i in range(row):
 
@@ -362,7 +366,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         table_row = row
 
         # Insert a checkbox
-        checkBox = QTableWidgetItem("False")
+        # checkBox = QTableWidgetItem("False")
+        checkBox = QTableWidgetItem()
 
         # Set checkBox state to unchecked
         checkBox.setCheckState(Qt.Unchecked)
@@ -405,6 +410,16 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
                     row_data.append(item)
                 f_csv.writerow(row_data)
         print("Saved CSV")
+
+    @pyqtSlot(str)
+    def add_messages(self, message):
+
+        self.EMQ_Data_textEdit.append(message)
+        print("add_messages: ->" + message)
+
+    @pyqtSlot(str)
+    def command_send_message(self, message):
+        pass
 
     def load_insert_command_data(self):
         # path = QtGui.QFileDialog.getOpenFileName(
@@ -449,13 +464,15 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
                             if column == 0:
 
                                 # Insert a checkbox
+                                checkBox = QTableWidgetItem()
+
                                 # Set checkBox state
                                 if data == "2":
-                                    checkBox = QTableWidgetItem("True")
+                                    # checkBox = QTableWidgetItem("True")
                                     checkBox.setCheckState(Qt.Checked)
 
                                 elif data == "0":
-                                    checkBox = QTableWidgetItem("False")
+                                    # checkBox = QTableWidgetItem("False")
                                     checkBox.setCheckState(Qt.Unchecked)
 
                                 self.Command_list_tableWidget.setItem(row, column, checkBox)
@@ -478,11 +495,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
     #     mqtt_connect.storedToLog.info("Rec->" + msg.topic + " -> " + str(msg.payload))
     #     self.mqttDataHandlerThread.messageTrigger.emit(msg.topic + " -> " + str(msg.payload))
 
-    def add_messages(self, message):
-
-        self.EMQ_Data_textEdit.append(message)
-        print("add_messages: ->" + message)
-        # mqtt_connect.MqttClient.message_temp = ""
 
     def closeEvent(self, event):
 
@@ -526,10 +538,37 @@ class MqttDataHandlerThread(QThread):
                 # time.sleep(0.05)
 
     def thread_started(self):
-        print("mqttDataHandlerThread started")
+        print("MqttDataHandlerThread started")
 
     def thread_finished(self):
         print("mqttDataHandlerThread finished")
+
+
+class CommandActivateThread(QThread):
+    commandTrigger = pyqtSignal(str)
+
+    def __init__(self):
+        super(CommandActivateThread, self).__init__()
+        self.running = True
+
+    def __del__(self):
+        self.running = False
+        self.wait()
+
+    def run(self):
+        self.running = True
+
+        while self.running:
+            pass
+            # self.commandTrigger.emit("hi,im mqttDataHandlerThread.run")
+
+                # time.sleep(0.05)
+
+    def thread_started(self):
+        print("CommandActivate started")
+
+    def thread_finished(self):
+        print("CommandActivate finished")
 
 
 if __name__ == '__main__':
