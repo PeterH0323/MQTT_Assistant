@@ -712,6 +712,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.Command_list_tableWidget.setColumnCount(4)
         self.Command_list_tableWidget.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
+        item.setTextAlignment(QtCore.Qt.AlignCenter)
         self.Command_list_tableWidget.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.Command_list_tableWidget.setHorizontalHeaderItem(1, item)
@@ -798,6 +799,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "    spacing: 5px;\n"
 "    font-size: 15px;\n"
 "}")
+        self.radioButton_loop_times.setChecked(True)
         self.radioButton_loop_times.setObjectName("radioButton_loop_times")
         self.horizontalLayout_6.addWidget(self.radioButton_loop_times)
         self.loop_times_spinBox = QtWidgets.QSpinBox(self.Command_groupBox)

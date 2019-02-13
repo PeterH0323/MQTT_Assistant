@@ -1279,6 +1279,9 @@ QScrollBar::sub-line:vertical {
              <property name="text">
               <string>Activate</string>
              </property>
+             <property name="textAlignment">
+              <set>AlignCenter</set>
+             </property>
             </column>
             <column>
              <property name="text">
@@ -1426,6 +1429,9 @@ QRadioButton ,QCheckBox{
               </property>
               <property name="text">
                <string>次数：</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
               </property>
              </widget>
             </item>

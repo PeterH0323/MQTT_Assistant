@@ -11,11 +11,11 @@
         1、循环发送的时候 鲜颜色底色 标出所在的指令位置
         2、Activate 需要加多一个 QThread
             for i in range(scroll数字)
-        3、右边栏增加右键菜单代替按钮：一次性发送、删除
 
 """
 
 from PyQt5.QtCore import *
+from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *  # QMainWindow, QApplication, QDialog, QWidget, QMessageBox
 
 from UI.JT_EMQ_Test_Assistant_UI_Simple import Ui_JT_EMQ_Test_Assistant
@@ -64,6 +64,9 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
         self.Host_lineEdit.setInputMask("000.000.000.000")
 
+        command_send_flag = []
+        command_send_time = []
+
         '''
              QTableView data load
         '''
@@ -88,9 +91,11 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         # self.Command_list_tableWidget.setSelectionBehavior(QTableWidget.SelectRows)  # Select whole row
         # self.Command_list_tableWidget.setSelectionMode(QTableWidget.SingleSelection)  # Select single row
 
-        self.Command_list_tableWidget.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.Command_list_tableWidget.setContextMenuPolicy(Qt.CustomContextMenu)  # Enable right click
         self.Command_list_tableWidget.customContextMenuRequested.connect(self.command_list_tableWidget_menu)
 
+        # self.Command_list_tableWidget.setItem(3, 5, QTableWidgetItem())
+        # self.Command_list_tableWidget.item(3, 5).setBackground(QColor(100, 100, 150))
 
         '''
              PyQt Slot connect
@@ -119,7 +124,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         get_setting_data = save_load_info(None, "Load")
 
         if get_setting_data != "FileNotFoundError":
-            print('get_setting_data != "FileNotFoundError"')
+            # print('get_setting_data != "FileNotFoundError"')
             self.Host_lineEdit.setText(get_setting_data.get('host'))
             self.Port_lineEdit.setText(str(get_setting_data.get('port')))
             # self.ClientID_lineEdit.setText(get_setting_data.get('client_id'))
@@ -222,13 +227,41 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
         # mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, "Test PUBLISH")
 
-        item = self.Command_list_tableWidget.item(0, 0)
-        print(item.checkState())
+        # item = self.Command_list_tableWidget.item(0, 0)
+        # print(item.checkState())
 
         if self.Command_Activate_Button.isChecked():
-            print("Command_Activate_Button.isChecked")
+
+            row = self.Command_list_tableWidget.rowCount() - 1
+            check_box_state = []
+            send_time_state = []
+
+            for i in range(row):
+
+                item = self.Command_list_tableWidget.item(i, 0).checkState()
+                check_box_state.append(item)
+            command_send_flag = check_box_state[:]
+            print(command_send_flag)
+
+            for i in range(row):
+
+                item = self.Command_list_tableWidget.item(i, 1).text()
+                send_time_state.append(item)
+            command_send_time = send_time_state[:]
+            print(command_send_time)
+
+            if self.radioButton_loop_times.isChecked():
+                pass
+
+            elif self.radioButton_infinite.isChecked():
+                pass
+
+            else:
+                return
         else:
             print("Command_Activate_Button.is unChecked")
+
+
 
     @pyqtSlot()
     def command_send_button_clicked(self):
@@ -281,8 +314,11 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
         # get selected row
         selected_row = self.Command_list_tableWidget.currentRow()
+
+        # self.Command_list_tableWidget.item(selected_row, 2).setBackground(QColor(180, 220, 255))
+
         if selected_row != -1:
-            print("selected_row != -1")
+            # print("selected_row != -1")
             try:
                 data_send = self.Command_list_tableWidget.item(selected_row, 3).text()
             except AttributeError:  # a blank item !!
@@ -343,7 +379,12 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
                 row_data = []
                 for column in range(self.Command_list_tableWidget.columnCount()):
                     try:
-                        item = self.Command_list_tableWidget.item(row, column).text()
+
+                        if column == 0:
+                            item = self.Command_list_tableWidget.item(row, column).checkState()
+
+                        else:
+                            item = self.Command_list_tableWidget.item(row, column).text()
 
                     except AttributeError:  # a blank item !!
                         # print("AttributeError")
@@ -399,16 +440,24 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
                             if column == 0:
                                 # Insert a checkbox
-                                checkBox = QTableWidgetItem(str(data))
+
+                                checkBox = QTableWidgetItem()
 
                                 # Set checkBox state to unchecked
-                                checkBox.setCheckState(Qt.Unchecked)
+                                if data == "2":
+                                    checkBox = QTableWidgetItem("True")
+                                    checkBox.setCheckState(Qt.Checked)
+
+                                elif data == "0":
+                                    checkBox = QTableWidgetItem("False")
+                                    checkBox.setCheckState(Qt.Unchecked)
 
                                 self.Command_list_tableWidget.setItem(row, column, checkBox)
 
                             else:
                                 item = QTableWidgetItem(str(data))
                                 self.Command_list_tableWidget.setItem(row, column, item)
+
                                 # print("row =", row, "column=", column, " item = ", item)
 
                 # delete the last row
