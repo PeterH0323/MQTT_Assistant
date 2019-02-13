@@ -65,7 +65,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.Host_lineEdit.setInputMask("000.000.000.000")
 
         command_send_flag = []
-        command_send_time = []
+        # command_send_time = []
 
         '''
              QTableView data load
@@ -238,17 +238,24 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
             for i in range(row):
 
-                item = self.Command_list_tableWidget.item(i, 0).checkState()
-                check_box_state.append(item)
+                # item = self.Command_list_tableWidget.item(i, 0).checkState()
+                # if item == "2":
+                if self.Command_list_tableWidget.item(i, 0).checkState() == 2:
+                    check_box_state.append(i)
+
+                    # try:
+                    #     data_send = self.Command_list_tableWidget.item(i, 1).text()
+                    # except AttributeError:  # a blank item !!
+                    #     print("AttributeError")
+                    #     data_send = 0
+
+                    # send_time_state.append(int(data_send))
             command_send_flag = check_box_state[:]
             print(command_send_flag)
+            self.Command_list_tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
 
-            for i in range(row):
-
-                item = self.Command_list_tableWidget.item(i, 1).text()
-                send_time_state.append(item)
-            command_send_time = send_time_state[:]
-            print(command_send_time)
+            # command_send_time = send_time_state[:]
+            # print(command_send_time)
 
             if self.radioButton_loop_times.isChecked():
                 pass
@@ -259,9 +266,10 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             else:
                 return
         else:
+            self.Command_list_tableWidget.setEditTriggers(
+                QAbstractItemView.DoubleClicked | QAbstractItemView.AnyKeyPressed)
+
             print("Command_Activate_Button.is unChecked")
-
-
 
     @pyqtSlot()
     def command_send_button_clicked(self):
@@ -439,11 +447,9 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
                         for column, data in enumerate(f_tsv):
 
                             if column == 0:
+
                                 # Insert a checkbox
-
-                                checkBox = QTableWidgetItem()
-
-                                # Set checkBox state to unchecked
+                                # Set checkBox state
                                 if data == "2":
                                     checkBox = QTableWidgetItem("True")
                                     checkBox.setCheckState(Qt.Checked)
