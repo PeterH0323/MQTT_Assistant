@@ -1074,6 +1074,14 @@ QProgressBar::chunk {
     width: 20px;
 }
 
+/*
+QProgressBar::chunk {
+    background-color: #CD96CD;
+    width: 10px;
+    margin: 0.5px;
+}
+*/
+
 QProgressBar {
     border: 2px solid grey;
     border-radius: 5px;
@@ -1082,6 +1090,9 @@ QProgressBar {
 	font-size:15px;
 	font-weight:bold;
 }
+
+
+
 </string>
             </property>
             <property name="value">
@@ -1119,7 +1130,7 @@ QProgressBar {
 }
 
 QLineEdit:focus{
-	border:2px solid #3498DB;
+	border:2px solid #4DB34D;
 }</string>
               </property>
               <property name="text">
@@ -1405,7 +1416,99 @@ QRadioButton ,QCheckBox{
              </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="loop_times_spinBox"/>
+             <widget class="QSpinBox" name="loop_times_spinBox">
+              <property name="minimumSize">
+               <size>
+                <width>60</width>
+                <height>29</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>60</width>
+                <height>29</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QSpinBox
+{
+	border-style:none;
+	padding:4px;
+	border-radius:5px;
+	border:2px solid #DCE4EC;
+	font-family:&quot;微软雅黑&quot;;
+	font-size:13px;
+}
+
+QSpinBox:focus
+{
+	border:2px solid #AA55AA;
+}
+
+
+QSpinBox::up-button {
+    subcontrol-origin: border;
+    subcontrol-position: top right; /* position at the top right corner */
+
+    width: 16px; /* 16 + 2*1px border-width = 15px padding + 3px parent border */
+    border-image: url(./images/UpArrow.png) 1;
+    border-width: 1px;
+}
+
+/*
+QSpinBox::up-button:hover {
+    border-image: url(:/images/spinup_hover.png) 1;
+}
+*/
+
+QSpinBox::up-button:pressed {
+    border-image: url(./images/UpArrow_press.png) 1;
+}
+
+
+/*
+QSpinBox::up-arrow {
+    image: url(:/images/UpArrow.png);
+    width: 7px;
+    height: 7px;
+}
+*/
+
+/*
+QSpinBox::up-arrow:disabled, QSpinBox::up-arrow:off { /* off state when value is max
+   image: url(:/images/up_arrow_disabled.png);
+}
+ */
+QSpinBox::down-button {
+    subcontrol-origin: border;
+    subcontrol-position: bottom right; /* position at bottom right corner */
+
+    width: 16px;
+    border-image: url(./images/DownArrow.png) 1;
+    border-width: 1px;
+    border-top-width: 0;
+}
+
+QSpinBox::down-button:pressed {
+    border-image: url(./images/DownArrow_press.png) 1;
+}
+
+/*
+QSpinBox::down-arrow {
+    image: url(:/images/down_arrow.png);
+    width: 7px;
+    height: 7px;
+}
+*/
+
+/* off state when value in min 
+QSpinBox::down-arrow:disabled,QSpinBox::down-arrow:off { 
+   image: url(:/images/down_arrow_disabled.png);
+}
+*/
+</string>
+              </property>
+             </widget>
             </item>
             <item>
              <widget class="QRadioButton" name="radioButton_infinite">
