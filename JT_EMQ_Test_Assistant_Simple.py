@@ -272,9 +272,25 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
             self.Command_list_tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
             self.loop_times_spinBox.setEnabled(False)
+            self.radioButton_infinite.setEnabled(False)
+            self.radioButton_loop_times.setEnabled(False)
 
             if len(self.command_send_index) > 0:
                 self.command_next_num = 0
+
+                try:
+                    data_send = self.Command_list_tableWidget.item(
+                        self.command_send_index[self.command_next_num], 3).text()
+                    # print("data_send = ", data_send)
+                    print("self.command_send_index[self.command_next_num] ",
+                          self.command_send_index[self.command_next_num])
+
+                except AttributeError:  # a blank item !!
+                    print("AttributeError")
+                    # item = ""
+
+                else:
+                    mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, data_send)
 
                 new_timing = int(self.Command_list_tableWidget.item(
                     self.command_send_index[self.command_next_num], 1).text())
@@ -300,6 +316,9 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
                 QAbstractItemView.DoubleClicked | QAbstractItemView.AnyKeyPressed)
             self.commandActivateThread.running = False
             self.loop_times_spinBox.setEnabled(True)
+            self.radioButton_infinite.setEnabled(True)
+            self.radioButton_loop_times.setEnabled(True)
+
 
             self.command_send_timer.stop()
 
@@ -389,7 +408,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
     @pyqtSlot()
     def command_add_button_clicked(self):
 
-        self.Command_Activate_Button.setEnabled(True)
+        if self.Connect_EMQ_Button.text() == 'Disconnect from EMQ':
+            self.Command_Activate_Button.setEnabled(True)
 
         row = self.Command_list_tableWidget.rowCount()
         self.Command_list_tableWidget.setRowCount(row + 1)
@@ -457,25 +477,80 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.command_next_num += 1
 
         if self.command_next_num < len(self.command_send_index):
+
+            try:
+                data_send = self.Command_list_tableWidget.item(
+                    self.command_send_index[self.command_next_num], 3).text()
+                # print("data_send = ", data_send)
+                print("self.command_send_index[self.command_next_num] ", self.command_send_index[self.command_next_num])
+
+            except AttributeError:  # a blank item !!
+                print("AttributeError")
+                # item = ""
+
+            else:
+                mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, data_send)
+
             new_timing = int(self.Command_list_tableWidget.item(
                 self.command_send_index[self.command_next_num], 1).text())
 
             self.command_send_timer.start(new_timing)
             print("command_send_timer.start = ", new_timing)
 
+            progressBar_value = self.command_next_num / len(self.command_send_index) * 100
+            # print("progressBar_value = ", progressBar_value)
+            self.Command_send_progressBar.setValue(progressBar_value)
+
+
         else:
+            self.Command_send_progressBar.setValue(0)
             self.command_next_num = 0
             self.command_loop_times += 1
             if self.command_loop_infinite_flag == False:
                 if self.command_loop_times < self.loop_times_spinBox.value():
+
+                    try:
+                        data_send = self.Command_list_tableWidget.item(
+                            self.command_send_index[self.command_next_num], 3).text()
+                        # print("data_send = ", data_send)
+                        print("self.command_send_index[self.command_next_num] ",
+                              self.command_send_index[self.command_next_num])
+
+                    except AttributeError:  # a blank item !!
+                        print("AttributeError")
+                        # item = ""
+
+                    else:
+                        mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic,
+                                                           data_send)
+
+
                     new_timing = int(self.Command_list_tableWidget.item(
                         self.command_send_index[self.command_next_num], 1).text())
 
                     self.command_send_timer.start(new_timing)
                     print("command_send_timer.start = ", new_timing)
+
                 else:
+                    self.Command_send_progressBar.setValue(100)
                     self.Command_Activate_Button.setChecked(False)
             else:
+
+                try:
+                    data_send = self.Command_list_tableWidget.item(
+                        self.command_send_index[self.command_next_num], 3).text()
+                    # print("data_send = ", data_send)
+                    print("self.command_send_index[self.command_next_num] ",
+                          self.command_send_index[self.command_next_num])
+
+                except AttributeError:  # a blank item !!
+                    print("AttributeError")
+                    # item = ""
+
+                else:
+                    mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, data_send)
+
+
                 new_timing = int(self.Command_list_tableWidget.item(
                     self.command_send_index[self.command_next_num], 1).text())
 
