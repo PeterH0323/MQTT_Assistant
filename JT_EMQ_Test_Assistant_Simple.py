@@ -58,7 +58,9 @@ def save_load_info(data_class, opt):
 class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
     command_send_index = []
     command_next_num = 0
-    commmand_next_timing = 1000
+    command_next_timing = 1000
+    command_loop_times = 1
+    command_loop_infinite_flag = False
 
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
@@ -244,6 +246,9 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
             row = self.Command_list_tableWidget.rowCount() - 1
             check_box_state = []
+            self.command_loop_times = 0
+            self.command_next_num = 0
+            self.command_send_index = []
 
             for i in range(row):
 
@@ -266,6 +271,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             print("command_send_index = ", self.command_send_index)
 
             self.Command_list_tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
+            self.loop_times_spinBox.setEnabled(False)
 
             if len(self.command_send_index) > 0:
                 self.command_next_num = 0
@@ -280,10 +286,12 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             # self.commandActivateThread.start()
 
             if self.radioButton_loop_times.isChecked():
-                pass
+                self.command_loop_infinite_flag = False
+                # self.command_loop_times = self.loop_times_spinBox.value()
+                # print("self.command_loop_times = ", self.command_loop_times)
 
             elif self.radioButton_infinite.isChecked():
-                pass
+                self.command_loop_infinite_flag = True
 
             else:
                 return
@@ -291,6 +299,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             self.Command_list_tableWidget.setEditTriggers(
                 QAbstractItemView.DoubleClicked | QAbstractItemView.AnyKeyPressed)
             self.commandActivateThread.running = False
+            self.loop_times_spinBox.setEnabled(True)
 
             self.command_send_timer.stop()
 
@@ -456,6 +465,25 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
         else:
             self.command_next_num = 0
+            self.command_loop_times += 1
+            if self.command_loop_infinite_flag == False:
+                if self.command_loop_times < self.loop_times_spinBox.value():
+                    new_timing = int(self.Command_list_tableWidget.item(
+                        self.command_send_index[self.command_next_num], 1).text())
+
+                    self.command_send_timer.start(new_timing)
+                    print("command_send_timer.start = ", new_timing)
+                else:
+                    self.Command_Activate_Button.setChecked(False)
+            else:
+                new_timing = int(self.Command_list_tableWidget.item(
+                    self.command_send_index[self.command_next_num], 1).text())
+
+                self.command_send_timer.start(new_timing)
+                print("command_send_timer.start = ", new_timing)
+
+
+
 
         # # print(datetime.datetime.now().strftime(TimeFormat))
         #

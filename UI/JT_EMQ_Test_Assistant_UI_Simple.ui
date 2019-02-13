@@ -1528,6 +1528,12 @@ QSpinBox::down-arrow:disabled,QSpinBox::down-arrow:off {
 */
 </string>
               </property>
+              <property name="minimum">
+               <number>1</number>
+              </property>
+              <property name="maximum">
+               <number>100</number>
+              </property>
              </widget>
             </item>
             <item>

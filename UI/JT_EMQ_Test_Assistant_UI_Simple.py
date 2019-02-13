@@ -882,6 +882,8 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "}\n"
 "*/\n"
 "")
+        self.loop_times_spinBox.setMinimum(1)
+        self.loop_times_spinBox.setMaximum(100)
         self.loop_times_spinBox.setObjectName("loop_times_spinBox")
         self.horizontalLayout_6.addWidget(self.loop_times_spinBox)
         self.radioButton_infinite = QtWidgets.QRadioButton(self.Command_groupBox)
