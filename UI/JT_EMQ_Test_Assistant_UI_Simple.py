@@ -556,7 +556,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "\n"
 "QProgressBar::chunk {\n"
 "    background-color: #05B8CC;\n"
-"    width: 20px;\n"
+"    width: 1px;\n"
 "}\n"
 "\n"
 "/*\n"
@@ -566,6 +566,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "    margin: 0.5px;\n"
 "}\n"
 "*/\n"
+"\n"
 "\n"
 "QProgressBar {\n"
 "    border: 2px solid grey;\n"
@@ -577,9 +578,8 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "}\n"
 "\n"
 "\n"
-"\n"
 "")
-        self.Command_send_progressBar.setProperty("value", 1)
+        self.Command_send_progressBar.setProperty("value", 0)
         self.Command_send_progressBar.setObjectName("Command_send_progressBar")
         self.gridLayout_4.addWidget(self.Command_send_progressBar, 4, 0, 1, 1)
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
@@ -960,7 +960,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.gridLayout_5.addWidget(self.widget, 1, 0, 1, 1)
         JT_EMQ_Test_Assistant.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(JT_EMQ_Test_Assistant)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1191, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1191, 23))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")

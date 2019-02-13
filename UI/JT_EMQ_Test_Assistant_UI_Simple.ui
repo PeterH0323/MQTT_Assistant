@@ -1071,7 +1071,7 @@ QProgressBar#progressBar::chunk {
 
 QProgressBar::chunk {
     background-color: #05B8CC;
-    width: 20px;
+    width: 1px;
 }
 
 /*
@@ -1081,6 +1081,7 @@ QProgressBar::chunk {
     margin: 0.5px;
 }
 */
+
 
 QProgressBar {
     border: 2px solid grey;
@@ -1092,11 +1093,10 @@ QProgressBar {
 }
 
 
-
 </string>
             </property>
             <property name="value">
-             <number>1</number>
+             <number>0</number>
             </property>
            </widget>
           </item>
@@ -1712,7 +1712,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>1191</width>
-     <height>26</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

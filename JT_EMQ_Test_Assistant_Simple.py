@@ -15,7 +15,7 @@
 """
 
 from PyQt5.QtCore import *
-from PyQt5.QtGui import *
+# from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *  # QMainWindow, QApplication, QDialog, QWidget, QMessageBox
 
 from UI.JT_EMQ_Test_Assistant_UI_Simple import Ui_JT_EMQ_Test_Assistant
@@ -23,6 +23,8 @@ from UI.JT_EMQ_Test_Assistant_UI_Simple import Ui_JT_EMQ_Test_Assistant
 import Interface.mqtt_connect as mqtt_connect
 import pickle
 import csv
+import time
+import datetime
 
 TimeFormat = '%H:%M:%S:%f'
 
@@ -54,6 +56,9 @@ def save_load_info(data_class, opt):
 
 
 class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
+    command_send_index = []
+    command_next_num = 0
+    commmand_next_timing = 1000
 
     def __init__(self, parent=None):
         super(MainWindow, self).__init__(parent)
@@ -64,8 +69,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
         self.Host_lineEdit.setInputMask("000.000.000.000")
 
-        command_send_flag = []
-        # command_send_time = []
+        self.command_send_timer = QTimer(self)
+        self.command_send_timer.timeout.connect(self.command_send_message)
 
         '''
              QTableView data load
@@ -254,12 +259,25 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
                     #     data_send = 0
 
                     # send_time_state.append(int(data_send))
-            command_send_flag = check_box_state[:]
-            print(command_send_flag)
-            self.Command_list_tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
-
             # command_send_time = send_time_state[:]
             # print(command_send_time)
+
+            self.command_send_index = check_box_state
+            print("command_send_index = ", self.command_send_index)
+
+            self.Command_list_tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
+
+            if len(self.command_send_index) > 0:
+                self.command_next_num = 0
+
+                new_timing = int(self.Command_list_tableWidget.item(
+                    self.command_send_index[self.command_next_num], 1).text())
+
+                self.command_send_timer.start(new_timing)
+                print("command_send_timer.start = ", new_timing)
+
+            self.Command_send_progressBar.setValue(0)
+            # self.commandActivateThread.start()
 
             if self.radioButton_loop_times.isChecked():
                 pass
@@ -272,6 +290,9 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         else:
             self.Command_list_tableWidget.setEditTriggers(
                 QAbstractItemView.DoubleClicked | QAbstractItemView.AnyKeyPressed)
+            self.commandActivateThread.running = False
+
+            self.command_send_timer.stop()
 
             print("Command_Activate_Button.is unChecked")
 
@@ -417,9 +438,43 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.EMQ_Data_textEdit.append(message)
         print("add_messages: ->" + message)
 
-    @pyqtSlot(str)
-    def command_send_message(self, message):
-        pass
+    # @pyqtSlot(int)
+    # def command_send_message(self, value):
+    @pyqtSlot()
+    def command_send_message(self):
+        self.command_send_timer.stop()
+        print("self.command_send_timer.stop()")
+
+        self.command_next_num += 1
+
+        if self.command_next_num < len(self.command_send_index):
+            new_timing = int(self.Command_list_tableWidget.item(
+                self.command_send_index[self.command_next_num], 1).text())
+
+            self.command_send_timer.start(new_timing)
+            print("command_send_timer.start = ", new_timing)
+
+        else:
+            self.command_next_num = 0
+
+        # # print(datetime.datetime.now().strftime(TimeFormat))
+        #
+        # # if len(self.command_send_index) > 0:
+        #     # self.command_send_timer = self.Command_list_tableWidget.item(
+        #     #     self.command_send_index[int(self.command_next_num)], 1).text()
+        #     # print(self.command_send_timer)
+        # # print(self.Command_list_tableWidget.item(1, 1).text())
+        # self.command_send_timer = int(self.Command_list_tableWidget.item(1, 1).text())
+        # print(self.command_send_timer)
+        #
+        # # self.command_send_timer.start(self.command_send_timer)
+        #
+        # # print("int(self.command_send_timer) = ", int(self.command_send_timer))
+        # # value /= 10
+        # # self.Command_send_progressBar.setValue(value)
+        # # if value == 90:
+        # #     print("value == 90")
+        # #     self.commandActivateThread.start()
 
     def load_insert_command_data(self):
         # path = QtGui.QFileDialog.getOpenFileName(
@@ -495,7 +550,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
     #     mqtt_connect.storedToLog.info("Rec->" + msg.topic + " -> " + str(msg.payload))
     #     self.mqttDataHandlerThread.messageTrigger.emit(msg.topic + " -> " + str(msg.payload))
 
-
     def closeEvent(self, event):
 
         if self.Connect_EMQ_Button.text() == 'Disconnect from EMQ':
@@ -545,11 +599,12 @@ class MqttDataHandlerThread(QThread):
 
 
 class CommandActivateThread(QThread):
-    commandTrigger = pyqtSignal(str)
+    commandTrigger = pyqtSignal(int)
 
     def __init__(self):
         super(CommandActivateThread, self).__init__()
         self.running = True
+        self.time_counting = 0
 
     def __del__(self):
         self.running = False
@@ -557,12 +612,23 @@ class CommandActivateThread(QThread):
 
     def run(self):
         self.running = True
-
+        self.time_counting = 0
+        print(datetime.datetime.now().strftime(TimeFormat))
         while self.running:
-            pass
-            # self.commandTrigger.emit("hi,im mqttDataHandlerThread.run")
 
-                # time.sleep(0.05)
+            if self.time_counting < Assistant_MainWidow.commmand_next_timing:
+                print(self.time_counting)
+                time.sleep(0.1)
+                self.time_counting += 100
+
+                self.commandTrigger.emit(self.time_counting)
+
+            elif self.time_counting == Assistant_MainWidow.commmand_next_timing:
+
+                print(datetime.datetime.now().strftime(TimeFormat))
+
+                # self.commandTrigger.emit(self.time_counting)
+                self.running = False
 
     def thread_started(self):
         print("CommandActivate started")
@@ -578,8 +644,8 @@ if __name__ == '__main__':
 
     mqtt_connect.generate_client_id()
 
-    test_Assistant_MainWidow = MainWindow()
-    test_Assistant_MainWidow.show()
+    Assistant_MainWidow = MainWindow()
+    Assistant_MainWidow.show()
 
     mqtt_client = mqtt_connect.MqttClient()
     sys.exit(app.exec_())
