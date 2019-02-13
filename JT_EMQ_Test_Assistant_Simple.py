@@ -85,11 +85,12 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.Command_list_tableWidget.horizontalHeader().setSectionResizeMode(2, QHeaderView.Interactive)
 
         # Already set by Qt designer
-        self.Command_list_tableWidget.setSelectionBehavior(QTableWidget.SelectRows)  # Select whole row
-        self.Command_list_tableWidget.setSelectionMode(QTableWidget.SingleSelection)  # Select single row
+        # self.Command_list_tableWidget.setSelectionBehavior(QTableWidget.SelectRows)  # Select whole row
+        # self.Command_list_tableWidget.setSelectionMode(QTableWidget.SingleSelection)  # Select single row
 
-        # self.Command_list_tableWidget.setContextMenuPolicy(Qt.CustomContextMenu)
-        # self.Command_list_tableWidget.customContextMenuRequested.connect(self.command_list_tableWidget_menu)
+        self.Command_list_tableWidget.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.Command_list_tableWidget.customContextMenuRequested.connect(self.command_list_tableWidget_menu)
+
 
         '''
              PyQt Slot connect
@@ -247,16 +248,33 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         elif self.radioButton_infinite.isChecked():
             print("self.radioButton_infinite.isChecked()")
 
-    @pyqtSlot()
-    def command_list_tableWidget_menu(self):
-        # print("command_list_tableWidget_menu")
-        pass
+    @pyqtSlot(QPoint)
+    def command_list_tableWidget_menu(self, pos):
 
+        # print("pos = ", pos)
+        # row_num = -1
 
+        # for i in self.Command_list_tableWidget.selectionModel().selection().indexes():
+        #     row_num = i.row()
+        #     print(row_num)
 
+        # if row_num < 2:
+        menu = QMenu()
+        item1 = menu.addAction("Send")
+        item2 = menu.addAction("Delete")
 
+        action = menu.exec_(self.Command_list_tableWidget.mapToGlobal(pos))
 
+        if action == item1:
+            # print("Send")
+            self.command_single_send_button_clicked()
 
+        elif action == item2:
+            # print("Delete")
+            self.command_del_button_clicked()
+
+        else:
+            return
 
     @pyqtSlot()
     def command_single_send_button_clicked(self):
@@ -413,8 +431,11 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
     def closeEvent(self, event):
 
-        mqtt_connect.MqttClient.mqtt_disconnect(mqtt_client)
-        mqtt_connect.MqttClient.mqtt_loop_stop(mqtt_client)
+        if self.Connect_EMQ_Button.text() == 'Disconnect from EMQ':
+            self.mqttDataHandlerThread.running = False
+
+            mqtt_connect.MqttClient.mqtt_disconnect(mqtt_client)
+            mqtt_connect.MqttClient.mqtt_loop_stop(mqtt_client)
 
         # res = QMessageBox.question(self, '消息', '确认退出？', QMessageBox.Yes | QMessageBox.No,
         #                            QMessageBox.No)  # 两个按钮是否， 默认No则关闭这个提示框
