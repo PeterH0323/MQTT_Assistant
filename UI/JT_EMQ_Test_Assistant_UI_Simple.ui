@@ -1040,7 +1040,50 @@ QGroupBox::title {
          </property>
          <layout class="QGridLayout" name="gridLayout_4">
           <item row="4" column="0">
-           <widget class="QProgressBar" name="progressBar">
+           <widget class="QProgressBar" name="Command_send_progressBar">
+            <property name="styleSheet">
+             <string notr="true">/**********进度条*********
+QProgressBar{
+        border: none;
+        text-align: center;
+        color: white;
+        background: rgb(48, 50, 51);
+}
+QProgressBar::chunk {
+        background: rgb(0, 160, 230);
+}
+
+QProgressBar#progressBar {
+		border: none;
+		text-align: center;
+		color: white;
+		background-color: transparent;
+		background-image: url(&quot;:/Black/progressBar&quot;);
+		background-repeat: repeat-x;
+}
+QProgressBar#progressBar::chunk {
+		border: none;
+		background-color: transparent;
+		background-image: url(&quot;:/Black/progressBarChunk&quot;);
+		background-repeat: repeat-x;
+}*/
+
+
+QProgressBar::chunk {
+    background-color: #05B8CC;
+    width: 20px;
+}
+
+QProgressBar {
+    border: 2px solid grey;
+    border-radius: 5px;
+    text-align: center;
+	font-familly:&quot;Calibri&quot;;
+	font-size:15px;
+	font-weight:bold;
+}
+</string>
+            </property>
             <property name="value">
              <number>24</number>
             </property>
@@ -1232,19 +1275,6 @@ QScollBar::add-line:vertical, QScrollBar::sub-line:vertical {
           <item row="5" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_6">
             <item>
-             <spacer name="horizontalSpacer_10">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
              <widget class="QPushButton" name="Command_Single_Send_Button">
               <property name="enabled">
                <bool>false</bool>
@@ -1288,6 +1318,19 @@ border-color: navy;/* make the default button prominent */
                <string>Single send</string>
               </property>
              </widget>
+            </item>
+            <item>
+             <spacer name="horizontalSpacer_10">
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>40</width>
+                <height>20</height>
+               </size>
+              </property>
+             </spacer>
             </item>
             <item>
              <widget class="QCheckBox" name="Command_Activate_Button">
@@ -1334,17 +1377,59 @@ QCheckBox::indicator::checked {
              </widget>
             </item>
             <item>
-             <widget class="QRadioButton" name="radioButton">
+             <widget class="QRadioButton" name="radioButton_loop_times">
+              <property name="styleSheet">
+               <string notr="true">/*RadioButton样式设置*/
+QRadioButton::indicator { 
+    width: 17px;
+    height: 17px;
+}
+/*单选框未选中样式*/
+QRadioButton::indicator::unchecked {
+     
+    image: url(./images/RadioButton_unchecked.png);
+}
+/*单选框选中样式*/
+QRadioButton::indicator::checked { 
+    image: url(./images/RadioButton_checked.png);
+}
+/*RadioButton和checkbox字体和间距设置*/
+QRadioButton ,QCheckBox{
+    spacing: 5px;
+    font-size: 15px;
+}</string>
+              </property>
               <property name="text">
                <string>次数：</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QSpinBox" name="spinBox"/>
+             <widget class="QSpinBox" name="loop_times_spinBox"/>
             </item>
             <item>
-             <widget class="QRadioButton" name="radioButton_2">
+             <widget class="QRadioButton" name="radioButton_infinite">
+              <property name="styleSheet">
+               <string notr="true">/*RadioButton样式设置*/
+QRadioButton::indicator { 
+    width: 17px;
+    height: 17px;
+}
+/*单选框未选中样式*/
+QRadioButton::indicator::unchecked {
+     
+    image: url(./images/RadioButton_unchecked.png);
+}
+/*单选框选中样式*/
+QRadioButton::indicator::checked { 
+    image: url(./images/RadioButton_checked.png);
+}
+/*RadioButton和checkbox字体和间距设置*/
+QRadioButton ,QCheckBox{
+    spacing: 5px;
+    font-size: 15px;
+}</string>
+              </property>
               <property name="text">
                <string>无限</string>
               </property>

@@ -526,10 +526,51 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.Command_groupBox.setObjectName("Command_groupBox")
         self.gridLayout_4 = QtWidgets.QGridLayout(self.Command_groupBox)
         self.gridLayout_4.setObjectName("gridLayout_4")
-        self.progressBar = QtWidgets.QProgressBar(self.Command_groupBox)
-        self.progressBar.setProperty("value", 24)
-        self.progressBar.setObjectName("progressBar")
-        self.gridLayout_4.addWidget(self.progressBar, 4, 0, 1, 1)
+        self.Command_send_progressBar = QtWidgets.QProgressBar(self.Command_groupBox)
+        self.Command_send_progressBar.setStyleSheet("/**********进度条*********\n"
+"QProgressBar{\n"
+"        border: none;\n"
+"        text-align: center;\n"
+"        color: white;\n"
+"        background: rgb(48, 50, 51);\n"
+"}\n"
+"QProgressBar::chunk {\n"
+"        background: rgb(0, 160, 230);\n"
+"}\n"
+"\n"
+"QProgressBar#progressBar {\n"
+"        border: none;\n"
+"        text-align: center;\n"
+"        color: white;\n"
+"        background-color: transparent;\n"
+"        background-image: url(\":/Black/progressBar\");\n"
+"        background-repeat: repeat-x;\n"
+"}\n"
+"QProgressBar#progressBar::chunk {\n"
+"        border: none;\n"
+"        background-color: transparent;\n"
+"        background-image: url(\":/Black/progressBarChunk\");\n"
+"        background-repeat: repeat-x;\n"
+"}*/\n"
+"\n"
+"\n"
+"QProgressBar::chunk {\n"
+"    background-color: #05B8CC;\n"
+"    width: 20px;\n"
+"}\n"
+"\n"
+"QProgressBar {\n"
+"    border: 2px solid grey;\n"
+"    border-radius: 5px;\n"
+"    text-align: center;\n"
+"    font-familly:\"Calibri\";\n"
+"    font-size:15px;\n"
+"    font-weight:bold;\n"
+"}\n"
+"")
+        self.Command_send_progressBar.setProperty("value", 24)
+        self.Command_send_progressBar.setObjectName("Command_send_progressBar")
+        self.gridLayout_4.addWidget(self.Command_send_progressBar, 4, 0, 1, 1)
         self.horizontalLayout_5 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_5.setObjectName("horizontalLayout_5")
         self.Command_Data_lineEdit = QtWidgets.QLineEdit(self.Command_groupBox)
@@ -661,8 +702,6 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.gridLayout_4.addWidget(self.Command_list_tableWidget, 3, 0, 1, 1)
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
-        self.horizontalLayout_6.addItem(spacerItem10)
         self.Command_Single_Send_Button = QtWidgets.QPushButton(self.Command_groupBox)
         self.Command_Single_Send_Button.setEnabled(False)
         self.Command_Single_Send_Button.setMinimumSize(QtCore.QSize(84, 28))
@@ -690,6 +729,8 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "}")
         self.Command_Single_Send_Button.setObjectName("Command_Single_Send_Button")
         self.horizontalLayout_6.addWidget(self.Command_Single_Send_Button)
+        spacerItem10 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
+        self.horizontalLayout_6.addItem(spacerItem10)
         self.Command_Activate_Button = QtWidgets.QCheckBox(self.Command_groupBox)
         self.Command_Activate_Button.setEnabled(False)
         self.Command_Activate_Button.setMinimumSize(QtCore.QSize(90, 28))
@@ -716,15 +757,53 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "}")
         self.Command_Activate_Button.setObjectName("Command_Activate_Button")
         self.horizontalLayout_6.addWidget(self.Command_Activate_Button)
-        self.radioButton = QtWidgets.QRadioButton(self.Command_groupBox)
-        self.radioButton.setObjectName("radioButton")
-        self.horizontalLayout_6.addWidget(self.radioButton)
-        self.spinBox = QtWidgets.QSpinBox(self.Command_groupBox)
-        self.spinBox.setObjectName("spinBox")
-        self.horizontalLayout_6.addWidget(self.spinBox)
-        self.radioButton_2 = QtWidgets.QRadioButton(self.Command_groupBox)
-        self.radioButton_2.setObjectName("radioButton_2")
-        self.horizontalLayout_6.addWidget(self.radioButton_2)
+        self.radioButton_loop_times = QtWidgets.QRadioButton(self.Command_groupBox)
+        self.radioButton_loop_times.setStyleSheet("/*RadioButton样式设置*/\n"
+"QRadioButton::indicator { \n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"}\n"
+"/*单选框未选中样式*/\n"
+"QRadioButton::indicator::unchecked {\n"
+"     \n"
+"    image: url(./images/RadioButton_unchecked.png);\n"
+"}\n"
+"/*单选框选中样式*/\n"
+"QRadioButton::indicator::checked { \n"
+"    image: url(./images/RadioButton_checked.png);\n"
+"}\n"
+"/*RadioButton和checkbox字体和间距设置*/\n"
+"QRadioButton ,QCheckBox{\n"
+"    spacing: 5px;\n"
+"    font-size: 15px;\n"
+"}")
+        self.radioButton_loop_times.setObjectName("radioButton_loop_times")
+        self.horizontalLayout_6.addWidget(self.radioButton_loop_times)
+        self.loop_times_spinBox = QtWidgets.QSpinBox(self.Command_groupBox)
+        self.loop_times_spinBox.setObjectName("loop_times_spinBox")
+        self.horizontalLayout_6.addWidget(self.loop_times_spinBox)
+        self.radioButton_infinite = QtWidgets.QRadioButton(self.Command_groupBox)
+        self.radioButton_infinite.setStyleSheet("/*RadioButton样式设置*/\n"
+"QRadioButton::indicator { \n"
+"    width: 17px;\n"
+"    height: 17px;\n"
+"}\n"
+"/*单选框未选中样式*/\n"
+"QRadioButton::indicator::unchecked {\n"
+"     \n"
+"    image: url(./images/RadioButton_unchecked.png);\n"
+"}\n"
+"/*单选框选中样式*/\n"
+"QRadioButton::indicator::checked { \n"
+"    image: url(./images/RadioButton_checked.png);\n"
+"}\n"
+"/*RadioButton和checkbox字体和间距设置*/\n"
+"QRadioButton ,QCheckBox{\n"
+"    spacing: 5px;\n"
+"    font-size: 15px;\n"
+"}")
+        self.radioButton_infinite.setObjectName("radioButton_infinite")
+        self.horizontalLayout_6.addWidget(self.radioButton_infinite)
         self.gridLayout_4.addLayout(self.horizontalLayout_6, 5, 0, 1, 1)
         self.horizontalLayout_3 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_3.setObjectName("horizontalLayout_3")
@@ -865,8 +944,8 @@ class Ui_JT_EMQ_Test_Assistant(object):
         item.setText(_translate("JT_EMQ_Test_Assistant", "Data"))
         self.Command_Single_Send_Button.setText(_translate("JT_EMQ_Test_Assistant", "Single send"))
         self.Command_Activate_Button.setText(_translate("JT_EMQ_Test_Assistant", "Activate"))
-        self.radioButton.setText(_translate("JT_EMQ_Test_Assistant", "次数："))
-        self.radioButton_2.setText(_translate("JT_EMQ_Test_Assistant", "无限"))
+        self.radioButton_loop_times.setText(_translate("JT_EMQ_Test_Assistant", "次数："))
+        self.radioButton_infinite.setText(_translate("JT_EMQ_Test_Assistant", "无限"))
         self.Command_Save_Button.setStatusTip(_translate("JT_EMQ_Test_Assistant", "Save command list , Short cut : Ctrl + S"))
         self.Command_Save_Button.setShortcut(_translate("JT_EMQ_Test_Assistant", "Ctrl+S"))
         self.Command_Add_Button.setStatusTip(_translate("JT_EMQ_Test_Assistant", "Add a command  , Short cut : Ctrl + A"))
