@@ -817,8 +817,8 @@ QGroupBox::title {
            <widget class="QTextEdit" name="EMQ_Data_textEdit">
             <property name="minimumSize">
              <size>
-              <width>521</width>
-              <height>564</height>
+              <width>0</width>
+              <height>0</height>
              </size>
             </property>
             <property name="font">
@@ -1718,7 +1718,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>1191</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
