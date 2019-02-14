@@ -9,8 +9,9 @@
 
     后续升级思路：
         1、循环发送的时候 鲜颜色底色 标出所在的指令位置
-        2、Activate 需要加多一个 QThread
-            for i in range(scroll数字)
+        2、QTextEdit设置语法高亮：send or Rec ， 搜索关键词 ：Qt QTextEdit 语法高亮： https://blog.csdn.net/weixin_42837024/article/details/81871636
+        3、QTextEdit光标所在行高亮
+
 
 """
 
