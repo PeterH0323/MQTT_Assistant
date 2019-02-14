@@ -12,7 +12,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
     def setupUi(self, JT_EMQ_Test_Assistant):
         JT_EMQ_Test_Assistant.setObjectName("JT_EMQ_Test_Assistant")
         JT_EMQ_Test_Assistant.setEnabled(True)
-        JT_EMQ_Test_Assistant.resize(1191, 972)
+        JT_EMQ_Test_Assistant.resize(1179, 947)
         JT_EMQ_Test_Assistant.setAutoFillBackground(False)
         JT_EMQ_Test_Assistant.setStyleSheet("QMainWindow    {\n"
 "    background-color:white;\n"
@@ -395,7 +395,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         spacerItem6 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout_3.addItem(spacerItem6, 0, 0, 1, 1)
         self.R_S_Data_groupBox = QtWidgets.QGroupBox(self.widget)
-        self.R_S_Data_groupBox.setMinimumSize(QtCore.QSize(543, 651))
+        self.R_S_Data_groupBox.setMinimumSize(QtCore.QSize(543, 0))
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(11)
@@ -419,7 +419,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.gridLayout_2 = QtWidgets.QGridLayout(self.R_S_Data_groupBox)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.EMQ_Data_textEdit = QtWidgets.QTextEdit(self.R_S_Data_groupBox)
-        self.EMQ_Data_textEdit.setMinimumSize(QtCore.QSize(0, 0))
+        self.EMQ_Data_textEdit.setMinimumSize(QtCore.QSize(521, 0))
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(11)
@@ -962,7 +962,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.gridLayout_5.addWidget(self.widget, 1, 0, 1, 1)
         JT_EMQ_Test_Assistant.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(JT_EMQ_Test_Assistant)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1191, 26))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1179, 23))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")

@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1191</width>
-    <height>972</height>
+    <width>1179</width>
+    <height>947</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -783,7 +783,7 @@ QGroupBox, QStatusBar, QToolButton, QComboBox, QDialog {
          <property name="minimumSize">
           <size>
            <width>543</width>
-           <height>651</height>
+           <height>0</height>
           </size>
          </property>
          <property name="font">
@@ -817,7 +817,7 @@ QGroupBox::title {
            <widget class="QTextEdit" name="EMQ_Data_textEdit">
             <property name="minimumSize">
              <size>
-              <width>0</width>
+              <width>521</width>
               <height>0</height>
              </size>
             </property>
@@ -1717,8 +1717,8 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1191</width>
-     <height>26</height>
+     <width>1179</width>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
