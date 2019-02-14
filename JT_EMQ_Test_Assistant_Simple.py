@@ -15,7 +15,7 @@
 """
 
 from PyQt5.QtCore import *
-# from PyQt5.QtGui import *
+from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *  # QMainWindow, QApplication, QDialog, QWidget, QMessageBox
 
 from UI.JT_EMQ_Test_Assistant_UI_Simple import Ui_JT_EMQ_Test_Assistant
@@ -117,6 +117,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.Command_Del_Button.clicked.connect(self.command_del_button_clicked)
         self.Command_Save_Button.clicked.connect(self.command_save_button_clicked)
         self.radioButton_loop_times.toggled.connect(self.radioButton_toggled)
+        self.EMQ_Data_textEdit.cursorPositionChanged.connect(self.text_edit_position_changed)
+        self.textEdit_Fianl_Line_Button.clicked.connect(self.text_edit_final_line_button_clicked)
 
         # self.Rec_Data_Clean_Button.setCursor(QCursor(Qt.PointingHandCursor))
 
@@ -329,6 +331,20 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         data_send = self.Command_Data_lineEdit.text()
         # print('publish_topic = ' + mqtt_connect.MqttSetting.publish_topic)
         mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, data_send)
+
+    @pyqtSlot()
+    def text_edit_position_changed(self):
+        # print("text_edit_position_changed")
+        cursor = self.EMQ_Data_textEdit.textCursor()
+        row = cursor.blockNumber()
+        # col = cursor.columnNumber()
+        print("row = ", row)
+
+    @pyqtSlot()
+    def text_edit_final_line_button_clicked(self):
+        cursor = self.EMQ_Data_textEdit.textCursor()
+        cursor.movePosition(QTextCursor.End)
+        self.EMQ_Data_textEdit.setTextCursor(cursor)
 
     @pyqtSlot()
     def rec_data_clean_button_clicked(self):
