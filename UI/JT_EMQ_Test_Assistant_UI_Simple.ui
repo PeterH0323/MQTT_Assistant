@@ -717,7 +717,7 @@ QGroupBox, QStatusBar, QToolButton, QComboBox, QDialog {
 }</string>
             </property>
             <property name="text">
-             <string>EMQ Disconnect</string>
+             <string>Produced by PeterH</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>

@@ -171,7 +171,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
                 '''
             self.Connect_EMQ_Button.setStyleSheet(button_new_style)
 
-            self.Emq_connect_lable.setText("MQTT connect successful !!")
+            # self.Emq_connect_lable.setText("MQTT connect successful !!")
             # self.EMQ_Data_textEdit.append("Ready to receive data:")
 
             mqtt_connect.MqttSetting.client_id = self.ClientID_lineEdit.text()
@@ -221,7 +221,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             self.Connect_EMQ_Button.setStyleSheet(button_new_style)
 
             self.Connect_EMQ_Button.setText("Connect to EMQ")
-            self.Emq_connect_lable.setText("MQTT disconnected...")
+            # self.Emq_connect_lable.setText("MQTT disconnected...")
             self.EMQ_Setting_groupBox.setEnabled(True)
             self.Command_Activate_Button.setEnabled(False)
             self.Command_Send_Button.setEnabled(False)
