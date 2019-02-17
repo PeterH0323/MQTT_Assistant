@@ -1,6 +1,6 @@
 # MQTT_Assistant
 
-This is a MQTT Assistant for testing.
+This is a MQTT Assistant for sending or receiving message from EMQ.
 
 # Code Version
 
@@ -49,7 +49,7 @@ Use **JT_EMQ_Test_Assistant_Simple.py** to run the programme.
     src="./Doc/top.jpg">
 </center>
 
-When you click the `Connect to EMQ` button the setting of `EMQ Setting` information will be saved automatically.
+When you click the `Connect to EMQ` button the setting of `EMQ Setting` will be saved automatically.
 
 ### Left side:
 
@@ -59,9 +59,9 @@ When you click the `Connect to EMQ` button the setting of `EMQ Setting` informat
     src="./Doc/Letf_side.jpg">
 </center>
 
-When you want to **focus** on one line in `Text Edit` on the left of the window, just click it , it will stop sliding down , then click the button name `Final line` , it will keep show the latest data.
+When you want to **focus** on one line in `Text Edit` on the left of the window, just click it , it will stop sliding down , then click the button name `Final line` , it will keep showing the latest data.
 
-The software save log by default , if you do not want to save it , just unclick the `Save log` check box In the lower left corner of the window.
+The software save log to a txt file name `collect.txt` under floder name `Data` by default , if you **DO NOT** want to save it , just unclick the `Save log` check box in the lower left corner of the window.
 
 ### Right side:
 
@@ -72,18 +72,18 @@ The software save log by default , if you do not want to save it , just unclick 
 </center>
 
 
-You can send custom message by click the `Send` button (shortcut: `Alt + Q`).
+You can send custom message (for example `Hey mate.`) by click the `Send` button (shortcut: `Alt + Q`) **after** you connect EMQ.
 
 You can `add` command in the table by click the nice <img src="/images/add.png" width="3%" height="3%"> button(shortcut: `ctrl + A`) or `delete` by the <img src="/images/Del.png" width="3%" height="3%"> button (shortcut: `ctrl + D`) .
 
 **REMEMBER** : After you edited the table you need to click the button <img src="/images/Save.png" width="3%" height="3%"> to save (shortcut: `ctrl + S`)!
 
-You also can just **Right Click** in the table will show `Send` and `Delete` .
+You also can just **Right Click** in the table will show `Delete` .
 
 The **Right click menu** `Send` and button `Single send` do the same job -> send the command you just selected in the table .
 
-If you want to send the command cyclically , you can just click the **checkBox** `Activate` the software will send command which is activated in column of the table name `Activate` then delay time is according to command row `Delay_ms` .
+If you want to send the command cyclically , you can just click the **checkBox** `Activate` , the software will send command which is activated in column of the table name `Activate` then delay for a while according to command row `Delay_ms` .
 
-Number of times the instruction is sent cyclically according to the **spinBox** beside the checkBox name `Activate`. You also can choose infinite loop .
+Number of times the instruction is sent cyclically according to the **spinBox** name `Times` beside the checkBox name `Activate`. You also can choose infinite loop .
 
 **Progress bar** shows the percentage of completion sent . For example , you activate 10 command in the table , when the software sent 7 commands , the progress bar show `70%`. 
