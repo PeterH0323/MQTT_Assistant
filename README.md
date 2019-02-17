@@ -59,7 +59,7 @@ The software save log by default , if you do not want to save it , just unclick 
 
 You can send custom message by click the `Send` button .
 
-You can add command in the table by click the nice `+`![Add](/images/add.png) button or delete by the ![Trash](/images/Del.png) button .
+You can add command in the table by click the nice <img src="/images/add.png" width="3%" height="3%"> button or delete by the <img src="/images/Del.png" width="3%" height="3%"> button .
 
 You also can just **Right Click** in the table will show `Send` and `Delete` .
 
