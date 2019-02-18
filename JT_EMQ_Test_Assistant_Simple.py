@@ -120,6 +120,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.radioButton_loop_times.toggled.connect(self.radioButton_toggled)
         self.EMQ_Data_textEdit.cursorPositionChanged.connect(self.text_edit_position_changed)
         self.textEdit_Fianl_Line_Button.clicked.connect(self.text_edit_final_line_button_clicked)
+        self.Command_list_tableWidget.itemClicked.connect(self.command_list_item_clicked)
 
         # self.Rec_Data_Clean_Button.setCursor(QCursor(Qt.PointingHandCursor))
 
@@ -332,6 +333,24 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         data_send = self.Command_Data_lineEdit.text()
         # print('publish_topic = ' + mqtt_connect.MqttSetting.publish_topic)
         mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, data_send)
+
+
+    @pyqtSlot()
+    def command_list_item_clicked(self):
+        selected_row = self.Command_list_tableWidget.currentRow()
+        # print(selected_row)
+
+        if selected_row != -1:
+            # print("selected_row != -1")
+            try:
+                set_data = self.Command_list_tableWidget.item(selected_row, 3).text()
+            except AttributeError:  # a blank item !!
+                print("AttributeError")
+                # item = ""
+
+            else:
+                self.Command_Data_lineEdit.setText(set_data)
+
 
     @pyqtSlot()
     def text_edit_position_changed(self):
