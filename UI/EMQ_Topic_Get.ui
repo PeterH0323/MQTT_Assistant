@@ -6,94 +6,126 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>873</width>
-    <height>624</height>
+    <width>563</width>
+    <height>467</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QTableWidget" name="tableWidget">
-   <property name="geometry">
-    <rect>
-     <x>370</x>
-     <y>170</y>
-     <width>451</width>
-     <height>271</height>
-    </rect>
-   </property>
-   <row>
-    <property name="text">
-     <string>1</string>
-    </property>
-   </row>
-   <row>
-    <property name="text">
-     <string>2</string>
-    </property>
-   </row>
-   <column>
-    <property name="text">
-     <string>Client id</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Topic</string>
-    </property>
-   </column>
-  </widget>
-  <widget class="QListWidget" name="listWidget">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>170</y>
-     <width>321</width>
-     <height>261</height>
-    </rect>
-   </property>
-   <item>
-    <property name="text">
-     <string>新建项目</string>
-    </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
+    <widget class="QTableWidget" name="EMQ_Data_tableWidget">
+     <property name="styleSheet">
+      <string notr="true">/* 标题头 每个单独的标题区域*/
+QHeaderView::section {
+
+    font-size:14px;                /* 每个标题的字体大小*/
+    font-family:&quot;Microsoft YaHei&quot;; /* 每个标题的字体类型*/
+    color:#FFFFFF;                 /* 每个标题的字体颜色*/
+
+    background:#ff8a37;            /* 每个标题区域的背景色*/
+    border:none;                   /* 每个标题区域的边框*/
+
+    min-height:49px;               /* 标题区域的高度*/
+    max-height:49px;              
+
+    margin-left:0px;               /* 每个标题区域的margin*/
+    padding-left:0px;              /* 每个标题区域的padding*/
+}
+
+/* 整个表格控件*/
+QTableWidget{
+    background:#FFFFFF;            /* 整个表格控件 背景色*/
+    border:none;                   /* 整个表格控件 边框*/
+
+    font-size:12px;                /* 所有字体大小*/
+    font-family:&quot;Microsoft YaHei&quot;; /* 所有字体 family*/
+    color:#666666;                 /* 所有字体颜色*/
+}
+
+/* 每个单元格*/
+QTableWidget::item {
+    border-bottom:1px solid #EEF1F7 ; /* 只显示每个单元格下边框*/
+}
+
+/* 每个单元格被选中状态*/
+QTableWidget::item::selected {
+
+    color:#ff6a38;                         /*每个单元格被选中时 字体颜色*/
+    background:#EFF4FF;                /*每个单元格被选中时 背景颜色*/
+}
+
+QTableView::indicator:unchecked {
+	image: url(./images/checkBox2_unchecked.png)
+}
+
+QTableView::indicator:checked {
+	image: url(./images/checkBox2_checked.png)
+}
+
+
+</string>
+     </property>
+     <property name="verticalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAsNeeded</enum>
+     </property>
+     <property name="selectionMode">
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="selectionBehavior">
+      <enum>QAbstractItemView::SelectRows</enum>
+     </property>
+     <column>
+      <property name="text">
+       <string>Client id</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Topic</string>
+      </property>
+     </column>
+    </widget>
    </item>
-   <item>
-    <property name="text">
-     <string>新建项目</string>
-    </property>
+   <item row="1" column="0">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="EMQ_Data_Dialog_OK_Button">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="text">
+        <string>OK</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="EMQ_Data_Dialog_Cancel_Button">
+       <property name="text">
+        <string>Cancel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
-   <item>
-    <property name="text">
-     <string>新建项目</string>
-    </property>
-   </item>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>610</x>
-     <y>540</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>OK</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_2">
-   <property name="geometry">
-    <rect>
-     <x>720</x>
-     <y>540</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Cancel</string>
-   </property>
-  </widget>
+  </layout>
  </widget>
  <resources/>
  <connections/>

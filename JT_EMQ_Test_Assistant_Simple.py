@@ -340,7 +340,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
     @pyqtSlot()
     def check_emq_button_clicked(self):
         emq_topic_data.show()
-        emq_web_get_data.Get_EMQ_data()
+        emq_topic_data.Get_EMQ_data()
 
 
 

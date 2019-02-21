@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>1191</width>
-    <height>947</height>
+    <height>921</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -635,6 +635,64 @@ QLineEdit:focus{
            </spacer>
           </item>
           <item>
+           <widget class="QPushButton" name="Check_EMQ_Button">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>201</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>100</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Calibri</family>
+              <pointsize>15</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="toolTip">
+             <string>Connect to EMQ</string>
+            </property>
+            <property name="statusTip">
+             <string>Connect to EMQ accroding to setting</string>
+            </property>
+            <property name="layoutDirection">
+             <enum>Qt::LeftToRight</enum>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton{
+	background-color:#66CCFF;
+	color:#ffffff;
+    border-radius: 5px;
+}
+
+QPushButton:hover{
+	color:#FFFFFF;
+	background:#99FFFF;
+}
+</string>
+            </property>
+            <property name="text">
+             <string>Get EMQ Topics</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="Connect_EMQ_Button">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -721,64 +779,6 @@ QGroupBox, QStatusBar, QToolButton, QComboBox, QDialog {
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="Check_EMQ_Button">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>201</width>
-              <height>51</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>201</width>
-              <height>51</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Calibri</family>
-              <pointsize>15</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
-             </font>
-            </property>
-            <property name="cursor">
-             <cursorShape>PointingHandCursor</cursorShape>
-            </property>
-            <property name="toolTip">
-             <string>Connect to EMQ</string>
-            </property>
-            <property name="statusTip">
-             <string>Connect to EMQ accroding to setting</string>
-            </property>
-            <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton{
-	background-color:#66CCFF;
-	color:#ffffff;
-    border-radius: 5px;
-}
-
-QPushButton:hover{
-	color:#FFFFFF;
-	background:#99FFFF;
-}
-</string>
-            </property>
-            <property name="text">
-             <string>Check EMQ Topic</string>
             </property>
            </widget>
           </item>
@@ -1822,7 +1822,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>1191</width>
-     <height>26</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">

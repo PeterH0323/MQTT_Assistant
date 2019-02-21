@@ -26,9 +26,12 @@ import requests
 from datetime import datetime
 
 from PyQt5.QtCore import *
-from PyQt5.QtGui import *
-from PyQt5.QtWidgets import *  # QMainWindow, QApplication, QDialog, QWidget, QMessageBox
+from PyQt5.QtWidgets import *
+
 from UI.EMQ_Topic_Get import Ui_EMQ_Topic_Get_Dialog
+
+
+# import JT_EMQ_Test_Assistant_Simple
 
 
 # current date and time
@@ -42,67 +45,109 @@ def get_timestamp():
     print("timestamp =", timestamp)
     return timestamp
 
-def Get_EMQ_data():
-
-    timestamp = get_timestamp()
-
-    url = 'http://139.159.163.25:18083/api/v2/nodes/emq@127.0.0.1/subscriptions?curr_page=1&page_size=10&timestamps=' + str(
-        timestamp)
-
-    web_data = requests.get(url, auth=HTTPBasicAuth('admin', 'Eie28918499'))
-    # print(web_data.headers)
-    # print(web_data)
-    # print(web_data.text)
-    wbdata = web_data.text
-    data = json.loads(wbdata)
-    total_page = int(data['result']['total_page'])
-    print("total_page = ", total_page)
-
-    for m in range(1, total_page + 1):
-        url = 'http://139.159.163.25:18083/api/v2/nodes/emq@127.0.0.1/subscriptions?curr_page=' + str(
-            m) + '&page_size=10&timestamps=' + str(timestamp)
-        print(url)
-
-        web_data = requests.get(url, auth=HTTPBasicAuth('admin', 'Eie28918499'))
-
-        print(web_data.headers)
-        print(web_data)
-        print(web_data.text)
-
-        web_data_json = web_data.text
-
-        data = json.loads(web_data_json)
-        result = data['result']['objects']
-
-        for n in result:
-            client_id = n['client_id']
-            qos = n['qos']
-            topic = n['topic']
-
-            print(client_id, qos, topic)
-    # return data
-
 
 class EmqTopicData(QDialog, Ui_EMQ_Topic_Get_Dialog):
-
-
+    selected_topic = ''
 
     def __init__(self, parent=None):
         super(EmqTopicData, self).__init__(parent)
 
         self.setupUi(self)
+        self.setWindowTitle("EMQ Topic Data")
 
-    # def show(self):
-    #     self.show()
+        '''
+             PyQt Slot connect
+        '''
+        self.EMQ_Data_Dialog_Cancel_Button.clicked.connect(self.close)
+        self.EMQ_Data_Dialog_OK_Button.clicked.connect(self.emq_data_dialog_ok_button_clicked)
+        self.EMQ_Data_tableWidget.itemClicked.connect(self.emq_data_tableWidget_item_clicked)
 
+    def Get_EMQ_data(self):
 
+        '''
+            Init the tableWidget
+        '''
+        self.EMQ_Data_tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
 
+        self.EMQ_Data_tableWidget.setRowCount(0)
+        self.EMQ_Data_tableWidget.setColumnCount(0)
 
+        self.EMQ_Data_tableWidget.setColumnCount(2)
 
+        item = QTableWidgetItem("Client ID")
+        self.EMQ_Data_tableWidget.setHorizontalHeaderItem(0, item)
+        item = QTableWidgetItem("Topic")
+        self.EMQ_Data_tableWidget.setHorizontalHeaderItem(1, item)
+
+        timestamp = get_timestamp()
+
+        url = 'http://139.159.163.25:18083/api/v2/nodes/emq@127.0.0.1/subscriptions?curr_page=1&page_size=10&timestamps=' + str(
+            timestamp)
+
+        web_data = requests.get(url, auth=HTTPBasicAuth('admin', 'Eie28918499'))
+        # print(web_data.headers)
+        # print(web_data)
+        # print(web_data.text)
+        wbdata = web_data.text
+        data = json.loads(wbdata)
+        total_page = int(data['result']['total_page'])
+        print("total_page = ", total_page)
+
+        for m in range(1, total_page + 1):
+            url = 'http://139.159.163.25:18083/api/v2/nodes/emq@127.0.0.1/subscriptions?curr_page=' + str(
+                m) + '&page_size=10&timestamps=' + str(timestamp)
+            print(url)
+
+            web_data = requests.get(url, auth=HTTPBasicAuth('admin', 'Eie28918499'))
+
+            # print(web_data.headers)
+            # print(web_data)
+            # print(web_data.text)
+
+            web_data_json = web_data.text
+
+            data = json.loads(web_data_json)
+            result = data['result']['objects']
+
+            for n in result:
+                client_id = n['client_id']
+                qos = n['qos']
+                topic = n['topic']
+
+                # print(client_id, qos, topic)
+
+                row = self.EMQ_Data_tableWidget.rowCount()
+                self.EMQ_Data_tableWidget.insertRow(row)
+                item = QTableWidgetItem(str(client_id))
+                self.EMQ_Data_tableWidget.setItem(row, 0, item)
+                item = QTableWidgetItem(str(topic))
+                self.EMQ_Data_tableWidget.setItem(row, 1, item)
+
+    @pyqtSlot()
+    def emq_data_tableWidget_item_clicked(self):
+        self.EMQ_Data_Dialog_OK_Button.setEnabled(True)
+
+    @pyqtSlot()
+    def emq_data_dialog_ok_button_clicked(self):
+
+        # get selected row
+        selected_row = self.EMQ_Data_tableWidget.currentRow()
+
+        if selected_row != -1:
+            # print("selected_row != -1")
+            # try:
+            selected_topic = self.EMQ_Data_tableWidget.item(selected_row, 1).text()
+            # except AttributeError:  # a blank item !!
+            #     print("AttributeError")
+            #     # item = ""
+
+            # else:
+            print(selected_topic)
+
+            # JT_EMQ_Test_Assistant_Simple.MainWindow.PublishTopic_lineEdit.setText("Hi")
 
 
 if __name__ == '__main__':
-
     import sys
 
     app = QApplication(sys.argv)
@@ -110,8 +155,7 @@ if __name__ == '__main__':
     emq_topic_data = EmqTopicData()
     emq_topic_data.show()
 
-    data = Get_EMQ_data()
-    print(data)
-
+    emq_topic_data.Get_EMQ_data()
+    # print(data)
 
     sys.exit(app.exec_())
