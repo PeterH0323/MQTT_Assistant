@@ -107,9 +107,69 @@ QTableView::indicator:checked {
       </spacer>
      </item>
      <item>
+      <widget class="QLabel" name="ClipBox_Message_lable">
+       <property name="minimumSize">
+        <size>
+         <width>201</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>201</width>
+         <height>31</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QStackedWidget, QLabel, QPushButton, QRadioButton, QCheckBox, 
+QGroupBox, QStatusBar, QToolButton, QComboBox, QDialog {
+    background-color: #222222;
+    color: #BBBBBB;
+    font-family: &quot;Calibri&quot;;
+	font-size:13px;
+	font-weight:bold;
+}</string>
+       </property>
+       <property name="text">
+        <string>Click OK to copy to clip box !</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="EMQ_Data_Dialog_OK_Button">
        <property name="enabled">
         <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton{	
+	border:2px solid #8f8f91;
+	border-radius:6px;
+	background-color: #8570ff;
+	min-width:80px;
+	font-family:&quot;微软雅黑&quot;;
+	font-size:13px;
+	font-weight:bold;
+	color:#eaefff;
+}
+
+QPushButton:pressed {
+background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop:0#dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+border: none;/* no border for a flat push button */
+}
+
+QPushButton:default{
+border-color: navy;/* make the default button prominent */
+}
+
+
+</string>
        </property>
        <property name="text">
         <string>OK</string>
@@ -118,6 +178,31 @@ QTableView::indicator:checked {
      </item>
      <item>
       <widget class="QPushButton" name="EMQ_Data_Dialog_Cancel_Button">
+       <property name="styleSheet">
+        <string notr="true">QPushButton{	
+	border:2px solid #8f8f91;
+	border-radius:6px;
+	background-color: #ff6741;
+	min-width:80px;
+	font-family:&quot;微软雅黑&quot;;
+	font-size:13px;
+	font-weight:bold;
+	color:#ffffff;
+}
+
+QPushButton:pressed {
+background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop:0#dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+border: none;/* no border for a flat push button */
+}
+
+QPushButton:default{
+border-color: navy;/* make the default button prominent */
+}</string>
+       </property>
        <property name="text">
         <string>Cancel</string>
        </property>

@@ -24,13 +24,14 @@ from requests.auth import HTTPBasicAuth
 import json
 import requests
 from datetime import datetime
+import time
 
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 
 from UI.EMQ_Topic_Get import Ui_EMQ_Topic_Get_Dialog
 
-
+import pyperclip
 # import JT_EMQ_Test_Assistant_Simple
 
 
@@ -123,6 +124,8 @@ class EmqTopicData(QDialog, Ui_EMQ_Topic_Get_Dialog):
                 item = QTableWidgetItem(str(topic))
                 self.EMQ_Data_tableWidget.setItem(row, 1, item)
 
+        self.ClipBox_Message_lable.setText("Click OK to copy to clip box !")
+
     @pyqtSlot()
     def emq_data_tableWidget_item_clicked(self):
         self.EMQ_Data_Dialog_OK_Button.setEnabled(True)
@@ -134,15 +137,16 @@ class EmqTopicData(QDialog, Ui_EMQ_Topic_Get_Dialog):
         selected_row = self.EMQ_Data_tableWidget.currentRow()
 
         if selected_row != -1:
-            # print("selected_row != -1")
-            # try:
+
             selected_topic = self.EMQ_Data_tableWidget.item(selected_row, 1).text()
-            # except AttributeError:  # a blank item !!
-            #     print("AttributeError")
-            #     # item = ""
 
             # else:
             print(selected_topic)
+            pyperclip.copy(selected_topic)
+
+            # self.ClipBox_Message_lable.setText(" Copied Done !")
+
+            self.close()
 
             # JT_EMQ_Test_Assistant_Simple.MainWindow.PublishTopic_lineEdit.setText("Hi")
 

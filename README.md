@@ -23,6 +23,11 @@ Python 3.5 + PyQt5
     ```
     pip install pyqt5-tools
     ```
+   
+4. pyperclip
+    ```
+    pip install pyperclip
+    ```
 
 
 # Tool

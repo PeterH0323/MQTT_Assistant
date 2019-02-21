@@ -80,11 +80,74 @@ class Ui_EMQ_Topic_Get_Dialog(object):
         self.horizontalLayout.setObjectName("horizontalLayout")
         spacerItem = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
+        self.ClipBox_Message_lable = QtWidgets.QLabel(EMQ_Topic_Get_Dialog)
+        self.ClipBox_Message_lable.setMinimumSize(QtCore.QSize(201, 31))
+        self.ClipBox_Message_lable.setMaximumSize(QtCore.QSize(201, 31))
+        self.ClipBox_Message_lable.setStyleSheet("QStackedWidget, QLabel, QPushButton, QRadioButton, QCheckBox, \n"
+"QGroupBox, QStatusBar, QToolButton, QComboBox, QDialog {\n"
+"    background-color: #222222;\n"
+"    color: #BBBBBB;\n"
+"    font-family: \"Calibri\";\n"
+"    font-size:13px;\n"
+"    font-weight:bold;\n"
+"}")
+        self.ClipBox_Message_lable.setAlignment(QtCore.Qt.AlignCenter)
+        self.ClipBox_Message_lable.setObjectName("ClipBox_Message_lable")
+        self.horizontalLayout.addWidget(self.ClipBox_Message_lable)
         self.EMQ_Data_Dialog_OK_Button = QtWidgets.QPushButton(EMQ_Topic_Get_Dialog)
         self.EMQ_Data_Dialog_OK_Button.setEnabled(False)
+        self.EMQ_Data_Dialog_OK_Button.setStyleSheet("QPushButton{    \n"
+"    border:2px solid #8f8f91;\n"
+"    border-radius:6px;\n"
+"    background-color: #8570ff;\n"
+"    min-width:80px;\n"
+"    font-family:\"微软雅黑\";\n"
+"    font-size:13px;\n"
+"    font-weight:bold;\n"
+"    color:#eaefff;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+"stop:0#dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"border: none;/* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default{\n"
+"border-color: navy;/* make the default button prominent */\n"
+"}\n"
+"\n"
+"\n"
+"")
         self.EMQ_Data_Dialog_OK_Button.setObjectName("EMQ_Data_Dialog_OK_Button")
         self.horizontalLayout.addWidget(self.EMQ_Data_Dialog_OK_Button)
         self.EMQ_Data_Dialog_Cancel_Button = QtWidgets.QPushButton(EMQ_Topic_Get_Dialog)
+        self.EMQ_Data_Dialog_Cancel_Button.setStyleSheet("QPushButton{    \n"
+"    border:2px solid #8f8f91;\n"
+"    border-radius:6px;\n"
+"    background-color: #ff6741;\n"
+"    min-width:80px;\n"
+"    font-family:\"微软雅黑\";\n"
+"    font-size:13px;\n"
+"    font-weight:bold;\n"
+"    color:#ffffff;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+"stop:0#dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"border: none;/* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default{\n"
+"border-color: navy;/* make the default button prominent */\n"
+"}")
         self.EMQ_Data_Dialog_Cancel_Button.setObjectName("EMQ_Data_Dialog_Cancel_Button")
         self.horizontalLayout.addWidget(self.EMQ_Data_Dialog_Cancel_Button)
         self.gridLayout.addLayout(self.horizontalLayout, 1, 0, 1, 1)
@@ -99,6 +162,7 @@ class Ui_EMQ_Topic_Get_Dialog(object):
         item.setText(_translate("EMQ_Topic_Get_Dialog", "Client id"))
         item = self.EMQ_Data_tableWidget.horizontalHeaderItem(1)
         item.setText(_translate("EMQ_Topic_Get_Dialog", "Topic"))
+        self.ClipBox_Message_lable.setText(_translate("EMQ_Topic_Get_Dialog", "Click OK to copy to clip box !"))
         self.EMQ_Data_Dialog_OK_Button.setText(_translate("EMQ_Topic_Get_Dialog", "OK"))
         self.EMQ_Data_Dialog_Cancel_Button.setText(_translate("EMQ_Topic_Get_Dialog", "Cancel"))
 
