@@ -22,6 +22,7 @@ from PyQt5.QtWidgets import *  # QMainWindow, QApplication, QDialog, QWidget, QM
 from UI.JT_EMQ_Test_Assistant_UI_Simple import Ui_JT_EMQ_Test_Assistant
 
 import Interface.mqtt_connect as mqtt_connect
+import Interface.EMQ_Web_Get_Data as emq_web_get_data
 import pickle
 import csv
 import time
@@ -121,6 +122,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.EMQ_Data_textEdit.cursorPositionChanged.connect(self.text_edit_position_changed)
         self.textEdit_Fianl_Line_Button.clicked.connect(self.text_edit_final_line_button_clicked)
         self.Command_list_tableWidget.itemClicked.connect(self.command_list_item_clicked)
+        self.Check_EMQ_Button.clicked.connect(self.check_emq_button_clicked)
+        # self.Check_EMQ_Button.clicked.connect(emq_topic_data.show)
 
         # self.Rec_Data_Clean_Button.setCursor(QCursor(Qt.PointingHandCursor))
 
@@ -333,6 +336,14 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         data_send = self.Command_Data_lineEdit.text()
         # print('publish_topic = ' + mqtt_connect.MqttSetting.publish_topic)
         mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, data_send)
+
+    @pyqtSlot()
+    def check_emq_button_clicked(self):
+        emq_topic_data.show()
+        emq_web_get_data.Get_EMQ_data()
+
+
+
 
 
     @pyqtSlot()
@@ -783,8 +794,11 @@ if __name__ == '__main__':
 
     mqtt_connect.generate_client_id()
 
+    emq_topic_data = emq_web_get_data.EmqTopicData()
+
     Assistant_MainWidow = MainWindow()
     Assistant_MainWidow.show()
 
     mqtt_client = mqtt_connect.MqttClient()
+
     sys.exit(app.exec_())

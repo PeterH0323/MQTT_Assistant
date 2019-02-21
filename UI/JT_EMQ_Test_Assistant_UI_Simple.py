@@ -12,7 +12,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
     def setupUi(self, JT_EMQ_Test_Assistant):
         JT_EMQ_Test_Assistant.setObjectName("JT_EMQ_Test_Assistant")
         JT_EMQ_Test_Assistant.setEnabled(True)
-        JT_EMQ_Test_Assistant.resize(1179, 947)
+        JT_EMQ_Test_Assistant.resize(1191, 947)
         JT_EMQ_Test_Assistant.setAutoFillBackground(False)
         JT_EMQ_Test_Assistant.setStyleSheet("QMainWindow    {\n"
 "    background-color:white;\n"
@@ -381,6 +381,35 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.Emq_connect_lable.setAlignment(QtCore.Qt.AlignCenter)
         self.Emq_connect_lable.setObjectName("Emq_connect_lable")
         self.verticalLayout.addWidget(self.Emq_connect_lable)
+        self.Check_EMQ_Button = QtWidgets.QPushButton(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.Check_EMQ_Button.sizePolicy().hasHeightForWidth())
+        self.Check_EMQ_Button.setSizePolicy(sizePolicy)
+        self.Check_EMQ_Button.setMinimumSize(QtCore.QSize(201, 51))
+        self.Check_EMQ_Button.setMaximumSize(QtCore.QSize(201, 51))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(15)
+        font.setBold(True)
+        font.setWeight(75)
+        self.Check_EMQ_Button.setFont(font)
+        self.Check_EMQ_Button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.Check_EMQ_Button.setLayoutDirection(QtCore.Qt.LeftToRight)
+        self.Check_EMQ_Button.setStyleSheet("QPushButton{\n"
+"    background-color:#66CCFF;\n"
+"    color:#ffffff;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"    color:#FFFFFF;\n"
+"    background:#99FFFF;\n"
+"}\n"
+"")
+        self.Check_EMQ_Button.setObjectName("Check_EMQ_Button")
+        self.verticalLayout.addWidget(self.Check_EMQ_Button)
         spacerItem4 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
         self.verticalLayout.addItem(spacerItem4)
         self.horizontalLayout.addLayout(self.verticalLayout)
@@ -990,7 +1019,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.gridLayout_5.addWidget(self.widget, 1, 0, 1, 1)
         JT_EMQ_Test_Assistant.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(JT_EMQ_Test_Assistant)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1179, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1191, 26))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
@@ -1053,6 +1082,9 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.Connect_EMQ_Button.setStatusTip(_translate("JT_EMQ_Test_Assistant", "Connect to EMQ accroding to setting"))
         self.Connect_EMQ_Button.setText(_translate("JT_EMQ_Test_Assistant", "Connect to EMQ"))
         self.Emq_connect_lable.setText(_translate("JT_EMQ_Test_Assistant", "Produced by PeterH"))
+        self.Check_EMQ_Button.setToolTip(_translate("JT_EMQ_Test_Assistant", "Connect to EMQ"))
+        self.Check_EMQ_Button.setStatusTip(_translate("JT_EMQ_Test_Assistant", "Connect to EMQ accroding to setting"))
+        self.Check_EMQ_Button.setText(_translate("JT_EMQ_Test_Assistant", "Check EMQ Topic"))
         self.R_S_Data_groupBox.setTitle(_translate("JT_EMQ_Test_Assistant", "Receive + Send Data "))
         self.EMQ_Data_textEdit.setHtml(_translate("JT_EMQ_Test_Assistant", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
