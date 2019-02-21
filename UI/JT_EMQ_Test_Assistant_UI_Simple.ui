@@ -1835,7 +1835,14 @@ QPushButton:pressed {
     <property name="title">
      <string>Setting(&amp;S)</string>
     </property>
-    <addaction name="actionEMQ"/>
+    <widget class="QMenu" name="menuNetwork">
+     <property name="title">
+      <string>Network</string>
+     </property>
+     <addaction name="actionExtranet"/>
+     <addaction name="actionIntranet"/>
+    </widget>
+    <addaction name="menuNetwork"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuSetting"/>
@@ -1852,23 +1859,22 @@ QPushButton:pressed {
     <string/>
    </property>
   </action>
-  <action name="actionEMQ">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="text">
-    <string>EMQ</string>
-   </property>
-   <property name="statusTip">
-    <string>EMQ Setting</string>
-   </property>
-   <property name="shortcut">
-    <string>Ctrl+S</string>
-   </property>
-  </action>
   <action name="actionConnect_EMQ_Button">
    <property name="text">
     <string>actionConnect_EMQ_Button</string>
+   </property>
+  </action>
+  <action name="actionExtranet">
+   <property name="text">
+    <string>Extranet_EMQ</string>
+   </property>
+  </action>
+  <action name="actionIntranet">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Intranet_EMQ</string>
    </property>
   </action>
  </widget>

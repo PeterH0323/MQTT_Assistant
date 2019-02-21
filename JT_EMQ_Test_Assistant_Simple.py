@@ -123,6 +123,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         self.textEdit_Fianl_Line_Button.clicked.connect(self.text_edit_final_line_button_clicked)
         self.Command_list_tableWidget.itemClicked.connect(self.command_list_item_clicked)
         self.Check_EMQ_Button.clicked.connect(self.check_emq_button_clicked)
+        self.actionExtranet.triggered.connect(self.action_extranet_clicked)
+        self.actionIntranet.triggered.connect(self.action_intranet_clicked)
         # self.Check_EMQ_Button.clicked.connect(emq_topic_data.show)
 
         # self.Rec_Data_Clean_Button.setCursor(QCursor(Qt.PointingHandCursor))
@@ -342,8 +344,13 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         emq_topic_data.show()
         emq_topic_data.Get_EMQ_data()
 
+    @pyqtSlot()
+    def action_extranet_clicked(self):
+        self.Host_lineEdit.setText("139.159.163.25")
 
-
+    @pyqtSlot()
+    def action_intranet_clicked(self):
+        self.Host_lineEdit.setText("113.159.163.25")
 
 
     @pyqtSlot()
