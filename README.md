@@ -29,6 +29,11 @@ Python 3.5 + PyQt5
     pip install pyperclip
     ```
 
+5. requests
+    ```
+    pip install requests
+    ```
+
 
 # Tool
 
