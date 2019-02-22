@@ -669,7 +669,7 @@ QLineEdit:focus{
              <string>Connect to EMQ</string>
             </property>
             <property name="statusTip">
-             <string>Connect to EMQ accroding to setting</string>
+             <string>Get EMQ topics </string>
             </property>
             <property name="layoutDirection">
              <enum>Qt::LeftToRight</enum>
@@ -1822,7 +1822,7 @@ QPushButton:pressed {
      <x>0</x>
      <y>0</y>
      <width>1191</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
