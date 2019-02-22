@@ -342,7 +342,14 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
     @pyqtSlot()
     def check_emq_button_clicked(self):
         emq_topic_data.show()
-        emq_topic_data.Get_EMQ_data()
+
+        network = self.Host_lineEdit.text()
+
+        if network == "192.168.1.113":
+            emq_topic_data.Get_Intranet_EMQ_data()
+
+        elif network == "139.159.163.25":
+            emq_topic_data.Get_Extranet_EMQ_data()
 
     @pyqtSlot()
     def action_extranet_clicked(self):
