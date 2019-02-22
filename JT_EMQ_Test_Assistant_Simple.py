@@ -350,7 +350,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
     @pyqtSlot()
     def action_intranet_clicked(self):
-        self.Host_lineEdit.setText("113.159.163.25")
+        self.Host_lineEdit.setText("192.168.1.113")
 
 
     @pyqtSlot()
