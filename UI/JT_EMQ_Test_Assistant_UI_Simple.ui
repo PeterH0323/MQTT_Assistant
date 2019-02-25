@@ -961,6 +961,52 @@ QCheckBox::indicator::checked {
              </widget>
             </item>
             <item>
+             <widget class="QPushButton" name="textEdit_Open_Log_Button">
+              <property name="minimumSize">
+               <size>
+                <width>120</width>
+                <height>28</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>120</width>
+                <height>28</height>
+               </size>
+              </property>
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton{	
+	border:2px solid #8f8f91;
+	border-radius:6px;
+	background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#f6f7fa, stop: 1 #dadbde);
+	min-width:80px;
+	font-family:&quot;微软雅黑&quot;;
+	font-size:13px;
+	font-weight:bold;
+}
+
+QPushButton:pressed {
+background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+stop:0#dadbde, stop: 1 #f6f7fa);
+}
+
+QPushButton:flat {
+border: none;/* no border for a flat push button */
+}
+
+QPushButton:default{
+border-color: navy;/* make the default button prominent */
+}</string>
+              </property>
+              <property name="text">
+               <string>Open Log File</string>
+              </property>
+             </widget>
+            </item>
+            <item>
              <spacer name="horizontalSpacer_9">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>

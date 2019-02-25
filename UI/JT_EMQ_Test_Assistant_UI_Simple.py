@@ -494,6 +494,34 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.Save_Log_checkBox.setTristate(False)
         self.Save_Log_checkBox.setObjectName("Save_Log_checkBox")
         self.horizontalLayout_4.addWidget(self.Save_Log_checkBox)
+        self.textEdit_Open_Log_Button = QtWidgets.QPushButton(self.R_S_Data_groupBox)
+        self.textEdit_Open_Log_Button.setMinimumSize(QtCore.QSize(120, 28))
+        self.textEdit_Open_Log_Button.setMaximumSize(QtCore.QSize(120, 28))
+        self.textEdit_Open_Log_Button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.textEdit_Open_Log_Button.setStyleSheet("QPushButton{    \n"
+"    border:2px solid #8f8f91;\n"
+"    border-radius:6px;\n"
+"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,stop:0#f6f7fa, stop: 1 #dadbde);\n"
+"    min-width:80px;\n"
+"    font-family:\"微软雅黑\";\n"
+"    font-size:13px;\n"
+"    font-weight:bold;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+"stop:0#dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"border: none;/* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default{\n"
+"border-color: navy;/* make the default button prominent */\n"
+"}")
+        self.textEdit_Open_Log_Button.setObjectName("textEdit_Open_Log_Button")
+        self.horizontalLayout_4.addWidget(self.textEdit_Open_Log_Button)
         spacerItem7 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout_4.addItem(spacerItem7)
         self.textEdit_Fianl_Line_Button = QtWidgets.QPushButton(self.R_S_Data_groupBox)
@@ -1019,7 +1047,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.gridLayout_5.addWidget(self.widget, 1, 0, 1, 1)
         JT_EMQ_Test_Assistant.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(JT_EMQ_Test_Assistant)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 1191, 23))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1191, 26))
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
@@ -1085,7 +1113,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.label_3.setText(_translate("JT_EMQ_Test_Assistant", "Port:"))
         self.Port_lineEdit.setText(_translate("JT_EMQ_Test_Assistant", "8083"))
         self.Check_EMQ_Button.setToolTip(_translate("JT_EMQ_Test_Assistant", "Connect to EMQ"))
-        self.Check_EMQ_Button.setStatusTip(_translate("JT_EMQ_Test_Assistant", "Connect to EMQ accroding to setting"))
+        self.Check_EMQ_Button.setStatusTip(_translate("JT_EMQ_Test_Assistant", "Get EMQ topics "))
         self.Check_EMQ_Button.setText(_translate("JT_EMQ_Test_Assistant", "Get EMQ Topics"))
         self.Connect_EMQ_Button.setToolTip(_translate("JT_EMQ_Test_Assistant", "Connect to EMQ"))
         self.Connect_EMQ_Button.setStatusTip(_translate("JT_EMQ_Test_Assistant", "Connect to EMQ accroding to setting"))
@@ -1099,6 +1127,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:\'Calibir\'; font-size:12pt; font-weight:400;\"><br /></p></body></html>"))
         self.Save_Log_checkBox.setText(_translate("JT_EMQ_Test_Assistant", "Save log"))
         self.Save_Log_checkBox.setShortcut(_translate("JT_EMQ_Test_Assistant", "Ctrl+R"))
+        self.textEdit_Open_Log_Button.setText(_translate("JT_EMQ_Test_Assistant", "Open Log File"))
         self.textEdit_Fianl_Line_Button.setText(_translate("JT_EMQ_Test_Assistant", "Final Line"))
         self.Rec_Data_Clean_Button.setText(_translate("JT_EMQ_Test_Assistant", "Clean"))
         self.Command_groupBox.setTitle(_translate("JT_EMQ_Test_Assistant", "Command List"))

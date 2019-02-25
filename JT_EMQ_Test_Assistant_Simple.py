@@ -27,6 +27,7 @@ import pickle
 import csv
 import time
 import datetime
+import subprocess
 
 TimeFormat = '%H:%M:%S:%f'
 
@@ -111,17 +112,20 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         '''
         self.Connect_EMQ_Button.clicked.connect(self.connect_emq_button_clicked)
         self.Command_Activate_Button.stateChanged.connect(self.command_activate_button_state_changed)
-        self.Rec_Data_Clean_Button.clicked.connect(self.rec_data_clean_button_clicked)
         self.Command_Send_Button.clicked.connect(self.command_send_button_clicked)
-        self.Save_Log_checkBox.stateChanged.connect(self.save_log_checkbox_state_changed)
         self.Command_Add_Button.clicked.connect(self.command_add_button_clicked)
         self.Command_Single_Send_Button.clicked.connect(self.command_single_send_button_clicked)
         self.Command_Del_Button.clicked.connect(self.command_del_button_clicked)
         self.Command_Save_Button.clicked.connect(self.command_save_button_clicked)
+        self.Command_list_tableWidget.itemClicked.connect(self.command_list_item_clicked)
+        self.Save_Log_checkBox.stateChanged.connect(self.save_log_checkbox_state_changed)
+        self.Rec_Data_Clean_Button.clicked.connect(self.rec_data_clean_button_clicked)
+
         self.radioButton_loop_times.toggled.connect(self.radioButton_toggled)
         self.EMQ_Data_textEdit.cursorPositionChanged.connect(self.text_edit_position_changed)
         self.textEdit_Fianl_Line_Button.clicked.connect(self.text_edit_final_line_button_clicked)
-        self.Command_list_tableWidget.itemClicked.connect(self.command_list_item_clicked)
+        self.textEdit_Open_Log_Button.clicked.connect(self.text_edit_open_log_button_clicked)
+
         self.Check_EMQ_Button.clicked.connect(self.check_emq_button_clicked)
         self.actionExtranet.triggered.connect(self.action_extranet_clicked)
         self.actionIntranet.triggered.connect(self.action_intranet_clicked)
@@ -338,6 +342,11 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         data_send = self.Command_Data_lineEdit.text()
         # print('publish_topic = ' + mqtt_connect.MqttSetting.publish_topic)
         mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, data_send)
+
+    @pyqtSlot()
+    def text_edit_open_log_button_clicked(self):
+        # subprocess.Popen(r'explorer /select,"J:\desktop_shortcuts\programme\PyQt5\MQTT_Assistant\Log\collect.log"')
+        subprocess.Popen(r'explorer /select,".\Log\collect.log"')
 
     @pyqtSlot()
     def check_emq_button_clicked(self):
