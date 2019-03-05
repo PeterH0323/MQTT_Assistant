@@ -79,11 +79,12 @@ class MqttClient:
 
     def on_message(self, client, userdata, msg):
         receive_time = datetime.datetime.now().strftime(TimeFormat)
-        MqttClient.message_temp = "【" + str(receive_time) + "】" + "Rec -> " + str(msg.payload)
+
+        MqttClient.message_temp = "【" + str(receive_time) + "】" + "Rec -> " + msg.payload.decode(encoding='utf-8')
         # print('receive new message from ' + msg.topic + " -> " + str(msg.payload))
 
         if MqttSetting.save_log_flag:
-            storedToLog.info("Rec->" + msg.topic + " -> " + str(msg.payload))
+            storedToLog.info("Rec->" + msg.topic + " -> " + msg.payload.decode(encoding='utf-8'))
 
     def mqtt_loop_start(self):
         self.client.loop_start()

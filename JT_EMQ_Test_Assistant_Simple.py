@@ -73,6 +73,10 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
         self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
         self.Host_lineEdit.setInputMask("000.000.000.000")
+        pIntValidator = QIntValidator(self)
+        pIntValidator.setRange(0, 65535)
+        self.Port_lineEdit.setValidator(pIntValidator)
+        self.KeepAlive_lineEdit.setValidator(pIntValidator)
 
         self.command_send_timer = QTimer(self)
         self.command_send_timer.timeout.connect(self.command_send_message)
