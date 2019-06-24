@@ -84,24 +84,24 @@ class EmqTopicData(QDialog, Ui_EMQ_Topic_Get_Dialog):
 
         timestamp = get_timestamp()
 
-        url = 'http://139.159.163.25:18083/api/v2/nodes/emq@127.0.0.1/subscriptions?curr_page=1&page_size=10&timestamps=' + str(
+        url = 'http://139.159.163.25:18083/api/v3/subscriptions?_page=1&_limit=10&_=' + str(
             timestamp)
 
-        web_data = requests.get(url, auth=HTTPBasicAuth('admin', 'Eie28918499'))
+        web_data = requests.get(url, auth=HTTPBasicAuth('admin', 'public'))
         # print(web_data.headers)
         # print(web_data)
         # print(web_data.text)
         wbdata = web_data.text
         data = json.loads(wbdata)
-        total_page = int(data['result']['total_page'])
+        total_page = int(data['meta']['page'])
         print("total_page = ", total_page)
 
         for m in range(1, total_page + 1):
-            url = 'http://139.159.163.25:18083/api/v2/nodes/emq@127.0.0.1/subscriptions?curr_page=' + str(
+            url = 'http://139.159.163.25:18083/api/v3/subscriptions?_page=' + str(
                 m) + '&page_size=10&timestamps=' + str(timestamp)
             print(url)
 
-            web_data = requests.get(url, auth=HTTPBasicAuth('admin', 'Eie28918499'))
+            web_data = requests.get(url, auth=HTTPBasicAuth('admin', 'public'))
 
             # print(web_data.headers)
             # print(web_data)
@@ -110,13 +110,11 @@ class EmqTopicData(QDialog, Ui_EMQ_Topic_Get_Dialog):
             web_data_json = web_data.text
 
             data = json.loads(web_data_json)
-            result = data['result']['objects']
+            result = data['data']
 
             for n in result:
                 client_id = n['client_id']
-                qos = n['qos']
                 topic = n['topic']
-
                 # print(client_id, qos, topic)
 
                 row = self.EMQ_Data_tableWidget.rowCount()
