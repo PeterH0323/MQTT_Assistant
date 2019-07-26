@@ -20,7 +20,24 @@ http://docs.python-requests.org/zh_CN/latest/user/authentication.html -> 基本�
 # r = requests.post(url, data=json.dumps(payload), headers=headers)
 # print(r.text)
 
-from requests.auth import HTTPBasicAuth
+try:
+    from requests.auth import HTTPBasicAuth
+except :
+    print("catch requests")
+    import os
+    os.system('pip install -i https://pypi.tuna.tsinghua.edu.cn/simple requests')
+    from requests.auth import HTTPBasicAuth
+
+try:
+    import pyperclip
+except :
+    print("catch pyperclip")
+    import os
+    os.system('pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyperclip')
+    import pyperclip
+
+
+     
 import json
 import requests
 from datetime import datetime

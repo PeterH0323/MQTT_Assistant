@@ -14,8 +14,14 @@
 
 
 """
+try:
+    from PyQt5.QtCore import *
+except :
+    print("catch PyQt5.QtCore")
+    import os
+    os.system('pip install -i https://pypi.tuna.tsinghua.edu.cn/simple PyQt5')
+    from PyQt5.QtCore import *    
 
-from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *  # QMainWindow, QApplication, QDialog, QWidget, QMessageBox
 

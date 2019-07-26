@@ -1,4 +1,10 @@
-import paho.mqtt.client as mqtt
+try:
+    import paho.mqtt.client as mqtt
+except :
+    print("catch paho")
+    import os
+    os.system('pip install -i https://pypi.tuna.tsinghua.edu.cn/simple paho-mqtt')
+    import paho.mqtt.client as mqtt 
 
 import Interface.mqtt_Log as mqtt_Log
 import string
