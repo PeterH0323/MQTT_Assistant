@@ -4,6 +4,7 @@
 Log/*
 __pycache__
 .idea
-Data/*
+# Data/*
+Data/mqtt_setting_info.txt
 
 !.gitkeep
