@@ -32,14 +32,14 @@ storedToLog = mqtt_Log.Log("./Log/collect.log", level='info').logger
 
 
 class MqttSetting:
-    host = '139.159.163.25'
-    port = 8083
+    host = ''
+    port = 0
     client_id = 'mqtt_assistant_'
-    username = 'eie-device'
-    password = 'Eie_28918499'
+    username = ''
+    password = ''
     keep_alive = 60
-    publish_topic = 'EIE/in/00000000/0000000C'
-    subscribe_topic = 'EIE/out/00000000/0000000C'
+    publish_topic = ''
+    subscribe_topic = ''
 
     save_log_flag = False
 
