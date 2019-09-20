@@ -25,7 +25,7 @@ try:
 except :
     print("catch requests")
     import os
-    os.system('pip install -i https://pypi.tuna.tsinghua.edu.cn/simple requests')
+    os.system('python -m pip install -i http://pypi.douban.com/simple/ requests')
     from requests.auth import HTTPBasicAuth
 
 try:
@@ -33,7 +33,7 @@ try:
 except :
     print("catch pyperclip")
     import os
-    os.system('pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyperclip')
+    os.system('python -m pip install -i http://pypi.douban.com/simple/ pyperclip')
     import pyperclip
 
 

@@ -3,7 +3,7 @@ try:
 except :
     print("catch paho")
     import os
-    os.system('pip install -i https://pypi.tuna.tsinghua.edu.cn/simple paho-mqtt')
+    os.system('python -m pip install -i http://pypi.douban.com/simple/ paho-mqtt')
     import paho.mqtt.client as mqtt 
 
 import Interface.mqtt_Log as mqtt_Log
@@ -32,7 +32,7 @@ storedToLog = mqtt_Log.Log("./Log/collect.log", level='info').logger
 
 
 class MqttSetting:
-    host = '139.159.163.25'
+    hosthosthost = '139.159.163.25'
     port = 8083
     client_id = 'mqtt_assistant_'
     username = 'eie-device'
