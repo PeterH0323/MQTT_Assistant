@@ -14,13 +14,18 @@
 
 
 """
+import os
+
 try:
     from PyQt5.QtCore import *
 except :
     print("catch PyQt5.QtCore")
-    import os
+
     os.system('python -m pip install -i http://pypi.douban.com/simple/ PyQt5')  #清华镜像 https://pypi.tuna.tsinghua.edu.cn/simple
     from PyQt5.QtCore import *    
+
+if not os.path.exists("Log"):
+    os.mkdir("Log")
 
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *  # QMainWindow, QApplication, QDialog, QWidget, QMessageBox
