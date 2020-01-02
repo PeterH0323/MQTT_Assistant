@@ -57,15 +57,16 @@ class MqttClient:
     message_temp = ""
 
     def __init__(self):
+        pass
         # generate_client_id()
         # print("client_id = ", MqttSetting.client_id)
-        self.client = mqtt.Client(client_id=MqttSetting.client_id, transport='websockets')
-        self.client.on_connect = self.on_connect
+        # self.client = mqtt.Client(client_id=MqttSetting.client_id, transport='websockets')
+        # self.client.on_connect = self.on_connect
 
-        self.client.on_message = self.on_message
-        # self.client.on_message = mainWindow.MainWindow().receive_messages
+        # self.client.on_message = self.on_message
+        # # self.client.on_message = mainWindow.MainWindow().receive_messages
 
-        self.client.on_disconnect = self.on_disconnect
+        # self.client.on_disconnect = self.on_disconnect
 
     def on_connect(self, client, userdata, flags, rc):
         if MqttSetting.save_log_flag:
@@ -74,6 +75,13 @@ class MqttClient:
     def on_disconnect(self, client, userdata, rc):
         if MqttSetting.save_log_flag:
             storedToLog.info("Disconnected with result code " + str(rc))
+
+            if rc != 0: #something wrong happen
+                storedToLog.info("something wrong happen, reconnect")
+                self.mqtt_disconnect()
+                generate_client_id()
+                self.mqtt_connect()
+        
 
     def on_publish(self, topic, payload):
         self.client.publish(topic, payload)
@@ -99,10 +107,21 @@ class MqttClient:
         self.client.loop_stop(force=force)
 
     def mqtt_connect(self):
-        # client = mqtt.Client(client_id=client_id, transport='websockets')
+        self.client = mqtt.Client(client_id = MqttSetting.client_id, transport='websockets')
+
         self.client.username_pw_set(username=MqttSetting.username, password=MqttSetting.password)
         self.client.connect(MqttSetting.host, MqttSetting.port, MqttSetting.keep_alive)
         self.client.subscribe(MqttSetting.subscribe_topic)
+
+        # self.client = mqtt.Client(client_id=MqttSetting.client_id, transport='websockets')
+        self.client.on_connect = self.on_connect
+
+        self.client.on_message = self.on_message
+        # self.client.on_message = mainWindow.MainWindow().receive_messages
+
+        self.client.on_disconnect = self.on_disconnect
+
+
         # self.client.loop_forever()
         self.mqtt_loop_start()
 

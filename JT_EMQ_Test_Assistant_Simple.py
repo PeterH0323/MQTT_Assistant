@@ -197,7 +197,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             mqtt_connect.MqttSetting.client_id = self.ClientID_lineEdit.text()
             mqtt_connect.MqttSetting.host = self.Host_lineEdit.text()
             mqtt_connect.MqttSetting.port = int(self.Port_lineEdit.text())
-            mqtt_connect.MqttSetting.client_id = self.ClientID_lineEdit.text()
             mqtt_connect.MqttSetting.username = self.Username_lineEdit.text()
             mqtt_connect.MqttSetting.password = self.Password_lineEdit.text()
             mqtt_connect.MqttSetting.keep_alive = int(self.KeepAlive_lineEdit.text())
