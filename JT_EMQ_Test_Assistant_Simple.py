@@ -18,11 +18,12 @@ import os
 
 try:
     from PyQt5.QtCore import *
-except :
+except:
     print("catch PyQt5.QtCore")
 
-    os.system('python -m pip install -i http://pypi.douban.com/simple/ PyQt5')  #清华镜像 https://pypi.tuna.tsinghua.edu.cn/simple
-    from PyQt5.QtCore import *    
+    os.system(
+        'python -m pip install -i http://pypi.douban.com/simple/ PyQt5')  # 清华镜像 https://pypi.tuna.tsinghua.edu.cn/simple
+    from PyQt5.QtCore import *
 
 if not os.path.exists("Log"):
     os.mkdir("Log")
@@ -91,6 +92,11 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
         self.command_send_timer = QTimer(self)
         self.command_send_timer.timeout.connect(self.command_send_message)
+
+        '''
+        QtestEdit
+        '''
+        self.EMQ_Data_textEdit.document().setMaximumBlockCount(50000)
 
         '''
              QTableView data load
@@ -345,7 +351,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             self.loop_times_spinBox.setEnabled(True)
             self.radioButton_infinite.setEnabled(True)
             self.radioButton_loop_times.setEnabled(True)
-
 
             self.command_send_timer.stop()
 
@@ -608,7 +613,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
                         mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic,
                                                            data_send)
 
-
                     new_timing = int(self.Command_list_tableWidget.item(
                         self.command_send_index[self.command_next_num], 1).text())
 
@@ -634,15 +638,11 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
                 else:
                     mqtt_connect.MqttClient.on_publish(mqtt_client, mqtt_connect.MqttSetting.publish_topic, data_send)
 
-
                 new_timing = int(self.Command_list_tableWidget.item(
                     self.command_send_index[self.command_next_num], 1).text())
 
                 self.command_send_timer.start(new_timing)
                 print("command_send_timer.start = ", new_timing)
-
-
-
 
         # # print(datetime.datetime.now().strftime(TimeFormat))
         #
