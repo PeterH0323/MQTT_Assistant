@@ -8,3 +8,7 @@ Data/*
 # !Data/Command_List
 
 !.gitkeep
+
+venv
+build
+Log

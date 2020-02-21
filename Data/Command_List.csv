@@ -44,5 +44,5 @@ Activate,Delay_ms,Name,Data
   }]
 }"
 0,30000,≤‚ ‘ cli,"{""type"":""debug"",""CLI"":""https_get_script 001 gen""}"
-0,1000,≤‚ ‘lua,"{""type"":""debug"",""CLI"":""lua Protocol/gen-001.lua Protocol/001.json""}"
+0,10000,≤‚ ‘lua,"{""type"":""debug"",""CLI"":""lua Protocol/gen-001.lua Protocol/001.json""}"
 0,1000,,
