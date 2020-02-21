@@ -410,8 +410,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         # print("text_edit_position_changed")
         cursor = self.EMQ_Data_textEdit.textCursor()
         row = cursor.blockNumber()
-        # col = cursor.columnNumber()
-        print("row = ", row)
+        col = cursor.columnNumber()
+        # print("row = ", row)
 
     @pyqtSlot()
     def text_edit_final_line_button_clicked(self):
@@ -554,7 +554,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
     def add_messages(self, message):
 
         self.EMQ_Data_textEdit.append(message)
-        print("add_messages: ->" + message)
+        # print("add_messages: ->" + message)
 
     # @pyqtSlot(int)
     # def command_send_message(self, value):
