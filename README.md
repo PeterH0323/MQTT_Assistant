@@ -9,31 +9,19 @@ Python 3.5 + PyQt5
 
 # Python packet
 
-1. paho-mqtt: 
-    ```
-    pip install paho-mqtt
-    ```
+```
+pip install -r requirements.txt
+```
 
-2. PyQt5: 
-    ```
-    PyQt5: pip install pyqt5
-    ```
 
-3. PyQt5-tools: 
-    ```
-    pip install pyqt5-tools
-    ```
-   
-4. pyperclip
-    ```
-    pip install pyperclip
-    ```
 
-5. requests
-    ```
-    pip install requests
-    ```
+# Build a .exe
 
+```python
+pyinstaller -F -w --icon=./icon.ico JT_EMQ_Test_Assistant_Simple.py
+```
+
+##### After build a .exe, copy the file name `images` and `Data`into the `dist`
 
 # Tool
 
