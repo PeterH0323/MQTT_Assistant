@@ -888,8 +888,8 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.radioButton_loop_times.setObjectName("radioButton_loop_times")
         self.horizontalLayout_6.addWidget(self.radioButton_loop_times)
         self.loop_times_spinBox = QtWidgets.QSpinBox(self.Command_groupBox)
-        self.loop_times_spinBox.setMinimumSize(QtCore.QSize(60, 29))
-        self.loop_times_spinBox.setMaximumSize(QtCore.QSize(60, 29))
+        self.loop_times_spinBox.setMinimumSize(QtCore.QSize(100, 29))
+        self.loop_times_spinBox.setMaximumSize(QtCore.QSize(100, 29))
         self.loop_times_spinBox.setStyleSheet("QSpinBox\n"
 "{\n"
 "    border-style:none;\n"
@@ -968,7 +968,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "*/\n"
 "")
         self.loop_times_spinBox.setMinimum(1)
-        self.loop_times_spinBox.setMaximum(100)
+        self.loop_times_spinBox.setMaximum(100000)
         self.loop_times_spinBox.setObjectName("loop_times_spinBox")
         self.horizontalLayout_6.addWidget(self.loop_times_spinBox)
         self.radioButton_infinite = QtWidgets.QRadioButton(self.Command_groupBox)

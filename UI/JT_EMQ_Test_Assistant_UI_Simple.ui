@@ -1589,13 +1589,13 @@ QRadioButton ,QCheckBox{
              <widget class="QSpinBox" name="loop_times_spinBox">
               <property name="minimumSize">
                <size>
-                <width>60</width>
+                <width>100</width>
                 <height>29</height>
                </size>
               </property>
               <property name="maximumSize">
                <size>
-                <width>60</width>
+                <width>100</width>
                 <height>29</height>
                </size>
               </property>
@@ -1682,7 +1682,7 @@ QSpinBox::down-arrow:disabled,QSpinBox::down-arrow:off {
                <number>1</number>
               </property>
               <property name="maximum">
-               <number>100</number>
+               <number>100000</number>
               </property>
              </widget>
             </item>
