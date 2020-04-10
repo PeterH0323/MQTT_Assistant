@@ -18,7 +18,7 @@ pip install -r requirements.txt
 # Build a .exe
 
 ```python
-pyinstaller -F -w --icon=./icon.ico JT_EMQ_Test_Assistant_Simple.py
+pyinstaller --noconsole -i icon.ico -F JT_EMQ_Test_Assistant_Simple.py
 ```
 
 ##### After build a .exe, copy the file name `images` and `Data`into the `dist`
