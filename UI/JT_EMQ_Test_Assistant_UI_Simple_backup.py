@@ -2,11 +2,13 @@
 
 # Form implementation generated from reading ui file 'JT_EMQ_Test_Assistant_UI_Simple_backup.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.3
+# Created by: PyQt5 UI code generator 5.14.1
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_JT_EMQ_Test_Assistant(object):
     def setupUi(self, JT_EMQ_Test_Assistant):
@@ -893,4 +895,3 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.actionEMQ.setStatusTip(_translate("JT_EMQ_Test_Assistant", "EMQ Setting"))
         self.actionEMQ.setShortcut(_translate("JT_EMQ_Test_Assistant", "Ctrl+S"))
         self.actionConnect_EMQ_Button.setText(_translate("JT_EMQ_Test_Assistant", "actionConnect_EMQ_Button"))
-

@@ -2,16 +2,18 @@
 
 # Form implementation generated from reading ui file 'EMQ_Topic_Get.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.3
+# Created by: PyQt5 UI code generator 5.14.1
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_EMQ_Topic_Get_Dialog(object):
     def setupUi(self, EMQ_Topic_Get_Dialog):
         EMQ_Topic_Get_Dialog.setObjectName("EMQ_Topic_Get_Dialog")
-        EMQ_Topic_Get_Dialog.resize(563, 467)
+        EMQ_Topic_Get_Dialog.resize(881, 743)
         self.gridLayout = QtWidgets.QGridLayout(EMQ_Topic_Get_Dialog)
         self.gridLayout.setObjectName("gridLayout")
         self.EMQ_Data_tableWidget = QtWidgets.QTableWidget(EMQ_Topic_Get_Dialog)
@@ -165,4 +167,3 @@ class Ui_EMQ_Topic_Get_Dialog(object):
         self.ClipBox_Message_lable.setText(_translate("EMQ_Topic_Get_Dialog", "Click OK to copy to clip box !"))
         self.EMQ_Data_Dialog_OK_Button.setText(_translate("EMQ_Topic_Get_Dialog", "OK"))
         self.EMQ_Data_Dialog_Cancel_Button.setText(_translate("EMQ_Topic_Get_Dialog", "Cancel"))
-

@@ -2,11 +2,13 @@
 
 # Form implementation generated from reading ui file 'JT_EMQ_Test_Assistant_UI_Simple.ui'
 #
-# Created by: PyQt5 UI code generator 5.11.3
+# Created by: PyQt5 UI code generator 5.14.1
 #
 # WARNING! All changes made in this file will be lost!
 
+
 from PyQt5 import QtCore, QtGui, QtWidgets
+
 
 class Ui_JT_EMQ_Test_Assistant(object):
     def setupUi(self, JT_EMQ_Test_Assistant):
@@ -44,7 +46,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.horizontalLayout = QtWidgets.QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.EMQ_Setting_groupBox = QtWidgets.QGroupBox(self.centralwidget)
-        self.EMQ_Setting_groupBox.setMaximumSize(QtCore.QSize(824, 300))
+        self.EMQ_Setting_groupBox.setMaximumSize(QtCore.QSize(1200, 300))
         font = QtGui.QFont()
         font.setFamily("Calibri")
         font.setPointSize(11)
@@ -68,7 +70,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.EMQ_Setting_groupBox.setObjectName("EMQ_Setting_groupBox")
         self.gridLayout = QtWidgets.QGridLayout(self.EMQ_Setting_groupBox)
         self.gridLayout.setObjectName("gridLayout")
-        spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
+        spacerItem1 = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Minimum)
         self.gridLayout.addItem(spacerItem1, 0, 1, 1, 1)
         self.splitter_5 = QtWidgets.QSplitter(self.EMQ_Setting_groupBox)
         self.splitter_5.setOrientation(QtCore.Qt.Horizontal)
@@ -85,7 +87,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "}")
         self.label_5.setObjectName("label_5")
         self.Username_lineEdit = QtWidgets.QLineEdit(self.splitter_5)
-        self.Username_lineEdit.setMinimumSize(QtCore.QSize(270, 37))
+        self.Username_lineEdit.setMinimumSize(QtCore.QSize(300, 37))
         self.Username_lineEdit.setStyleSheet("QLineEdit{\n"
 "    border-style:none;\n"
 "    padding:6px;\n"
@@ -148,7 +150,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "}")
         self.label_9.setObjectName("label_9")
         self.PublishTopic_lineEdit = QtWidgets.QLineEdit(self.splitter_7)
-        self.PublishTopic_lineEdit.setMinimumSize(QtCore.QSize(270, 37))
+        self.PublishTopic_lineEdit.setMinimumSize(QtCore.QSize(300, 37))
         self.PublishTopic_lineEdit.setStyleSheet("QLineEdit{\n"
 "    border-style:none;\n"
 "    padding:6px;\n"
@@ -180,7 +182,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
 "}")
         self.label_6.setObjectName("label_6")
         self.Password_lineEdit = QtWidgets.QLineEdit(self.splitter_6)
-        self.Password_lineEdit.setMinimumSize(QtCore.QSize(270, 37))
+        self.Password_lineEdit.setMinimumSize(QtCore.QSize(300, 37))
         self.Password_lineEdit.setStyleSheet("QLineEdit{\n"
 "    border-style:none;\n"
 "    padding:6px;\n"
@@ -495,7 +497,7 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.Save_Log_checkBox.setObjectName("Save_Log_checkBox")
         self.horizontalLayout_4.addWidget(self.Save_Log_checkBox)
         self.textEdit_Open_Log_Button = QtWidgets.QPushButton(self.R_S_Data_groupBox)
-        self.textEdit_Open_Log_Button.setMinimumSize(QtCore.QSize(120, 28))
+        self.textEdit_Open_Log_Button.setMinimumSize(QtCore.QSize(84, 28))
         self.textEdit_Open_Log_Button.setMaximumSize(QtCore.QSize(120, 28))
         self.textEdit_Open_Log_Button.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.textEdit_Open_Log_Button.setStyleSheet("QPushButton{    \n"
@@ -1159,4 +1161,3 @@ class Ui_JT_EMQ_Test_Assistant(object):
         self.actionConnect_EMQ_Button.setText(_translate("JT_EMQ_Test_Assistant", "actionConnect_EMQ_Button"))
         self.actionExtranet.setText(_translate("JT_EMQ_Test_Assistant", "Extranet_EMQ"))
         self.actionIntranet.setText(_translate("JT_EMQ_Test_Assistant", "Intranet_EMQ"))
-
