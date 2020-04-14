@@ -42,7 +42,7 @@ import datetime
 import subprocess
 
 TimeFormat = '%H:%M:%S:%f'
-
+CODE_VER = "V1.7.0"
 
 def save_load_info(data_class, opt):
     if opt == "Save":
@@ -81,7 +81,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         super(MainWindow, self).__init__(parent)
 
         self.setupUi(self)
-        self.setWindowTitle("EIE MQTT Assistant")
+        self.setWindowTitle("EIE MQTT Assistant" + " " + CODE_VER)
 
         self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
         self.Host_lineEdit.setInputMask("000.000.000.000")
