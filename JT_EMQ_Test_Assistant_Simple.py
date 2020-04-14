@@ -211,8 +211,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             mqtt_connect.MqttSetting.username = self.Username_lineEdit.text()
             mqtt_connect.MqttSetting.password = self.Password_lineEdit.text()
             mqtt_connect.MqttSetting.keep_alive = int(self.KeepAlive_lineEdit.text())
-            mqtt_connect.MqttSetting.publish_topic = self.PublishTopic_lineEdit.text()
-            mqtt_connect.MqttSetting.subscribe_topic = self.SubTopic_lineEdit.text()
+            mqtt_connect.MqttSetting.publish_topic = self.PublishTopic_lineEdit.text().strip()
+            mqtt_connect.MqttSetting.subscribe_topic = self.SubTopic_lineEdit.text().strip()
 
             mqtt_connect.MqttSetting.save_log_flag = bool(self.Save_Log_checkBox.checkState())
             # print("save_log_flag = " + str(mqtt_connect.MqttSetting.save_log_flag))
