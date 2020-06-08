@@ -42,7 +42,9 @@ import datetime
 import subprocess
 
 TimeFormat = '%H:%M:%S:%f'
-CODE_VER = "V1.7.0"
+CODE_VER = "V1.8.0"
+AUTO_RECONNECT_INTERVAL = 10 * 60 * 1000
+
 
 def save_load_info(data_class, opt):
     if opt == "Save":
@@ -92,6 +94,9 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
         self.command_send_timer = QTimer(self)
         self.command_send_timer.timeout.connect(self.command_send_message)
+
+        self.auto_reconnect_timer = QTimer(self)
+        self.auto_reconnect_timer.timeout.connect(self.auto_reconnect_mqtt)
 
         '''
         QtestEdit
@@ -235,6 +240,8 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
             self.mqttDataHandlerThread.start()
 
+            self.auto_reconnect_timer.start(AUTO_RECONNECT_INTERVAL)
+
         elif self.Connect_EMQ_Button.text() == 'Disconnect from EMQ':
 
             button_new_style = '''
@@ -266,6 +273,40 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             # self.mqttDataHandlerThread.wait()
 
             self.mqttDataHandlerThread.running = False
+
+            self.auto_reconnect_timer.stop()
+
+    @pyqtSlot()
+    def auto_reconnect_mqtt(self):
+        """
+        进行 MQTT 重连操作
+        :return:
+        """
+        self.auto_reconnect_timer.stop()
+
+        print("reconnect mqtt enter")
+
+        # 断开原有的 mqtt
+        mqtt_connect.MqttClient.mqtt_disconnect(mqtt_client)
+        mqtt_connect.MqttClient.mqtt_loop_stop(mqtt_client)
+
+        # 重新连接
+        mqtt_connect.MqttSetting.client_id = self.ClientID_lineEdit.text()
+        mqtt_connect.MqttSetting.host = self.Host_lineEdit.text()
+        mqtt_connect.MqttSetting.port = int(self.Port_lineEdit.text())
+        mqtt_connect.MqttSetting.username = self.Username_lineEdit.text()
+        mqtt_connect.MqttSetting.password = self.Password_lineEdit.text()
+        mqtt_connect.MqttSetting.keep_alive = int(self.KeepAlive_lineEdit.text())
+        mqtt_connect.MqttSetting.publish_topic = self.PublishTopic_lineEdit.text().strip()
+        mqtt_connect.MqttSetting.subscribe_topic = self.SubTopic_lineEdit.text().strip()
+
+        mqtt_connect.MqttSetting.save_log_flag = bool(self.Save_Log_checkBox.checkState())
+        mqtt_connect.MqttClient.mqtt_connect(mqtt_client)
+
+
+        print("reconnect mqtt done")
+
+        self.auto_reconnect_timer.start(AUTO_RECONNECT_INTERVAL)
 
     @pyqtSlot()
     def command_activate_button_state_changed(self):
@@ -387,7 +428,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
     def action_intranet_clicked(self):
         self.Host_lineEdit.setText("192.168.1.113")
 
-
     @pyqtSlot()
     def command_list_item_clicked(self):
         selected_row = self.Command_list_tableWidget.currentRow()
@@ -403,7 +443,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
             else:
                 self.Command_Data_lineEdit.setText(set_data)
-
 
     @pyqtSlot()
     def text_edit_position_changed(self):
