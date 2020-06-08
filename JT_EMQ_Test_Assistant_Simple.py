@@ -101,7 +101,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         '''
         QtestEdit
         '''
-        self.EMQ_Data_textEdit.document().setMaximumBlockCount(50000)
+        self.EMQ_Data_textEdit.document().setMaximumBlockCount(2000)
 
         '''
              QTableView data load
@@ -284,8 +284,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         """
         self.auto_reconnect_timer.stop()
 
-        print("reconnect mqtt enter")
-
         # 断开原有的 mqtt
         mqtt_connect.MqttClient.mqtt_disconnect(mqtt_client)
         mqtt_connect.MqttClient.mqtt_loop_stop(mqtt_client)
@@ -302,9 +300,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
         mqtt_connect.MqttSetting.save_log_flag = bool(self.Save_Log_checkBox.checkState())
         mqtt_connect.MqttClient.mqtt_connect(mqtt_client)
-
-
-        print("reconnect mqtt done")
 
         self.auto_reconnect_timer.start(AUTO_RECONNECT_INTERVAL)
 
