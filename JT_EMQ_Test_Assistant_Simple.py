@@ -412,12 +412,12 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         if network == "192.168.1.113":
             emq_topic_data.Get_Intranet_EMQ_data()
 
-        elif network == "139.159.163.25":
+        elif network == "139.159.231.176":
             emq_topic_data.Get_Extranet_EMQ_data()
 
     @pyqtSlot()
     def action_extranet_clicked(self):
-        self.Host_lineEdit.setText("139.159.163.25")
+        self.Host_lineEdit.setText("139.159.231.176")
 
     @pyqtSlot()
     def action_intranet_clicked(self):
