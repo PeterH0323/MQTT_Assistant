@@ -19,25 +19,26 @@ http://docs.python-requests.org/zh_CN/latest/user/authentication.html -> 基本�
 # headers = {'content-type': 'application/json'}
 # r = requests.post(url, data=json.dumps(payload), headers=headers)
 # print(r.text)
+import math
 
 try:
     from requests.auth import HTTPBasicAuth
-except :
+except:
     print("catch requests")
     import os
+
     os.system('python -m pip install -i http://pypi.douban.com/simple/ requests')
     from requests.auth import HTTPBasicAuth
 
 try:
     import pyperclip
-except :
+except:
     print("catch pyperclip")
     import os
+
     os.system('python -m pip install -i http://pypi.douban.com/simple/ pyperclip')
     import pyperclip
 
-
-     
 import json
 import requests
 from datetime import datetime
@@ -96,29 +97,36 @@ class EmqTopicData(QDialog, Ui_EMQ_Topic_Get_Dialog):
 
         item = QTableWidgetItem("Client ID")
         self.EMQ_Data_tableWidget.setHorizontalHeaderItem(0, item)
-        item = QTableWidgetItem("Topic")
+        item = QTableWidgetItem("Connected at")
         self.EMQ_Data_tableWidget.setHorizontalHeaderItem(1, item)
 
         timestamp = get_timestamp()
 
-        url = 'http://139.159.163.25:18083/api/v3/subscriptions?_page=1&_limit=10&_=' + str(
-            timestamp)
+        # url = 'http://139.159.163.25:18083/api/v3/subscriptions?_page=1&_limit=10&_=' + str(
+        #     timestamp)
 
-        web_data = requests.get(url, auth=HTTPBasicAuth('admin', 'public'))
+        limit = 20
+        url = 'http://10.8.0.1:18083/api/v4/nodes/emqx-server@10.42.5.234/clients?_page=1&_limit=' + str(limit)
+
+        web_data = requests.get(url, auth=HTTPBasicAuth('admin', 'Eie_28918499'))
         # print(web_data.headers)
         # print(web_data)
         # print(web_data.text)
         wbdata = web_data.text
         data = json.loads(wbdata)
-        total_page = int(data['meta']['page'])
+
+        total_page = math.ceil(int(data['meta']['count']) / limit)
         print("total_page = ", total_page)
 
         for m in range(1, total_page + 1):
-            url = 'http://139.159.163.25:18083/api/v3/subscriptions?_page=' + str(
-                m) + '&page_size=10&timestamps=' + str(timestamp)
+            # url = 'http://139.159.163.25:18083/api/v3/subscriptions?_page=' + str(
+            #     m) + '&page_size=10&timestamps=' + str(timestamp)
+            url = f'http://10.8.0.1:18083/api/v4/nodes/emqx-server@10.42.5.234/clients?_page=' \
+                  + str(m) + '&_limit=' + str(limit)
+
             print(url)
 
-            web_data = requests.get(url, auth=HTTPBasicAuth('admin', 'public'))
+            web_data = requests.get(url, auth=HTTPBasicAuth('admin', 'Eie_28918499'))
 
             # print(web_data.headers)
             # print(web_data)
@@ -130,15 +138,15 @@ class EmqTopicData(QDialog, Ui_EMQ_Topic_Get_Dialog):
             result = data['data']
 
             for n in result:
-                client_id = n['client_id']
-                topic = n['topic']
-                # print(client_id, qos, topic)
+                client_id = n['clientid']
+                connected_at = n['connected_at']
+                # print(client_id, connected_at)
 
                 row = self.EMQ_Data_tableWidget.rowCount()
                 self.EMQ_Data_tableWidget.insertRow(row)
                 item = QTableWidgetItem(str(client_id))
                 self.EMQ_Data_tableWidget.setItem(row, 0, item)
-                item = QTableWidgetItem(str(topic))
+                item = QTableWidgetItem(str(connected_at))
                 self.EMQ_Data_tableWidget.setItem(row, 1, item)
 
         self.ClipBox_Message_lable.setText("Click OK to copy to clip box !")
@@ -204,8 +212,6 @@ class EmqTopicData(QDialog, Ui_EMQ_Topic_Get_Dialog):
                 self.EMQ_Data_tableWidget.setItem(row, 1, item)
 
         self.ClipBox_Message_lable.setText("Click OK to copy to clip box !")
-
-
 
     @pyqtSlot()
     def emq_data_tableWidget_item_clicked(self):

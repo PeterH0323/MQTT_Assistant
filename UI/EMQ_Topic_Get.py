@@ -163,7 +163,7 @@ class Ui_EMQ_Topic_Get_Dialog(object):
         item = self.EMQ_Data_tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("EMQ_Topic_Get_Dialog", "Client id"))
         item = self.EMQ_Data_tableWidget.horizontalHeaderItem(1)
-        item.setText(_translate("EMQ_Topic_Get_Dialog", "Topic"))
+        item.setText(_translate("EMQ_Topic_Get_Dialog", "Connected_at"))
         self.ClipBox_Message_lable.setText(_translate("EMQ_Topic_Get_Dialog", "Click OK to copy to clip box !"))
         self.EMQ_Data_Dialog_OK_Button.setText(_translate("EMQ_Topic_Get_Dialog", "OK"))
         self.EMQ_Data_Dialog_Cancel_Button.setText(_translate("EMQ_Topic_Get_Dialog", "Cancel"))

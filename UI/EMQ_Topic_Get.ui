@@ -86,7 +86,7 @@ QTableView::indicator:checked {
      </column>
      <column>
       <property name="text">
-       <string>Topic</string>
+       <string>Connected_at</string>
       </property>
      </column>
     </widget>
