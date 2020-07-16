@@ -97,7 +97,7 @@ class EmqTopicData(QDialog, Ui_EMQ_Topic_Get_Dialog):
 
         item = QTableWidgetItem("Client ID")
         self.EMQ_Data_tableWidget.setHorizontalHeaderItem(0, item)
-        item = QTableWidgetItem("Connected at")
+        item = QTableWidgetItem("Topic")
         self.EMQ_Data_tableWidget.setHorizontalHeaderItem(1, item)
 
         timestamp = get_timestamp()
@@ -139,15 +139,25 @@ class EmqTopicData(QDialog, Ui_EMQ_Topic_Get_Dialog):
 
             for n in result:
                 client_id = n['clientid']
-                connected_at = n['connected_at']
+
+                url = 'http://10.8.0.1:18083/api/v4/subscriptions/' + client_id
+
+                sub_web_data = requests.get(url, auth=HTTPBasicAuth('admin', 'Eie_28918499'))
+                sub_web_data_json = sub_web_data.text
+                sub_data = json.loads(sub_web_data_json)
+                sub_results = sub_data['data']
+
+                for sub_result in sub_results:
+
+                    topic = sub_result['topic']
                 # print(client_id, connected_at)
 
-                row = self.EMQ_Data_tableWidget.rowCount()
-                self.EMQ_Data_tableWidget.insertRow(row)
-                item = QTableWidgetItem(str(client_id))
-                self.EMQ_Data_tableWidget.setItem(row, 0, item)
-                item = QTableWidgetItem(str(connected_at))
-                self.EMQ_Data_tableWidget.setItem(row, 1, item)
+                    row = self.EMQ_Data_tableWidget.rowCount()
+                    self.EMQ_Data_tableWidget.insertRow(row)
+                    item = QTableWidgetItem(str(client_id))
+                    self.EMQ_Data_tableWidget.setItem(row, 0, item)
+                    item = QTableWidgetItem(str(topic))
+                    self.EMQ_Data_tableWidget.setItem(row, 1, item)
 
         self.ClipBox_Message_lable.setText("Click OK to copy to clip box !")
 

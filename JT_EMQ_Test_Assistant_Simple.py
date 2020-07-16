@@ -42,7 +42,7 @@ import datetime
 import subprocess
 
 TimeFormat = '%H:%M:%S:%f'
-CODE_VER = "V1.9.0"
+CODE_VER = "V1.9.1"
 AUTO_RECONNECT_INTERVAL = 10 * 60 * 1000
 
 
