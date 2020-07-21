@@ -42,7 +42,7 @@ import datetime
 import subprocess
 
 TimeFormat = '%H:%M:%S:%f'
-CODE_VER = "V1.10.0"
+CODE_VER = "V1.10.1"
 AUTO_RECONNECT_INTERVAL = 10 * 60 * 1000
 
 
@@ -341,7 +341,7 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             self.command_next_num = 0
             self.command_send_index = []
 
-            for i in range(row):
+            for i in range(row + 1):  # 左闭右开
 
                 # item = self.Command_list_tableWidget.item(i, 0).checkState()
                 # if item == "2":
