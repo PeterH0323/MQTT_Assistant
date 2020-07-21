@@ -43,6 +43,25 @@ Activate,Delay_ms,Name,Data
     ""byte_conversion"": 0
   }]
 }"
-0,30000,测试 cli,"{""type"":""debug"",""CLI"":""https_get_script 001 gen""}"
+0,30000,测试 cli https拉取,"{""type"":""debug"",""msgId"":""26515f6d5d8e4327a71b199389710538"",""CLI"":""https_get_script 001 parse""}"
 0,10000,测试lua,"{""type"":""debug"",""CLI"":""lua Protocol/gen-001.lua Protocol/001.json""}"
+0,1000,取消上发和fifo压入,"{ ""type"": ""dis_up"",""onoff"": ""1""}"
+0,1000,测试二期,"{""type"":""config_protocol"",""msgId"":""xxx"",""protocols"":[{""gwId"":""2"",""protocolId"":""15""}],""data"":[{""clct_addr"":""0011"",""msgId"":""xxx"",""slaves"":[{""slave_addr"":""192.168.1.178"",""data"":[{""reg_addr"":""DB-1.2"",""reg_block"":""DB"",""block_addr"":""1.2"",""interval"":2,""interface"":3,""port"":102,""slot"":0,""rack"":0,""reg_name"":""A"",""reg_type"":3,""coefficient"":""1"",""unit"":""A"",""action"":3}]}]}]}"
+0,1000,打开查询,"{""type"":""set_clct_query_mode"",""msgId"":""44444"",""addr"":""0011"",""interface"":3,""queryMode"":2}"
+0,1000,配置15协议 conf,"{""type"":""protocol_rule"",""msgId"":""xxx"",""protocol"":15,""wake_code"":0,""addr_conversion"":0,""slave_addr_len"":4,""slave_addr_index"":4,""slave_addr_conversion"":1,""reg_addr_len"":6,""reg_addr_index"":12,""start_index"":18,""check_mode"":0,""check_index"":0,""data_conversion"":0,""para_number"":1,""para"":[{""index"":21,""len"":3,""calc_order"":1,""byte_conversion"":0,""type_conversion"":1}]}"
+0,1000,测试西门子 I0.5 bool,"{""type"":""config_protocol"",""msgId"":""xxx"",""protocols"":[{""gwId"":""2"",""protocolId"":""15""}],""data"":[{""clct_addr"":""0011"",""msgId"":""xxx"",""slaves"":[{""slave_addr"":""192.168.1.178"",""data"":[{""reg_addr"":""I-0.5"",""reg_block"":""I"",""block_addr"":""0.5"",""interval"":2,""interface"":3,""port"":102,""slot"":0,""rack"":0,""reg_name"":""I"",""reg_type"":1,""coefficient"":""1"",""order"": 0,""unit"":""I"",""action"":3}]}]}]}"
+0,1000,测试西门子 DB1.2 byte,"{""type"":""config_protocol"",""msgId"":""xxx"",""protocols"":[{""gwId"":""2"",""protocolId"":""15""}],""data"":[{""clct_addr"":""0011"",""msgId"":""xxx"",""slaves"":[{""slave_addr"":""192.168.1.178"",""data"":[{""reg_addr"":""DB-1.2"",""reg_block"":""DB"",""block_addr"":""1.2"",""interval"":2,""interface"":3,""port"":102,""slot"":0,""rack"":0,""reg_name"":""A"",""reg_type"":3,""coefficient"":""1"",""order"": 0,""unit"":""A"",""action"":3}]}]}]}"
+0,1000,测试西门子 Q0.1 bool,"{""type"":""config_protocol"",""msgId"":""xxx"",""protocols"":[{""gwId"":""2"",""protocolId"":""15""}],""data"":[{""clct_addr"":""0011"",""msgId"":""xxx"",""slaves"":[{""slave_addr"":""192.168.1.178"",""data"":[{""reg_addr"":""Q-0.1"",""reg_block"":""Q"",""block_addr"":""0.1"",""interval"":2,""interface"":3,""port"":102,""slot"":0,""rack"":0,""reg_name"":""Q"",""reg_type"":1,""coefficient"":""1"",""order"": 0,""unit"":""Q"",""action"":1}]}]}]}"
+0,1000,测试西门子 M10 int,"{""type"":""config_protocol"",""msgId"":""xxx"",""protocols"":[{""gwId"":""2"",""protocolId"":""15""}],""data"":[{""clct_addr"":""0011"",""msgId"":""xxx"",""slaves"":[{""slave_addr"":""192.168.1.178"",""data"":[{""reg_addr"":""M-10"",""reg_block"":""M"",""block_addr"":""10"",""interval"":2,""interface"":3,""port"":102,""slot"":0,""rack"":0,""reg_name"":""M"",""reg_type"":6,""coefficient"":""1"",""unit"":""M"",""order"": 0,""action"":3}]}]}]}"
+0,1000,测试json,"{""msgId"":""xxx"",""type"":""protocol_rule"",""protocol"":2,""wake_code"":58,""slave_addr_len"":2,""slave_addr_index"":8,""slave_addr_conversion"":0,""reg_addr_len"":4,""reg_addr_index"":4,""start_index"":8,""check_mode"":2,""check_index"":2,""data_conversion"":0,""addr_conversion"":0,""para_number"":1,""para"":[{""index"":14,""len"":11,""calc_order"":1,""byte_conversion"":2,""order"": 0,""type_conversion"":1}]}"
+0,1000,测试 IO output,"{""type"":""set_io_output"",""msgId"":""xxx"",""addr"":""0011"",""mode"":1,""io_bitmap"":""3"",""interval"":10}"
+0,1000,测试 CJ/T-188 2004,"{""type"":""config_protocol"",""msgId"":""26515f6d5d8e4327a71b199389710538"",""protocols"":[{""gwId"":""2"",""protocolId"":""6""}],""data"":[{""clct_addr"":""0011"",""msgId"":""26515f6d5d8e4327a71b199389710538"",""slaves"":[{""slave_addr"":""00000040091827"",""data"":[{""reg_addr"":""901F"",""baudrate"":2,""databit"":1,""parity"":2,""stopbit"":1,""interval"":1000,""interface"":2,""ins_type"":""10"",""reg_name"":""water"",""reg_type"":5,""coefficient"":""0.01"",""func_code"":1,""order"": 0,""unit"":""m3"",""action"":1}]}]}]}"
+0,1000,test,"{""type"":3,""addr"":""0011"",""packet"":""00 11 6A 01 00 3D 50 03 06 87 53 FE 9E 68 F2 B4 DE"",""time"":""1589396973""}"
+0,50,获取网关网络信息,"{ ""type"": ""gateway_info_sync""}"
+0,1000,API秘钥测试,"{""content"":""5B6FD510CA0984596DF17EEF24E9A897"",""md5"":""7D7BB570F5D43ACFD10F86B27F60411F"",""len"":32,""msgId"":""81fc70f422f14abaa1846cde7c95f69a"",""type"":""APP_SECRET""}"
+0,2000,旧协议查询EEPROM配置指令,F7 03 00 DD 20 01
+0,3000,旧协议配置 EEPROM modbus,EF 10 00 DD 00 20 40 01 01 03 02 01 01 08 17 03 00 00 00 02 C6 FD
+0,1000,测试 cli 下行,"{""type"":""debug"",""msgId"":""26515f6d5d8e4327a71b199389710538"",""CLI"":""ls""}"
+2,100,获取网关系统信息,"{ ""type"": ""system_info""}"
+2,100,错误 json,"{ ""type"": ""sy{ ""type"": "
 0,1000,,
