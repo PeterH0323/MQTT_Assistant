@@ -42,7 +42,7 @@ import datetime
 import subprocess
 
 TimeFormat = '%H:%M:%S:%f'
-CODE_VER = "V1.9.1"
+CODE_VER = "V1.10.0"
 AUTO_RECONNECT_INTERVAL = 10 * 60 * 1000
 
 
@@ -191,22 +191,6 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
         if self.Connect_EMQ_Button.text() == 'Connect to EMQ':
 
-            self.Connect_EMQ_Button.setText("Disconnect from EMQ")
-
-            button_new_style = '''
-                    QPushButton{
-                        background-color:#E74C3C;
-                        color:#FFFFFF;
-                        border-radius: 5px;
-                    }       
-                    QPushButton:hover{
-                        color:#FFF5E7;
-                        background:#EC7064;
-                    }
-                    
-                '''
-            self.Connect_EMQ_Button.setStyleSheet(button_new_style)
-
             # self.Emq_connect_lable.setText("MQTT connect successful !!")
             # self.EMQ_Data_textEdit.append("Ready to receive data:")
 
@@ -226,6 +210,33 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
             #       mqtt_connect.MqttSetting.keep_alive, mqtt_connect.MqttSetting.publish_topic,
             #       mqtt_connect.MqttSetting.subscribe_topic)
 
+            err = mqtt_connect.MqttClient.mqtt_connect(mqtt_client)
+            if err == "OK":
+                print("mqtt_connect OK")
+            elif err == "ERROR":
+                print("mqtt_connect ERROR")
+                reply = QMessageBox.critical(self,
+                                             "连接",
+                                             "连接超时，请查看 EMQ 服务器是否正常",
+                                             QMessageBox.Yes, QMessageBox.Yes)
+                return
+
+            self.Connect_EMQ_Button.setText("Disconnect from EMQ")
+
+            button_new_style = '''
+                    QPushButton{
+                        background-color:#E74C3C;
+                        color:#FFFFFF;
+                        border-radius: 5px;
+                    }       
+                    QPushButton:hover{
+                        color:#FFF5E7;
+                        background:#EC7064;
+                    }
+
+                '''
+            self.Connect_EMQ_Button.setStyleSheet(button_new_style)
+
             self.EMQ_Setting_groupBox.setEnabled(False)
             self.Command_Send_Button.setEnabled(True)
             self.Command_Single_Send_Button.setEnabled(True)
@@ -236,45 +247,45 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
 
             save_load_info(mqtt_connect.MqttSetting, "Save")
 
-            mqtt_connect.MqttClient.mqtt_connect(mqtt_client)
-
             self.mqttDataHandlerThread.start()
 
             self.auto_reconnect_timer.start(AUTO_RECONNECT_INTERVAL)
 
         elif self.Connect_EMQ_Button.text() == 'Disconnect from EMQ':
+            self.disconnect_emq()
 
-            button_new_style = '''
-                    QPushButton{
-                        background-color:#1ABC9C;
-                        color:#FFFFFF;
-                        border-radius: 5px;
-                    }    
-                    QPushButton:hover{
-                        color:#FFFFFF;
-                        background:#2EE1C1;
-                    }                       
-                '''
-            self.Connect_EMQ_Button.setStyleSheet(button_new_style)
+    def disconnect_emq(self):
+        button_new_style = '''
+                QPushButton{
+                    background-color:#1ABC9C;
+                    color:#FFFFFF;
+                    border-radius: 5px;
+                }    
+                QPushButton:hover{
+                    color:#FFFFFF;
+                    background:#2EE1C1;
+                }                       
+            '''
+        self.Connect_EMQ_Button.setStyleSheet(button_new_style)
 
-            self.Connect_EMQ_Button.setText("Connect to EMQ")
-            # self.Emq_connect_lable.setText("MQTT disconnected...")
-            self.EMQ_Setting_groupBox.setEnabled(True)
-            self.Command_Activate_Button.setEnabled(False)
-            self.Command_Send_Button.setEnabled(False)
-            self.Command_Single_Send_Button.setEnabled(False)
+        self.Connect_EMQ_Button.setText("Connect to EMQ")
+        # self.Emq_connect_lable.setText("MQTT disconnected...")
+        self.EMQ_Setting_groupBox.setEnabled(True)
+        self.Command_Activate_Button.setEnabled(False)
+        self.Command_Send_Button.setEnabled(False)
+        self.Command_Single_Send_Button.setEnabled(False)
 
-            mqtt_connect.generate_client_id()
-            self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
+        mqtt_connect.generate_client_id()
+        self.ClientID_lineEdit.setText(mqtt_connect.MqttSetting.client_id)
 
-            mqtt_connect.MqttClient.mqtt_disconnect(mqtt_client)
-            mqtt_connect.MqttClient.mqtt_loop_stop(mqtt_client)
+        mqtt_connect.MqttClient.mqtt_disconnect(mqtt_client)
+        mqtt_connect.MqttClient.mqtt_loop_stop(mqtt_client)
 
-            # self.mqttDataHandlerThread.wait()
+        # self.mqttDataHandlerThread.wait()
 
-            self.mqttDataHandlerThread.running = False
+        self.mqttDataHandlerThread.running = False
 
-            self.auto_reconnect_timer.stop()
+        self.auto_reconnect_timer.stop()
 
     @pyqtSlot()
     def auto_reconnect_mqtt(self):
@@ -299,7 +310,18 @@ class MainWindow(QMainWindow, Ui_JT_EMQ_Test_Assistant):
         mqtt_connect.MqttSetting.subscribe_topic = self.SubTopic_lineEdit.text().strip()
 
         mqtt_connect.MqttSetting.save_log_flag = bool(self.Save_Log_checkBox.checkState())
-        mqtt_connect.MqttClient.mqtt_connect(mqtt_client)
+
+        err = mqtt_connect.MqttClient.mqtt_connect(mqtt_client)
+        if err == "OK":
+            print("mqtt_connect OK")
+        elif err == "ERROR":
+            print("mqtt_connect ERROR")
+            self.disconnect_emq()
+            reply = QMessageBox.critical(self,
+                                         "连接",
+                                         "连接超时，请查看 EMQ 服务器是否正常",
+                                         QMessageBox.Yes, QMessageBox.Yes)
+            return
 
         self.auto_reconnect_timer.start(AUTO_RECONNECT_INTERVAL)
 

@@ -110,7 +110,12 @@ class MqttClient:
         self.client = mqtt.Client(client_id = MqttSetting.client_id, transport='websockets')
 
         self.client.username_pw_set(username=MqttSetting.username, password=MqttSetting.password)
-        self.client.connect(MqttSetting.host, MqttSetting.port, MqttSetting.keep_alive)
+        try:
+            self.client.connect(MqttSetting.host, MqttSetting.port, MqttSetting.keep_alive)
+        except Exception as e:
+            print(f"Unexpected error: {e}")
+            return "ERROR"
+
         self.client.subscribe(MqttSetting.subscribe_topic)
 
         # self.client = mqtt.Client(client_id=MqttSetting.client_id, transport='websockets')
@@ -124,6 +129,7 @@ class MqttClient:
 
         # self.client.loop_forever()
         self.mqtt_loop_start()
+        return "OK"
 
     def mqtt_disconnect(self):
         self.client.disconnect()
